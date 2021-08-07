@@ -187,8 +187,9 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
             return;
         }
 
-        if (_abilityHandler.IsAttacking && MoveData.AttackVelocity.sqrMagnitude > 0.1f)
+        if (_abilityHandler.IsAttacking)
         {
+            if (MoveData.AttackVelocity.sqrMagnitude < 0.1f) return;
             IkAimTransform.transform.position = (MoveData.AttackVelocity.normalized * 10f) + transform.position;
             var aimTarget = transform.position +  MoveData.AttackVelocity;
             var direction = aimTarget - transform.position;
