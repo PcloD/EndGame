@@ -127,15 +127,52 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         }
     }
 
+    void HandlePlayerMovement(ClientPlayerMotorState motorState)
+    {
+        
+        Vector3 moveDirection = new Vector3(motorState.Horizontal, 0f, motorState.Forward);
+
+        // clamp diagonal speed
+        moveDirection = moveDirection.magnitude > 1f ? moveDirection.normalized : moveDirection;
+
+        //Add move direction.
+        MoveData.MovementVelocityDamp = 1f;
+        ProcessMovementActionCodes(motorState.ActionCode);
+        _abilityHandler.HandleAbility(motorState.ActionCode);
+
+        if (MoveData.BackMoving) MoveData.MovementVelocityDamp -= 0.25f;
+
+        MoveData.MovementVelocityDamp = Mathf.Clamp(MoveData.MovementVelocityDamp, 0, 1);
+        MoveData.MovementVelocityDamp = MoveData.BaseMoveSpeed * MoveData.MovementVelocityDamp;
+
+        if (Mathf.Abs(MoveData.AttackVelocity.magnitude) > 0.1f)
+        {
+            MoveData.MovementVelocityDamp -= 0.9f;
+            moveDirection = (moveDirection + MoveData.AttackVelocity) * (MoveData.MovementVelocityDamp * Time.deltaTime);
+        }
+        else
+        {
+            moveDirection = (moveDirection + MoveData.DodgeVelocity) * (MoveData.MovementVelocityDamp * Time.fixedDeltaTime);
+        }
+
+        // lower velocities 
+        MoveData.AttackVelocity = Vector3.MoveTowards(MoveData.AttackVelocity, Vector3.zero,
+            Time.fixedDeltaTime * AttackVelocityNegativeForce);
+        MoveData.DodgeVelocity = Vector3.MoveTowards(MoveData.DodgeVelocity, Vector3.zero,
+            Time.fixedDeltaTime * MoveData.NegativeDodgeForce);
+
+        //Move character.
+        _characterController.Move(moveDirection); 
+    }
+
     void HandlePlayerRotation(Vector3 mousePosition)
     {
         MoveData.MouseDelta = mousePosition - transform.position;
+        MoveData.MouseDelta.y = 0f;
 
         Debug.DrawLine(transform.position + Vector3.up, transform.position + MoveData.DodgeVelocity + Vector3.up, Color.red);
         var rot = MoveData.MouseDelta;
         rot.y = 0;
-
-        Debug.Log(MoveData.IsRolling);
         
         if (MoveData.IsRolling)
         {
@@ -147,18 +184,13 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
             var lookRotation = Quaternion.LookRotation(direction);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 5f);
-           // transform.LookAt(rollLookDelta);
             return;
         }
             
         _lookatIk.solver.IKPositionWeight = 1f;
-       
-
         if (rot.magnitude < 0.1f) return;
-        
-        
+
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(rot), Time.fixedDeltaTime * MoveData.BaseRotationSpeed);
-      
     }
 
     /// <summary>
@@ -311,48 +343,18 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
     {
         motorState.Horizontal = Floats.PreciseSign(motorState.Horizontal);
         motorState.Forward = Floats.PreciseSign(motorState.Forward);
+        
+        MoveData.MovementInput = new Vector3(motorState.Horizontal, 0f, motorState.Forward);
+        
         // todo fix this 
         IkAimTransform.transform.position = motorState.MousePosition + Vector3.up;
 
-        MoveData.MovementInput = new Vector3(motorState.Horizontal, 0f, motorState.Forward);
-        Vector3 moveDirection = new Vector3(motorState.Horizontal, 0f, motorState.Forward);
-
-        // clamp diagonal speed
-        moveDirection = moveDirection.magnitude > 1f ? moveDirection.normalized : moveDirection;
-
-        //Add move direction.
-        MoveData.MovementVelocityDamp = 1f;
-        ProcessMovementActionCodes(motorState.ActionCode);
-        _abilityHandler.HandleAbility(motorState.ActionCode);
-
-        if (MoveData.BackMoving) MoveData.MovementVelocityDamp -= 0.25f;
-
-        MoveData.MovementVelocityDamp = Mathf.Clamp(MoveData.MovementVelocityDamp, 0, 1);
-        MoveData.MovementVelocityDamp = MoveData.BaseMoveSpeed * MoveData.MovementVelocityDamp;
-
-        if (Mathf.Abs(MoveData.AttackVelocity.magnitude) > 0.1f)
-        {
-            MoveData.MovementVelocityDamp -= 0.9f;
-            moveDirection = (moveDirection + MoveData.AttackVelocity) * (MoveData.MovementVelocityDamp * Time.deltaTime);
-        }
-        else
-        {
-            moveDirection = (moveDirection + MoveData.DodgeVelocity) * (MoveData.MovementVelocityDamp * Time.fixedDeltaTime);
-        }
-
-        // lower velocities 
-        MoveData.AttackVelocity = Vector3.MoveTowards(MoveData.AttackVelocity, Vector3.zero,
-            Time.fixedDeltaTime * AttackVelocityNegativeForce);
-        MoveData.DodgeVelocity = Vector3.MoveTowards(MoveData.DodgeVelocity, Vector3.zero,
-            Time.fixedDeltaTime * MoveData.NegativeDodgeForce);
-
-        //Move character.
-        _characterController.Move(moveDirection);
-
+        HandlePlayerMovement(motorState);
+        HandlePlayerRotation(motorState.MousePosition);
+        
         MoveData.Velocity = _characterController.velocity;
         MoveData.RelativeVelocity = transform.InverseTransformDirection(_characterController.velocity);
-
-        HandlePlayerRotation(motorState.MousePosition);
+        
         SetAnimationValues();
     }
 

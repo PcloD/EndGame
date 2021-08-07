@@ -13,7 +13,6 @@ public class InputData
         TryRoll();
         TryBlock();
         TryLightAttack();
-        
     }
     
     [Client]
