@@ -62,6 +62,7 @@ public class AbilityHandler
     {
         // abort if already processing an ability
         if (CurrentAbility != null) return;
+        if (playerNetworkBehaviour.MoveData.IsRolling) return;
         
         switch (actionCode)
         {

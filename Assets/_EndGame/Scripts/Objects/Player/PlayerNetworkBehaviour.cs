@@ -132,6 +132,8 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         
         Vector3 moveDirection = new Vector3(motorState.Horizontal, 0f, motorState.Forward);
 
+       
+
         // clamp diagonal speed
         moveDirection = moveDirection.magnitude > 1f ? moveDirection.normalized : moveDirection;
 
@@ -144,6 +146,15 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
 
         MoveData.MovementVelocityDamp = Mathf.Clamp(MoveData.MovementVelocityDamp, 0, 1);
         MoveData.MovementVelocityDamp = MoveData.BaseMoveSpeed * MoveData.MovementVelocityDamp;
+
+        if (_characterController.isGrounded)
+        {
+            moveDirection.y = 0;
+        }
+        else
+        {
+            moveDirection.y -= 50f * Time.fixedDeltaTime;
+        }
 
         if (Mathf.Abs(MoveData.AttackVelocity.magnitude) > 0.1f)
         {
