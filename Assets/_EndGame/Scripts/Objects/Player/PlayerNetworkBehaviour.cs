@@ -187,14 +187,25 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
             return;
         }
 
-        if (_abilityHandler.IsAttacking)
+        if (_abilityHandler.IsAttacking && MoveData.AttackVelocity.sqrMagnitude > 0.1f)
         {
+            IkAimTransform.transform.position = (MoveData.AttackVelocity.normalized * 10f) + transform.position;
+            var aimTarget = transform.position +  MoveData.AttackVelocity;
+            var direction = aimTarget - transform.position;
+            direction.y = 0f;
             
+            var lookRotation = Quaternion.LookRotation(direction);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 5f);
+            return;
         }
             
         _lookatIk.solver.IKPositionWeight = 1f;
         if (rot.magnitude < 0.1f) return;
-
+        
+        // todo fix this 
+        IkAimTransform.transform.position = Vector3.Lerp(IkAimTransform.position,mousePosition + Vector3.up, Time.fixedDeltaTime * 10f);
+        
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(rot), Time.fixedDeltaTime * MoveData.BaseRotationSpeed);
     }
 
@@ -351,8 +362,7 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         
         MoveData.MovementInput = new Vector3(motorState.Horizontal, 0f, motorState.Forward);
         
-        // todo fix this 
-        IkAimTransform.transform.position = motorState.MousePosition + Vector3.up;
+     
 
         HandlePlayerMovement(motorState);
         HandlePlayerRotation(motorState.MousePosition);
