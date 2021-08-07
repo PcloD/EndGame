@@ -4,6 +4,7 @@ using Assets.Scripts.Utils;
 using FirstGearGames.Mirrors.Assets.FlexNetworkAnimators;
 using FirstGearGames.Utilities.Maths;
 using Mirror;
+using RootMotion.FinalIK;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
@@ -12,7 +13,7 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
 {
     public PlayerMovementData MoveData = new PlayerMovementData();
     private InputData _storedInputs = new InputData();
-
+    private LookAtIK _lookatIk;
     [ReadOnly] public float AttackVelocityNegativeForce = 3f;
 
     // using this to reset triggers
@@ -85,13 +86,11 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
 
     private void Update()
     {
-        if(isServer)_abilityHandler.OnServerUpdate();
-        
+        Debug.DrawLine(transform.position, transform.position + MoveData.DodgeVelocity, Color.green);
         if (base.hasAuthority)
         {
-            TryRoll();
-            TryBlock();
-            TryLightAttack();
+            _abilityHandler.OnUpdate();
+            _storedInputs.HandleInputs();
             
             // idk if i needa run this on server also
             foreach (var animationTrigger in AnimationTriggers)
@@ -103,6 +102,11 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
                     return;
                 }
             }
+        }
+
+        if (base.isServer)
+        {
+            _abilityHandler.OnUpdate();
         }
     }
 
@@ -126,47 +130,35 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
     void HandlePlayerRotation(Vector3 mousePosition)
     {
         MoveData.MouseDelta = mousePosition - transform.position;
-        var angleFwdMouse = Vector3.Angle(transform.forward, MoveData.MouseDelta);
-        var dotFwd = Vector3.Dot(MoveData.MouseDelta.normalized, MoveData.Velocity.normalized);
 
+        Debug.DrawLine(transform.position + Vector3.up, transform.position + MoveData.DodgeVelocity + Vector3.up, Color.red);
         var rot = MoveData.MouseDelta;
         rot.y = 0;
+
+        Debug.Log(MoveData.IsRolling);
         
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(rot),
-            Time.fixedDeltaTime * MoveData.BaseRotationSpeed);
-      //  Debug.Log($"Velocity - {transform.TransformDirection(_characterController.velocity).normalized}");
-        
-        
-      /*
-        // calculate if we should be moving backwards
-        if (Mathf.Abs(dotFwd) > 0.1f)
+        if (MoveData.IsRolling)
         {
-            MoveData.BackMoving = dotFwd < 0;
+            _lookatIk.solver.IKPositionWeight = 0f;
+            var aimTarget = transform.position +  (MoveData.BackMoving ? -MoveData.DodgeVelocity : MoveData.DodgeVelocity);
+            var direction = aimTarget - transform.position;
+            direction.y = 0f;
+            
+            var lookRotation = Quaternion.LookRotation(direction);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 5f);
+           // transform.LookAt(rollLookDelta);
+            return;
         }
+            
+        _lookatIk.solver.IKPositionWeight = 1f;
+       
+
+        if (rot.magnitude < 0.1f) return;
         
-        Debug.Log(Vector3.Dot(_characterController.velocity.normalized,  MoveData.MouseDelta.normalized));
-
-        // invert velocity if moving backwards
-        MoveData.Velocity = MoveData.BackMoving ? MoveData.Velocity * -1f : MoveData.Velocity;
-
-        // dont rotate if rolling 
-        if (MoveData.IsRolling) return;
-
-        // if not moving we cant use velocity. so use mouse delta instead
-        var rotAim = transform.position +
-                     (MoveData.Velocity.normalized.magnitude < 0.1f ? MoveData.MouseDelta : MoveData.Velocity.normalized);
-
-        var rotVelocityDelta = rotAim - transform.position;
-
-        rotVelocityDelta.y = 0f;
-        MoveData.MouseDelta.y = 0f;
-
-        var finalRotation = angleFwdMouse > 100
-            ? Quaternion.LookRotation(MoveData.MouseDelta)
-            : Quaternion.LookRotation(rotVelocityDelta);
-        transform.rotation = Quaternion.Lerp(transform.rotation, finalRotation,
-            Time.fixedDeltaTime * MoveData.BaseRotationSpeed);
-           */
+        
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(rot), Time.fixedDeltaTime * MoveData.BaseRotationSpeed);
+      
     }
 
     /// <summary>
@@ -174,13 +166,13 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
     /// </summary>
     void SetAnimationValues()
     {
-        var speed = MoveData.BackMoving ? MoveData.Velocity.sqrMagnitude * -1f : MoveData.Velocity.sqrMagnitude;
-        animator.SetFloat("Speed", speed);
-        animator.SetBool("Idle", Mathf.Abs(speed) < 0.2f);
+        var normalizedVel = transform.InverseTransformDirection(MoveData.MovementInput).normalized;
+        var currentVerticle = animator.GetFloat("Vertical");
+        var currentHorrizonal = animator.GetFloat("Horizontal");
         
-        
-        animator.SetFloat("Vertical", MoveData.Velocity.z);
-        animator.SetFloat("Horizontal", MoveData.Velocity.x);
+        animator.SetFloat("Speed", MoveData.RelativeVelocity.z); // don't use the normalized value here
+        animator.SetFloat("Vertical", Mathf.Lerp(currentVerticle,normalizedVel.z, Time.fixedDeltaTime * 5f));
+        animator.SetFloat("Horizontal",Mathf.Lerp(currentHorrizonal,normalizedVel.x, Time.fixedDeltaTime * 5f));;
     }
 
     /// <summary>
@@ -191,35 +183,9 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         _characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         _fna = GetComponent<FlexNetworkAnimator>();
+        _lookatIk = GetComponent<LookAtIK>();
         if (!base.isServer && !base.hasAuthority) _characterController.enabled = false;
         if(isServer || hasAuthority) _abilityHandler = new AbilityHandler(animator, _fna, TestWeapon, this);
-    }
-
-    [Client]
-    private void TryRoll()
-    {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            _storedInputs.Dodge = true;
-        }
-    }
-
-    [Client]
-    private void TryLightAttack()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            _storedInputs.LightAttack = true;
-        }
-    }
-
-    [Client]
-    private void TryBlock()
-    {
-        if (Input.GetKey(KeyCode.R))
-        {
-            _storedInputs.Block = true;
-        }
     }
 
     /// <summary>
@@ -324,7 +290,8 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
             {
                 if (MoveData.CanBlockOrDodge && _abilityHandler.CurrentAbility == null  && Time.time > _abilityHandler.AbilityClearedTimed + 0.25f)
                 {
-                    MoveData.DodgeVelocity = MoveData.MovementInput.normalized.magnitude < 0.1f ? transform.forward * (MoveData.DodgeForce * 1.2f) : MoveData.MovementInput.normalized * MoveData.DodgeForce;
+                    MoveData.DodgeVelocity = MoveData.MovementInput.normalized.magnitude < 0.1f ? transform.forward * (MoveData.DodgeForce * 1.2f)
+                        : MoveData.MovementInput.normalized * MoveData.DodgeForce;
                     _fna.SetTrigger("Dodge");
                     AnimationTriggers.Add(new AnimationTrigger("Dodge"));
                 }
@@ -382,10 +349,8 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         //Move character.
         _characterController.Move(moveDirection);
 
-        Debug.Log(MoveData.MovementInput);
-        MoveData.Velocity = transform.InverseTransformDirection(MoveData.MovementInput);//_characterController.velocity;
-        MoveData.Velocity.x = Mathf.Clamp(transform.InverseTransformDirection(MoveData.MovementInput).x,-1,1);
-        MoveData.Velocity.z = Mathf.Clamp(transform.InverseTransformDirection(MoveData.MovementInput).z,-1,1);
+        MoveData.Velocity = _characterController.velocity;
+        MoveData.RelativeVelocity = transform.InverseTransformDirection(_characterController.velocity);
 
         HandlePlayerRotation(motorState.MousePosition);
         SetAnimationValues();
@@ -401,25 +366,7 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         float forward = Input.GetAxisRaw("Vertical");
 
         /* Action Codes. */
-        ActionCodes ac = ActionCodes.None;
-
-        if (_storedInputs.Block)
-        {
-            _storedInputs.Block = false;
-            ac = ActionCodes.Block;
-        }
-
-        if (_storedInputs.Dodge)
-        {
-            _storedInputs.Dodge = false;
-            ac = ActionCodes.Dodge;
-        }
-
-        if (_storedInputs.LightAttack)
-        {
-            _storedInputs.LightAttack = false;
-            ac = ActionCodes.LightAttack;
-        }
+        ActionCodes ac = _storedInputs.SetActionCode();
 
         ClientPlayerMotorState state = new ClientPlayerMotorState
         {

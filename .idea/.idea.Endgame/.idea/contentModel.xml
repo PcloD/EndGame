@@ -28,7 +28,6 @@
                 <e p="PlayerMotor" t="Include">
                   <e p="PlayerInputData.cs" t="Include" />
                   <e p="PlayerMovementData.cs" t="Include" />
-                  <e p="PlayerNetworkBehaviour.cs" t="Include" />
                   <e p="States" t="Include">
                     <e p="ClientPlayerMotorState.cs" t="Include" />
                     <e p="PlayerMotorActionCodes.cs" t="Include" />
@@ -36,6 +35,11 @@
                   </e>
                 </e>
                 <e p="SmoothToZero.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Objects" t="Include">
+              <e p="Player" t="Include">
+                <e p="PlayerNetworkBehaviour.cs" t="Include" />
               </e>
             </e>
             <e p="ScriptableObjects" t="Include">

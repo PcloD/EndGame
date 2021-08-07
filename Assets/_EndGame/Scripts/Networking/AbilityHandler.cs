@@ -89,7 +89,6 @@ public class AbilityHandler
                     playerNetworkBehaviour.AttackVelocityNegativeForce = lightAttackData.AttackNegativeForce;
 
                     // set animation values
-                    
                     _fna.SetTrigger("LightAttack"+currentLightAttackIndex);
                     playerNetworkBehaviour.AnimationTriggers.Add(new AnimationTrigger("LightAttack"+currentLightAttackIndex));
 
@@ -105,11 +104,7 @@ public class AbilityHandler
         }
     }
 
-    /// <summary>
-    /// called on the servers playerNb update loop
-    /// </summary>
-    [Server]
-    public void OnServerUpdate()
+    public void OnUpdate()
     {
         if (CurrentAbility == null) return;
 
@@ -134,6 +129,10 @@ public class AbilityHandler
             if (Time.time > CurrentAbility.StartTime + CurrentAbility.AbilityData.AttackTime)
             {
                 // do damage
+                if (playerNetworkBehaviour.isServer)
+                {
+                    
+                }
                 CurrentAbility.FinishedDamage = true;
             }
         }
