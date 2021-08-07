@@ -39,6 +39,8 @@ public class AbilityHandler
     private Animator _animator;
     private FlexNetworkAnimator _fna;
 
+    public bool IsAttacking => CurrentAbility != null;
+
     public AbilityHandler(Animator anim, FlexNetworkAnimator fna, WeaponData weaponData, PlayerNetworkBehaviour playerNb)
     {
         _animator = anim;

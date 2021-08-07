@@ -186,6 +186,11 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 5f);
             return;
         }
+
+        if (_abilityHandler.IsAttacking)
+        {
+            
+        }
             
         _lookatIk.solver.IKPositionWeight = 1f;
         if (rot.magnitude < 0.1f) return;
