@@ -22,25 +22,13 @@
     <list default="true" id="6bfbd124-a032-4e25-931b-640c9bed4c11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FirstGearGames/Utilities/Network/Platforms.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FirstGearGames/Utilities/Network/Platforms.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonDungeon/Materials/Misc/FX_Water.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonDungeon/Materials/Misc/FX_Water.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Animation/PlayerAnimationController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Animation/PlayerAnimationController.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/AbilityHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/AbilityHandler.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerInputData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerInputData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerMovementData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerMovementData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/ClientPlayerMotorState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/ClientPlayerMotorState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/PlayerMotorActionCodes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/PlayerMotorActionCodes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Forest/Player.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Forest/Player.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Projectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Projectile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Projectile.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Projectile.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/AbilityData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/AbilityData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_0.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_0.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_1.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_1.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_2.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_2.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Weapons/1H_Sword.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Weapons/1H_Sword.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +51,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6FCFDD16-2B5D-4836-BEF3-C96F53194DB6/29/747c5721/Stack`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CFC1AD89-0650-411E-946C-FF2E6F276711/38/7b781690/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerGroundTarget.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/FixedUpdateManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -103,10 +92,13 @@
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponData.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/PlayerMotorActionCodes.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerInputData.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityData.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Projectile.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityData.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerGroundTarget.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Projectile1.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/GroundProjectile.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" />
       </list>
     </option>
   </component>
@@ -168,7 +160,7 @@
       <workItem from="1627905962494" duration="3259000" />
       <workItem from="1627976293265" duration="40244000" />
       <workItem from="1628232763564" duration="57069000" />
-      <workItem from="1628480376033" duration="10023000" />
+      <workItem from="1628480376033" duration="15022000" />
     </task>
     <servers />
   </component>
@@ -295,16 +287,16 @@
     </state>
     <state x="1652" y="-10" width="1893" height="792" maximized="true" key="dock-window-4/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628394325710" />
     <state x="1833" y="-8" width="1893" height="792" maximized="true" key="dock-window-4/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628410772078" />
-    <state x="1843" y="-8" width="1893" height="792" maximized="true" key="dock-window-5" timestamp="1628492432132">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="-36" y="-8" width="1893" height="792" key="dock-window-5" timestamp="1628510729127">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1817" y="-8" width="1893" height="792" maximized="true" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417690597" />
-    <state x="1843" y="-8" width="1893" height="792" maximized="true" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492432132" />
-    <state x="2523" y="253" width="714" height="534" key="find.popup" timestamp="1628491282568">
+    <state x="-36" y="-8" width="1893" height="792" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628510729127" />
+    <state x="2523" y="253" width="714" height="534" key="find.popup" timestamp="1628508717259">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="603" y="253" width="714" height="534" key="find.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628317959141" />
-    <state x="2523" y="253" width="714" height="534" key="find.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628491282568" />
+    <state x="2523" y="253" width="714" height="534" key="find.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628508717259" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1628070793045">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

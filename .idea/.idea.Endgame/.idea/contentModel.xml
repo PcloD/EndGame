@@ -22,6 +22,7 @@
             </e>
             <e p="Networking" t="Include">
               <e p="AnimationTrigger.cs" t="Include" />
+              <e p="GroundProjectile.cs" t="Include" />
               <e p="Motors" t="Include">
                 <e p="FixedUpdateManager.cs" t="Include" />
                 <e p="PlayerMotor" t="Include">
@@ -40,6 +41,7 @@
             </e>
             <e p="Objects" t="Include">
               <e p="Player" t="Include">
+                <e p="PlayerGroundTarget.cs" t="Include" />
                 <e p="PlayerNetworkBehaviour.cs" t="Include" />
               </e>
             </e>

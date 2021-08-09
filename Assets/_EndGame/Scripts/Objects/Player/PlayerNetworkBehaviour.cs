@@ -172,7 +172,25 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
 
         if (networkAbilityHandler.IsAttacking)
         {
-            var aimPosition = networkAbilityHandler.currentAbility?.abilityForward ?? MoveData.MouseDelta;
+            Vector3 aimPosition = Vector3.zero;
+            
+            if (networkAbilityHandler.currentAbility != null)
+            {
+                var spellAbility = networkAbilityHandler.currentAbility.abilityData as SpellAbilityData;
+                if (spellAbility != null)
+                {
+                    aimPosition = spellAbility.projectile
+                        ? networkAbilityHandler.currentAbility.abilityTarget
+                        : networkAbilityHandler.currentAbility.abilityTarget - transform.position;
+                }
+
+                aimPosition = networkAbilityHandler.currentAbility.abilityTarget;
+            }
+            else
+            {
+                aimPosition = MoveData.MouseDelta;
+            }
+           
             IkAimTransform.transform.position = aimPosition + transform.position + Vector3.up;
 
             if (aimPosition.sqrMagnitude < 0.1f) return;

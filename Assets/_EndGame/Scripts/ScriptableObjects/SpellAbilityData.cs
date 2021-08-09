@@ -6,6 +6,7 @@ using UnityEngine;
 public class SpellAbilityData : AbilityData
 {
     public bool projectile = true;
+    public bool groundTarget = true;
     public float CastTime = 1f;
     
 }
