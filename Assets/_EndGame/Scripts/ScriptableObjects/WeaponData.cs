@@ -6,8 +6,11 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     public float WeaponDamage;
-    public float LightAttackComboReset = 1f;
-    public AbilityData[] LightAttacks;
-    public AbilityData HeavyAttack;
+    
+    public LightAbilityData[] LightAttacks;
+    public HeavyAbilityData HeavyAttack;
 
+    public SpellAbilityData Spell1;
+    public SpellAbilityData Spell2;
+    public SpellAbilityData Spell3;
 }

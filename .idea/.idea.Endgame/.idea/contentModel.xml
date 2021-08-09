@@ -21,7 +21,6 @@
               <e p="CameraManager.cs" t="Include" />
             </e>
             <e p="Networking" t="Include">
-              <e p="AbilityHandler.cs" t="Include" />
               <e p="AnimationTrigger.cs" t="Include" />
               <e p="Motors" t="Include">
                 <e p="FixedUpdateManager.cs" t="Include" />
@@ -36,6 +35,8 @@
                 </e>
                 <e p="SmoothToZero.cs" t="Include" />
               </e>
+              <e p="NetworkAbilityHandler.cs" t="Include" />
+              <e p="Projectile.cs" t="Include" />
             </e>
             <e p="Objects" t="Include">
               <e p="Player" t="Include">
@@ -44,6 +45,9 @@
             </e>
             <e p="ScriptableObjects" t="Include">
               <e p="AbilityData.cs" t="Include" />
+              <e p="HeavyAbilityData.cs" t="Include" />
+              <e p="LightAbilityData.cs" t="Include" />
+              <e p="SpellAbilityData.cs" t="Include" />
               <e p="WeaponData.cs" t="Include" />
             </e>
             <e p="Utility" t="Include">
@@ -53,6 +57,7 @@
         </e>
         <e p="FirstGearGames" t="Include">
           <e p="License.txt" t="Include" />
+          <e p="README.txt" t="Include" />
           <e p="Supporters" t="Include">
             <e p="Assets" t="Include">
               <e p="FastProximityChecker" t="Include">
@@ -143,6 +148,157 @@
                   <e p="FlexAttachTargets.cs" t="Include" />
                   <e p="FlexNetworkTransform.cs" t="Include" />
                   <e p="FlexNetworkTransformChild.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Tutorials" t="Include">
+              <e p="AuthorityAndOwnership" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="AuthorityAndOwnership.cs" t="Include" />
+                  <e p="ChangeColorOnAuthority.cs" t="Include" />
+                </e>
+              </e>
+              <e p="BuiltInDataTypes" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="BuiltInDataTypes.cs" t="Include" />
+                </e>
+              </e>
+              <e p="ChangeLog.txt" t="Include" />
+              <e p="ConservingBandwidth" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="SendByte.cs" t="Include" />
+                </e>
+              </e>
+              <e p="CustomDataTypes" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="CustomDataTypes.cs" t="Include" />
+                  <e p="ItemSerializer.cs" t="Include" />
+                </e>
+              </e>
+              <e p="FixingNetworkIdentitySyncVars" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="NetworkIdentityReference.cs" t="Include" />
+                  <e p="WeaponSpawner.cs" t="Include" />
+                </e>
+              </e>
+              <e p="InitializingOnLocalPlayer" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="CameraController.cs" t="Include" />
+                  <e p="EnemyFollowPlayer.cs" t="Include" />
+                  <e p="FindAndSetupObjects.cs" t="Include" />
+                  <e p="HealthBarUI.cs" t="Include" />
+                  <e p="HealthPercent.cs" t="Include" />
+                  <e p="LocalPlayerAnnouncer.cs" t="Include" />
+                  <e p="NetworkSelfDestruct.cs" t="Include" />
+                </e>
+              </e>
+              <e p="InteractingWithSceneObjects" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="ClickAndMove.cs" t="Include" />
+                  <e p="INetworkUsable.cs" t="Include" />
+                  <e p="Interactor.cs" t="Include" />
+                  <e p="SlidingDoor.cs" t="Include" />
+                  <e p="TeleportingCube.cs" t="Include" />
+                  <e p="UsableIdAssigner.cs" t="Include" />
+                </e>
+              </e>
+              <e p="IsLocalPlayer" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="ClickAndMove.cs" t="Include" />
+                  <e p="SpawnPet.cs" t="Include" />
+                </e>
+              </e>
+              <e p="NetworkAnimator" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="MoveAndAnimate2.cs" t="Include" />
+                </e>
+              </e>
+              <e p="NetworkTransform" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="RandomizePosition.cs" t="Include" />
+                </e>
+              </e>
+              <e p="RemoteCalls" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="RemoteCallsDemo.cs" t="Include" />
+                </e>
+              </e>
+              <e p="RemovingAuthorityOnDisconnect" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="ChangeColorOnAuthority.cs" t="Include" />
+                  <e p="RemovingAuthorityNetworkManager.cs" t="Include" />
+                  <e p="TakeAuthority.cs" t="Include" />
+                </e>
+              </e>
+              <e p="ServerCommandConsole" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="CommandHandler.cs" t="Include" />
+                  <e p="garryTV" t="Include">
+                    <e p="ConsoleInput.cs" t="Include" />
+                    <e p="ConsoleWindow.cs" t="Include" />
+                    <e p="ServerConsole.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="SimpleCharacterSelection" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="Character.cs" t="Include" />
+                  <e p="CharacterSelection.cs" t="Include" />
+                  <e p="CharacterTypes.cs" t="Include" />
+                  <e p="OfflineGameplayDependencies.cs" t="Include" />
+                  <e p="PlayerInstance.cs" t="Include" />
+                  <e p="PlayerSpawner.cs" t="Include" />
+                  <e p="SpawningCanvas.cs" t="Include" />
+                </e>
+              </e>
+              <e p="StartAndStopCallbacks" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="StartAndStopCallbacks.cs" t="Include" />
+                </e>
+              </e>
+              <e p="StrippingCodeFromBuilds" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="StrippedCodeExample.cs" t="Include" />
+                </e>
+              </e>
+              <e p="SynchronizingBulkSceneObjects" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="BulkObjectsNetworkManager.cs" t="Include" />
+                  <e p="Datas" t="Include">
+                    <e p="TreeObjectData.cs" t="Include" />
+                    <e p="WorldObjectData.cs" t="Include" />
+                  </e>
+                  <e p="Player.cs" t="Include" />
+                  <e p="WorldObject.cs" t="Include" />
+                  <e p="WorldObjectManager.cs" t="Include" />
+                  <e p="WorldObjects" t="Include">
+                    <e p="Tree.cs" t="Include" />
+                    <e p="TreePlanter.cs" t="Include" />
+                    <e p="WorldObjectTypes.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="SynchronizingRemoteCallsToLateJoiners" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="ChangeColor.cs" t="Include" />
+                  <e p="RandomlyDisplace.cs" t="Include" />
+                </e>
+              </e>
+              <e p="SyncingProjectiles" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="Player.cs" t="Include" />
+                  <e p="Projectile.cs" t="Include" />
+                </e>
+              </e>
+              <e p="SyncList" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="SyncListDemo.cs" t="Include" />
+                  <e p="SyncListPlayerGear.cs" t="Include" />
+                </e>
+              </e>
+              <e p="SyncVar" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="SyncVarDemo.cs" t="Include" />
                 </e>
               </e>
             </e>
