@@ -15,6 +15,6 @@ MonoBehaviour:
   AnimationName: 
   AttackDuration: 0.5
   AttackTime: 0.1
-  projectile: 0
-  groundTarget: 1
-  CastTime: 1
+  projectile: 1
+  groundTarget: 0
+  CastTime: 0.5

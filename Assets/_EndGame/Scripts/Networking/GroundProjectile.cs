@@ -11,7 +11,7 @@ public class GroundProjectile : MonoBehaviour
     
      private float catchupDistance = 0f;
 
-     private Vector3 targetDelta => targetPosition - transform.position;
+     private Vector3 targetDelta => (targetPosition - transform.position).normalized;
      
      void Update()
      {

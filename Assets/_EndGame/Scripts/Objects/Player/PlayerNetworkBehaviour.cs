@@ -183,8 +183,11 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
                         ? networkAbilityHandler.currentAbility.abilityTarget
                         : networkAbilityHandler.currentAbility.abilityTarget - transform.position;
                 }
+                else
+                {
+                    aimPosition = networkAbilityHandler.currentAbility.abilityTarget;
 
-                aimPosition = networkAbilityHandler.currentAbility.abilityTarget;
+                }
             }
             else
             {

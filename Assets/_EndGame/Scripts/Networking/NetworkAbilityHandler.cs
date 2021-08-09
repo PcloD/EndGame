@@ -58,9 +58,18 @@ public class NetworkAbilityHandler : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
-        groundTarget = Instantiate(GroundTargetPrefab);
-        groundTarget.Disable();
         Initilize();
+
+        
+    }
+
+    void Start()
+    {
+        if (hasAuthority)
+        {
+            groundTarget = Instantiate(GroundTargetPrefab);
+            groundTarget.Disable();
+        }
     }
     
     public void SendAbility()
@@ -75,10 +84,8 @@ public class NetworkAbilityHandler : NetworkBehaviour
 
     private void Update()
     {
-        ProcessCurrentAbility();
-
-        if (isClient) OnClientUpdate();
-
+        if (hasAuthority) OnClientUpdate();
+        if(hasAuthority || isServer) ProcessCurrentAbility();
     }
 
     private void Initilize()

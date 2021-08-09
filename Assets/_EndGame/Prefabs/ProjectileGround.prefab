@@ -94,5 +94,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 830f725a38dc9464db50bdabc7274b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  direction: {x: 0, y: 0, z: 0}
+  moveSpeed: 20
+  targetPosition: {x: 0, y: 0, z: 0}

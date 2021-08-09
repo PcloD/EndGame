@@ -20,15 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfbd124-a032-4e25-931b-640c9bed4c11" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Forest/Player.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Forest/Player.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Projectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Projectile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Projectile.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Projectile.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/SpellAbility_Fireball.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/SpellAbility_Fireball.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Weapons/1H_Sword.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Weapons/1H_Sword.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,8 +92,8 @@
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerGroundTarget.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Projectile1.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/GroundProjectile.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" />
       </list>
     </option>
   </component>
@@ -160,7 +155,7 @@
       <workItem from="1627905962494" duration="3259000" />
       <workItem from="1627976293265" duration="40244000" />
       <workItem from="1628232763564" duration="57069000" />
-      <workItem from="1628480376033" duration="15022000" />
+      <workItem from="1628480376033" duration="16242000" />
     </task>
     <servers />
   </component>
@@ -287,11 +282,11 @@
     </state>
     <state x="1652" y="-10" width="1893" height="792" maximized="true" key="dock-window-4/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628394325710" />
     <state x="1833" y="-8" width="1893" height="792" maximized="true" key="dock-window-4/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628410772078" />
-    <state x="-36" y="-8" width="1893" height="792" key="dock-window-5" timestamp="1628510729127">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1912" y="-8" width="1893" height="792" maximized="true" key="dock-window-5" timestamp="1628511960605">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="1817" y="-8" width="1893" height="792" maximized="true" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417690597" />
-    <state x="-36" y="-8" width="1893" height="792" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628510729127" />
+    <state x="1912" y="-8" width="1893" height="792" maximized="true" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628511960605" />
     <state x="2523" y="253" width="714" height="534" key="find.popup" timestamp="1628508717259">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
