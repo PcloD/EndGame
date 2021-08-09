@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 1H_Sword
   m_EditorClassIdentifier: 
   WeaponDamage: 5
-  LightAttackComboReset: 1
   LightAttacks:
   - {fileID: 11400000, guid: d229bc19d6e4fc142a12d3087dd469fb, type: 2}
-  - {fileID: 11400000, guid: 55ee75940dc0b6d47af2ae31e2491aa8, type: 2}
-  - {fileID: 11400000, guid: a8e46b34a752ecf419a61df707bde41e, type: 2}
-  HeavyAttack: {fileID: 0}
+  - {fileID: 11400000, guid: e87fd5c38c4c4f44e933d5ab4468257c, type: 2}
+  - {fileID: 11400000, guid: f05dbce96f86cc44fabbf08fbe8a76e7, type: 2}
+  HeavyAttack: {fileID: 11400000, guid: 969e4b4395438064c86aa91da0ba2aac, type: 2}
+  Spell1: {fileID: 11400000, guid: daecc4dab3410874eaf1c831d10130f7, type: 2}
+  Spell2: {fileID: 0}
+  Spell3: {fileID: 0}

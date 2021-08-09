@@ -1,0 +1,30 @@
+2021/06/09
+	- All
+		+ Suppressed warning spam caused by Mirror updates and general Unity things.
+
+2020/12/18
+	- Custom Data Types
+		+ Fixed breaks made by recent version of Mirror.
+
+2020/10/01
+	- NetworkAnimator / FlexNetworkAnimator
+		+ Added tutorial.
+
+2020/09/20
+	- Server Command Console
+		+ Added tutorial.
+
+2020/08/19
+	- Synchronizing Bulk Scene Objects
+		+ Added tutorial.
+
+2020/07/26
+	- Organized files.
+
+2020/07/17
+	- SyncVar
+		+ Updated to current Mirror release.
+
+2020/07/12
+	- Conserving Bandwidth
+		+ Added tutorial.

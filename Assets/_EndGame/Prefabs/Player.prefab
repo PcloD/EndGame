@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 3997211996623799461}
   - component: {fileID: 4723585398014970032}
   - component: {fileID: 7674100585370368279}
+  - component: {fileID: -3388813052585361367}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -124,24 +125,15 @@ MonoBehaviour:
     DodgeForce: 2
     NegativeDodgeForce: 3
     MovementVelocityDamp: 0
-    BackMoving: 0
     MouseDelta: {x: 0, y: 0, z: 0}
     MovementInput: {x: 0, y: 0, z: 0}
     AttackVelocity: {x: 0, y: 0, z: 0}
     RecoilVelocity: {x: 0, y: 0, z: 0}
     DodgeVelocity: {x: 0, y: 0, z: 0}
     Velocity: {x: 0, y: 0, z: 0}
-  AttackVelocityNegativeForce: 3
+    RelativeVelocity: {x: 0, y: 0, z: 0}
+    IsBlocking: 0
   AnimationTriggers: []
-  TestWeapon: {fileID: 11400000, guid: aad7884e08fa1b549a222ce5e35377c4, type: 2}
-  _abilityHandler:
-    CurrentWeaponData: {fileID: 0}
-    playerNetworkBehaviour: {fileID: 0}
-    AbilityClearedTimed: 0
-    CurrentAbility:
-      StartTime: 0
-      FinishedDamage: 0
-      AbilityData: {fileID: 0}
   IkAimTransform: {fileID: 3997211996623799457}
 --- !u!114 &3997211996623799476
 MonoBehaviour:
@@ -393,6 +385,23 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     spineTargetOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &-3388813052585361367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997211996623799460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f59374208323474d80a8b7b826c8119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  TestProjectile: {fileID: 7486225815710540534, guid: 9722235486091844081e286409eb2e94, type: 3}
+  abilityClearedTime: 0
+  CurrentWeaponData: {fileID: 11400000, guid: aad7884e08fa1b549a222ce5e35377c4, type: 2}
 --- !u!1 &3997211996623799462
 GameObject:
   m_ObjectHideFlags: 0

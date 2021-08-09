@@ -22,5 +22,6 @@ public class PlayerMovementData
 
     public bool CanBlockOrDodge => Mathf.Abs(DodgeVelocity.sqrMagnitude) < 0.1f;
     public bool IsRolling => Mathf.Abs(DodgeVelocity.sqrMagnitude) > 0.1f;
+    public bool IsBlocking;
     public bool BackMoving => RelativeVelocity.z < 0;
 }
