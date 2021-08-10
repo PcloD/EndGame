@@ -20,10 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfbd124-a032-4e25-931b-640c9bed4c11" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/GroundProjectile.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/GroundProjectile.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/SpellAbility_Fireball.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/SpellAbility_Fireball.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Weapons/1H_Sword.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Weapons/1H_Sword.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Projectile.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Projectile.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/AbilityData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/AbilityData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,18 +42,22 @@
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/LightAbilityData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/PlayerMotorActionCodes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerMovementData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/Ability.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/AnimationTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/FirstGearGames/Supporters/Tutorials/SyncingProjectiles/Scripts/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/MeleeAbility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/HeavyAbilityData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CFC1AD89-0650-411E-946C-FF2E6F276711/a1/569c6f0a/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/GroundProjectileAbility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../GUnchained/gu-unity-2018/Assets/IntegrationTests/TestPlay_QA_CantAttack.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6FCFDD16-2B5D-4836-BEF3-C96F53194DB6/29/747c5721/Stack`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/DebuffAbilityData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CFC1AD89-0650-411E-946C-FF2E6F276711/38/7b781690/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerGroundTarget.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/FixedUpdateManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -83,7 +92,6 @@
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/AbilityHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/LightAbilityData.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/HeavyAbilityData.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/AbilityData.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponData.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/PlayerMotorActionCodes.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerInputData.cs" />
@@ -91,8 +99,15 @@
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityData.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerGroundTarget.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Projectile1.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/GroundProjectile.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/GroundProjectile.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/DebuffAbilityData.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/AbilityData.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/Projectile.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/ProjectileAbility.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/GroundProjectileAbility.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/Ability.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/MeleeAbility.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" />
       </list>
     </option>
@@ -155,7 +170,7 @@
       <workItem from="1627905962494" duration="3259000" />
       <workItem from="1627976293265" duration="40244000" />
       <workItem from="1628232763564" duration="57069000" />
-      <workItem from="1628480376033" duration="16242000" />
+      <workItem from="1628480376033" duration="21296000" />
     </task>
     <servers />
   </component>
@@ -268,11 +283,11 @@
     </state>
     <state x="2005" y="-8" width="1893" height="717" maximized="true" key="dock-window-1/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628080123473" />
     <state x="2137" y="-8" width="1908" height="1043" maximized="true" key="dock-window-1/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628484733827" />
-    <state x="88" y="-27" width="1893" height="1027" maximized="true" key="dock-window-2" timestamp="1628318901646">
+    <state x="166" y="198" width="1293" height="715" key="dock-window-2" timestamp="1628573598660">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="88" y="-27" width="1893" height="1027" maximized="true" key="dock-window-2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628318901646" />
-    <state x="1713" y="-8" width="1893" height="1027" maximized="true" key="dock-window-2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628312833262" />
+    <state x="166" y="198" width="1293" height="715" key="dock-window-2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628573598660" />
     <state x="0" y="0" width="1893" height="1047" key="dock-window-3" timestamp="1628310645605">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -282,11 +297,11 @@
     </state>
     <state x="1652" y="-10" width="1893" height="792" maximized="true" key="dock-window-4/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628394325710" />
     <state x="1833" y="-8" width="1893" height="792" maximized="true" key="dock-window-4/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628410772078" />
-    <state x="1912" y="-8" width="1893" height="792" maximized="true" key="dock-window-5" timestamp="1628511960605">
+    <state x="2008" y="-8" width="1893" height="792" maximized="true" key="dock-window-5" timestamp="1628571892773">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="1817" y="-8" width="1893" height="792" maximized="true" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417690597" />
-    <state x="1912" y="-8" width="1893" height="792" maximized="true" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628511960605" />
+    <state x="2008" y="-8" width="1893" height="792" maximized="true" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628571892773" />
+    <state x="-321" y="-8" width="1893" height="792" maximized="true" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628564882642" />
     <state x="2523" y="253" width="714" height="534" key="find.popup" timestamp="1628508717259">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
