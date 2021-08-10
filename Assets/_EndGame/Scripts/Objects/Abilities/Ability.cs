@@ -5,11 +5,13 @@ public class Ability : MonoBehaviour
 {
     protected float DestroyTime = -1f;
     protected bool IsServer;
+    protected Transform OwnerTransform;
 
-    protected void Initilize(float destroyTime, bool isServer = false)
+    protected void Initilize(float destroyTime, Transform ownerTransform, bool isServer = false)
     {
         this.DestroyTime = destroyTime + Time.time;
         this.IsServer = isServer;
+        this.OwnerTransform = ownerTransform;
     }
 
     public virtual void Update()
@@ -23,7 +25,16 @@ public class Ability : MonoBehaviour
 
     public virtual void OnTriggerEnter(Collider other)
     {
+        var player = other.GetComponent<PlayerNetworkBehaviour>();
         
+        if (player != null && player.transform != OwnerTransform)
+        {
+            if (IsServer)
+            {
+                Debug.Log($"Server Do dmg");
+            }
+            Destroy(gameObject);
+        }
     }
 
     public virtual void OnDestroy()

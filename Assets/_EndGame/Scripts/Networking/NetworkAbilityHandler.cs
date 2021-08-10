@@ -312,10 +312,10 @@ public class NetworkAbilityHandler : NetworkBehaviour
                 {
                     if (!isServer)
                     {
-                        AbilityProjectile abilityProjectile = Instantiate(testAbilityProjectile, transform.position, Quaternion.identity);
-                        abilityProjectile.Initilize(0f,false, 10f, currentAbility.abilityTarget);
+                        AbilityProjectile abilityProjectile = Instantiate(testAbilityProjectile, transform.position + Vector3.up, Quaternion.identity);
+                        abilityProjectile.Initilize(0f,false, 10f, currentAbility.abilityTarget, transform);
                     }
-                    CmdSpawnProjectile(transform.position, NetworkTime.time, currentAbility.abilityTarget);
+                    if(hasAuthority) CmdSpawnProjectile(transform.position + Vector3.up, NetworkTime.time, currentAbility.abilityTarget);
                 }
 
                 if (spellAbilityData != null && spellAbilityData.groundTarget)
@@ -323,20 +323,20 @@ public class NetworkAbilityHandler : NetworkBehaviour
                     if (!isServer)
                     {
                         AbilityGroundProjectile projectile = Instantiate(testAbilityGroundProjectile, transform.position, Quaternion.identity);
-                        projectile.Initilize(0f,false, 10f, currentAbility.abilityTarget);
+                        projectile.Initilize(0f,false, 10f, currentAbility.abilityTarget,transform);
                     }
-                    CmdSpawnGroundProjectile(transform.position, NetworkTime.time, currentAbility.abilityTarget);
+                    if(hasAuthority) CmdSpawnGroundProjectile(transform.position, NetworkTime.time, currentAbility.abilityTarget);
                 }
 
-                
+                // no spellAbilityData so must be a melee attack
                 if (!spellAbilityData)
                 {
                     if (!isServer)
                     {
                         AbilityMelee abilityMelee = Instantiate(testAbilityMelee, transform.position, Quaternion.identity);
-                        abilityMelee.Initilize(10f,false);
+                        abilityMelee.Initilize(10f,transform, false);
                     }
-                    CmdSpawnMeleeAbility(transform.position);
+                    if(hasAuthority)  CmdSpawnMeleeAbility(transform.position);
                 }
             }
         }
@@ -370,7 +370,7 @@ public class NetworkAbilityHandler : NetworkBehaviour
         double timePassed = NetworkTime.time - networkTime;
         
         AbilityProjectile p = Instantiate(testAbilityProjectile, position, Quaternion.identity);
-        p.Initilize((float)timePassed,true, 10f, direction);
+        p.Initilize((float)timePassed,true, 10f, direction, transform);
         
         RpcSpawnProjectile(position, networkTime, direction);
     }
@@ -381,7 +381,7 @@ public class NetworkAbilityHandler : NetworkBehaviour
         double timePassed = NetworkTime.time - networkTime;
 
         AbilityProjectile p = Instantiate(testAbilityProjectile, position, Quaternion.identity);
-        p.Initilize((float)timePassed,false, 10f, direction);
+        p.Initilize((float)timePassed,false, 10f, direction,transform);
     }
     
     [Command]
@@ -392,7 +392,7 @@ public class NetworkAbilityHandler : NetworkBehaviour
         double timePassed = NetworkTime.time - networkTime;
         
         AbilityGroundProjectile p = Instantiate(testAbilityGroundProjectile, position, Quaternion.identity);
-        p.Initilize((float)timePassed,true, 10f, targetPoint);
+        p.Initilize((float)timePassed,true, 10f, targetPoint,transform);
         
         RpcSpawnGroundProjectile(position, networkTime, targetPoint);
     }
@@ -403,7 +403,7 @@ public class NetworkAbilityHandler : NetworkBehaviour
         double timePassed = NetworkTime.time - networkTime;
 
         AbilityGroundProjectile p = Instantiate(testAbilityGroundProjectile, position, Quaternion.identity);
-        p.Initilize((float)timePassed,false, 10f, targetPoint);
+        p.Initilize((float)timePassed,false, 10f, targetPoint,transform);
     }
     
     [Command]
@@ -411,7 +411,7 @@ public class NetworkAbilityHandler : NetworkBehaviour
     {
         
         AbilityMelee p = Instantiate(testAbilityMelee, position, Quaternion.identity);
-        p.Initilize(10,true);
+        p.Initilize(10,transform, true);
         
         RpcSpawnMeleeAbility(position);
     }
@@ -420,6 +420,6 @@ public class NetworkAbilityHandler : NetworkBehaviour
     private void RpcSpawnMeleeAbility(Vector3 position)
     {
         AbilityMelee p = Instantiate(testAbilityMelee, position, Quaternion.identity);
-        p.Initilize(10,true);
+        p.Initilize(10, transform, false);
     }
 }

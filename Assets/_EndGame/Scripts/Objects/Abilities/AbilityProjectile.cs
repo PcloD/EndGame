@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class AbilityProjectile : Ability
@@ -35,9 +36,9 @@ public class AbilityProjectile : Ability
          
      }
 
-     public void Initilize(float duration,bool isServer, float destroyTime, Vector3 direction)
+     public void Initilize(float duration,bool isServer, float destroyTime, Vector3 direction, Transform ownerTransform)
      {
-         Initilize(destroyTime, isServer);
+         Initilize(destroyTime, ownerTransform, isServer);
          
          catchupDistance = (duration * moveSpeed);
          Direction = direction;

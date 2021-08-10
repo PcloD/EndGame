@@ -14,9 +14,10 @@ public class AbilityMelee : Ability
         }
     }
     
-    public void Initilize(float destroyTime, bool isServer = false)
+    public void Initilize(float destroyTime,  Transform ownerTransform, bool isServer = false)
     {
         DestroyTime = destroyTime + Time.time;
         IsServer = isServer;
+        OwnerTransform = ownerTransform;
     }
 }
