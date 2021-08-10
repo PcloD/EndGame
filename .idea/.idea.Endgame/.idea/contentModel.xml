@@ -36,13 +36,14 @@
                 <e p="SmoothToZero.cs" t="Include" />
               </e>
               <e p="NetworkAbilityHandler.cs" t="Include" />
+              <e p="NetworkBuffHandler.cs" t="Include" />
             </e>
             <e p="Objects" t="Include">
               <e p="Abilities" t="Include">
                 <e p="Ability.cs" t="Include" />
                 <e p="AbilityGroundProjectile.cs" t="Include" />
                 <e p="AbilityMelee.cs" t="Include" />
-                <e p="ProjectileAbility.cs" t="Include" />
+                <e p="AbilityProjectile.cs" t="Include" />
               </e>
               <e p="Player" t="Include">
                 <e p="PlayerGroundTarget.cs" t="Include" />
@@ -57,6 +58,7 @@
               <e p="SpellAbilityData.cs" t="Include" />
               <e p="WeaponData.cs" t="Include" />
             </e>
+            <e p="Test.cs" t="Include" />
             <e p="Utility" t="Include">
               <e p="ReadOnlyAttribute.cs" t="Include" />
             </e>

@@ -41,9 +41,9 @@ public class AbilityGroundProjectile : Ability
          return Time.time > DestroyTime || Vector3.Distance(transform.position, TargetPosition) < 0.25f;
      }
 
-     public void Initilize(float duration,bool isServer, float destroyTime, Vector3 targetPosition)
+     public void Initilize(float duration,bool isServer, float destroyTime, Vector3 targetPosition, Transform ownerTransform)
      {
-         Initilize(destroyTime, isServer);
+         Initilize(destroyTime, ownerTransform,  isServer);
          
          catchupDistance = (duration * moveSpeed);
          TargetPosition = targetPosition;

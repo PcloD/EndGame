@@ -238,7 +238,8 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         _fna = GetComponent<FlexNetworkAnimator>();
         _lookatIk = GetComponent<LookAtIK>();
         networkAbilityHandler = GetComponent<NetworkAbilityHandler>();
-        if (!base.isServer && !base.hasAuthority) _characterController.enabled = false;
+       // if (!base.isServer && !base.hasAuthority)
+       // _characterController.enabled = false;
     }
 
     /// <summary>
