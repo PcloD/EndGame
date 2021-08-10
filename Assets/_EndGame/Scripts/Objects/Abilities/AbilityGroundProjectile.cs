@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundProjectile : MonoBehaviour
+public class AbilityGroundProjectile : Ability
 {
     [SerializeField] private float moveSpeed = 5f;
     
-    private float destroyTime = -1f;
-    public Vector3 targetPosition;
+    public Vector3 TargetPosition;
     
      private float catchupDistance = 0f;
 
-     private Vector3 targetDelta => (targetPosition - transform.position).normalized;
-     
-     void Update()
+     private Vector3 targetDelta => (TargetPosition - transform.position).normalized;
+
+     public override void Update()
      {
-         if (destroyTime < 0) return;
+         base.Update();
          
          float moveValue = moveSpeed * Time.deltaTime;
          float catchupValue = 0f;
@@ -35,16 +34,19 @@ public class GroundProjectile : MonoBehaviour
          
          // handle move
          transform.position += targetDelta * (moveValue + catchupValue);
-         
-         if(Time.time > destroyTime || Vector3.Distance(transform.position, targetPosition) < 0.25f)
-             Destroy(gameObject);
      }
 
-     public void Initilize(float duration, float destroyTime, Vector3 targetPosition)
+     protected override bool ShouldDestroy()
      {
+         return Time.time > DestroyTime || Vector3.Distance(transform.position, TargetPosition) < 0.25f;
+     }
+
+     public void Initilize(float duration,bool isServer, float destroyTime, Vector3 targetPosition)
+     {
+         Initilize(destroyTime, isServer);
+         
          catchupDistance = (duration * moveSpeed);
-         this.destroyTime = Time.time + destroyTime;
-         this.targetPosition = targetPosition;
+         TargetPosition = targetPosition;
 
          transform.position = targetPosition + (Vector3.up * 10f);
      }

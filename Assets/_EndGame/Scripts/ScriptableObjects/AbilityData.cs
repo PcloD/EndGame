@@ -5,6 +5,7 @@ using UnityEngine;
 public class AbilityData : ScriptableObject
 {
     public string AnimationName;
+    public DebuffAbilityData[] Debuffs;
     
     [Tooltip("Time the attack will play for. After Casting if exists")]
     public float AttackDuration;

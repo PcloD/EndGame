@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class AbilityProjectile : Ability
 {
     [SerializeField] private float moveSpeed = 5f;
     
-    private float destroyTime = -1f;
-    public Vector3 direction;
+    public Vector3 Direction;
     
      private float catchupDistance = 0f;
 
-     void Update()
+     public override void Update()
      {
-         if (destroyTime < 0) return;
+         base.Update();
          
          float moveValue = moveSpeed * Time.deltaTime;
          float catchupValue = 0f;
@@ -32,16 +31,15 @@ public class Projectile : MonoBehaviour
          }
          
          // handle move
-         transform.position += direction * (moveValue + catchupValue);
+         transform.position += Direction * (moveValue + catchupValue);
          
-         if(Time.time > destroyTime)
-             Destroy(gameObject);
      }
 
-     public void Initilize(float duration, float destroyTime, Vector3 direction)
+     public void Initilize(float duration,bool isServer, float destroyTime, Vector3 direction)
      {
+         Initilize(destroyTime, isServer);
+         
          catchupDistance = (duration * moveSpeed);
-         this.destroyTime = Time.time + destroyTime;
-         this.direction = direction;
+         Direction = direction;
      }
 }
