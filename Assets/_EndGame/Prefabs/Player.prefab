@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 4723585398014970032}
   - component: {fileID: 7674100585370368279}
   - component: {fileID: -3388813052585361367}
+  - component: {fileID: 4977159815040861573}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -133,6 +134,7 @@ MonoBehaviour:
     Velocity: {x: 0, y: 0, z: 0}
     RelativeVelocity: {x: 0, y: 0, z: 0}
     IsBlocking: 0
+  networkBuffHandler: {fileID: 0}
   AnimationTriggers: []
   IkAimTransform: {fileID: 3997211996623799457}
 --- !u!114 &3997211996623799476
@@ -405,6 +407,21 @@ MonoBehaviour:
   GroundTargetPrefab: {fileID: 505599331181486066, guid: 6240dc94ff0426e458a4e189d18dbb19, type: 3}
   abilityClearedTime: 0
   CurrentWeaponData: {fileID: 11400000, guid: aad7884e08fa1b549a222ce5e35377c4, type: 2}
+--- !u!114 &4977159815040861573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997211996623799460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6744f45ee87300449a15ede32c03ceb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  IsSlowed: 0
 --- !u!1 &3997211996623799462
 GameObject:
   m_ObjectHideFlags: 0

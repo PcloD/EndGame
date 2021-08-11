@@ -12,6 +12,7 @@ using UnityEngine.Scripting.APIUpdating;
 public class PlayerNetworkBehaviour : NetworkBehaviour
 {
     public PlayerMovementData MoveData = new PlayerMovementData();
+    public NetworkBuffHandler networkBuffHandler;
     public InputData InputData;
     private NetworkAbilityHandler networkAbilityHandler;
     private LookAtIK _lookatIk;
@@ -130,7 +131,9 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
 
         if (MoveData.BackMoving) MoveData.MovementVelocityDamp -= 0.25f;
         if (motorState.ActiveAbility) MoveData.MovementVelocityDamp = 0.1f;
-        
+        if (motorState.IsSlowed) MoveData.MovementVelocityDamp -= 0.5f;
+
+        MoveData.IsSlowed = motorState.IsSlowed;
         MoveData.MovementVelocityDamp = Mathf.Clamp(MoveData.MovementVelocityDamp, 0, 1);
         MoveData.MovementVelocityDamp = MoveData.BaseMoveSpeed * MoveData.MovementVelocityDamp;
 
@@ -176,7 +179,7 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
             
             if (networkAbilityHandler.currentAbility != null)
             {
-                var spellAbility = networkAbilityHandler.currentAbility.abilityData as SpellAbilityData;
+                var spellAbility = networkAbilityHandler.currentAbility.abilityScriptableObject as SpellAbilityScriptableObject;
                 if (spellAbility != null)
                 {
                     aimPosition = spellAbility.projectile
@@ -238,8 +241,9 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         _fna = GetComponent<FlexNetworkAnimator>();
         _lookatIk = GetComponent<LookAtIK>();
         networkAbilityHandler = GetComponent<NetworkAbilityHandler>();
-       // if (!base.isServer && !base.hasAuthority)
-       // _characterController.enabled = false;
+        networkBuffHandler = GetComponent<NetworkBuffHandler>();
+        // if (!base.isServer && !base.hasAuthority)
+        // _characterController.enabled = false;
     }
 
     /// <summary>
@@ -261,10 +265,8 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         //Snap motor to server values.
         transform.position = serverState.Position;
         // transform.rotation = serverState.Rotation;
-
         MoveData.DodgeVelocity = serverState.DodgeVelocity;
-        MoveData.AttackVelocity = serverState.AttackVelocity;
-        MoveData.RecoilVelocity = serverState.RecoilVelocity;
+        
         Physics.SyncTransforms();
 
         foreach (ClientPlayerMotorState clientState in _clientMotorStates)
@@ -309,9 +311,8 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
                 FixedFrame = state.FixedFrame,
                 Position = transform.position,
                 DodgeVelocity = MoveData.DodgeVelocity,
-                AttackVelocity = MoveData.AttackVelocity,
-                RecoilVelocity = MoveData.RecoilVelocity,
-                TimingStepChange = timingStepChange
+                TimingStepChange = timingStepChange,
+                IsSlowed = networkBuffHandler.IsSlowed
             };
 
             //Send results back to the owner.
@@ -401,7 +402,8 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
             Forward = forward,
             movementActionCode = ac,
             MousePosition = CameraManager.RayMouseHit.point,
-            ActiveAbility = networkAbilityHandler.IsAttacking
+            ActiveAbility = networkAbilityHandler.IsAttacking,
+            IsSlowed = networkBuffHandler.IsSlowed
         };
         _clientMotorStates.Add(state);
 

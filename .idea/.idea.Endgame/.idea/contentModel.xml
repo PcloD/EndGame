@@ -51,12 +51,12 @@
               </e>
             </e>
             <e p="ScriptableObjects" t="Include">
-              <e p="AbilityData.cs" t="Include" />
-              <e p="DebuffAbilityData.cs" t="Include" />
-              <e p="HeavyAbilityData.cs" t="Include" />
-              <e p="LightAbilityData.cs" t="Include" />
-              <e p="SpellAbilityData.cs" t="Include" />
-              <e p="WeaponData.cs" t="Include" />
+              <e p="AbilityScriptableObject.cs" t="Include" />
+              <e p="DebuffScriptableObject.cs" t="Include" />
+              <e p="HeavyAbilityScriptableObject.cs" t="Include" />
+              <e p="LightAbilityScriptableObject.cs" t="Include" />
+              <e p="SpellAbilityScriptableObject.cs" t="Include" />
+              <e p="WeaponScriptableObject.cs" t="Include" />
             </e>
             <e p="Test.cs" t="Include" />
             <e p="Utility" t="Include">
@@ -1156,6 +1156,43 @@
             <e p="VS_indirect.cginc" t="Include" />
           </e>
         </e>
+        <e p="ProceduralTerrainPainter" t="Include">
+          <e p="_Demo" t="Include">
+            <e p="Textures" t="Include">
+              <e p="_LICENSE.txt" t="Include" />
+            </e>
+          </e>
+          <e p="Editor" t="Include">
+            <e p="Heatmap.shader" t="Include" />
+            <e p="HeatmapPreview.cs" t="Include" />
+            <e p="ModifierEditor.cs" t="Include" />
+            <e p="PropertyDrawers.cs" t="Include" />
+            <e p="sc.terrain.painter.editor.asmdef" t="Include" />
+            <e p="TerrainPainterInspector.cs" t="Include" />
+          </e>
+          <e p="Runtime" t="Include">
+            <e p="Attributes.cs" t="Include" />
+            <e p="LayerSettings.cs" t="Include" />
+            <e p="Modifiers" t="Include">
+              <e p="Curvature.cs" t="Include" />
+              <e p="Height.cs" t="Include" />
+              <e p="Modifier.cs" t="Include" />
+              <e p="Noise.cs" t="Include" />
+              <e p="Slope.cs" t="Include" />
+              <e p="TextureMask.cs" t="Include" />
+            </e>
+            <e p="ModifierStack.cs" t="Include" />
+            <e p="sc.terrain.painter.runtime.asmdef" t="Include" />
+            <e p="TerrainChangeListener.cs" t="Include" />
+            <e p="TerrainPainter.cs" t="Include" />
+            <e p="Utilities.cs" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="Filters.hlsl" t="Include" />
+            <e p="Modifier.shader" t="Include" />
+            <e p="Noise.hlsl" t="Include" />
+          </e>
+        </e>
         <e p="RPG Character Animation Pack" t="Include">
           <e p="Elements" t="Include">
             <e p="ImageEffects" t="Include">
@@ -1264,6 +1301,24 @@
             <e p="Readme.cs" t="Include" />
           </e>
         </e>
+        <e p="VegetationSpawner" t="Include">
+          <e p="Editor" t="Include">
+            <e p="sc.vegetationspawner.editor.asmdef" t="Include" />
+            <e p="VegetationSpawnerEditor.cs" t="Include" />
+            <e p="VegetationSpawnerInspector.cs" t="Include" />
+          </e>
+          <e p="Runtime" t="Include">
+            <e p="Cell.cs" t="Include" />
+            <e p="PoissonDisc.cs" t="Include" />
+            <e p="sc.vegetationspawner.runtime.asmdef" t="Include" />
+            <e p="SpawnerBase.cs" t="Include" />
+            <e p="TerrainSampler.cs" t="Include" />
+            <e p="VegetationSpawner.Collision.cs" t="Include" />
+            <e p="VegetationSpawner.cs" t="Include" />
+            <e p="VegetationSpawner.Grass.cs" t="Include" />
+            <e p="VegetationSpawner.Trees.cs" t="Include" />
+          </e>
+        </e>
       </e>
       <e p="Endgame.sln" t="IncludeFlat" />
       <e p="kcp2k.csproj" t="IncludeRecursive" />
@@ -1276,6 +1331,10 @@
       <e p="Mirror.Weaver.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
+      <e p="sc.terrain.painter.editor.csproj" t="IncludeRecursive" />
+      <e p="sc.terrain.painter.runtime.csproj" t="IncludeRecursive" />
+      <e p="sc.vegetationspawner.editor.csproj" t="IncludeRecursive" />
+      <e p="sc.vegetationspawner.runtime.csproj" t="IncludeRecursive" />
       <e p="SimpleWebTransport.csproj" t="IncludeRecursive" />
       <e p="Telepathy.csproj" t="IncludeRecursive" />
       <e p="Temp\Bin" t="ExcludeRecursive" />

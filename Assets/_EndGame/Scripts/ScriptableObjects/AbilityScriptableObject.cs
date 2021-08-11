@@ -2,10 +2,10 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class AbilityData : ScriptableObject
+public class AbilityScriptableObject : ScriptableObject
 {
     public string AnimationName;
-    public DebuffAbilityData[] Debuffs;
+    public DebuffScriptableObject[] Debuffs;
     
     [Tooltip("Time the attack will play for. After Casting if exists")]
     public float AttackDuration;

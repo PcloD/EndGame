@@ -14,9 +14,8 @@ public class PlayerMovementData
 
     [ReadOnly] public Vector3 MouseDelta;
     [ReadOnly] public Vector3 MovementInput;
-    [ReadOnly] public Vector3 AttackVelocity;
-    [ReadOnly] public Vector3 RecoilVelocity;
     [ReadOnly] public Vector3 DodgeVelocity;
+    [ReadOnly] public bool IsSlowed;
     [ReadOnly] public Vector3 Velocity;
     [ReadOnly] public Vector3 RelativeVelocity;
 

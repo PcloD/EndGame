@@ -4,6 +4,7 @@ using FirstGearGames.Mirrors.Assets.FlexNetworkAnimators;
 using Mirror;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public class QueuedAbilityData
@@ -11,18 +12,18 @@ public class QueuedAbilityData
     public readonly float startTime;
     public readonly AbilityActionCode abilityActionCode;
     public readonly Vector3 abilityTarget;
-    public readonly AbilityData abilityData;
+    public readonly AbilityScriptableObject abilityScriptableObject;
     public float currentCastTime;
     public bool hasFired;
 
     public bool initilized = false;
 
-    public QueuedAbilityData(AbilityActionCode actionCode, Vector3 target, AbilityData abilData)
+    public QueuedAbilityData(AbilityActionCode actionCode, Vector3 target, AbilityScriptableObject abilScriptableObject)
     {
         startTime = Time.time;
         abilityActionCode = actionCode;
         abilityTarget = target;
-        abilityData = abilData;
+        abilityScriptableObject = abilScriptableObject;
     }
 }
 
@@ -46,7 +47,7 @@ public class NetworkAbilityHandler : NetworkBehaviour
     
     [ReadOnly]public float abilityClearedTime;
 
-    public WeaponData CurrentWeaponData;
+    [FormerlySerializedAs("CurrentWeaponData")] public WeaponScriptableObject currentWeaponScriptableObject;
 
     public bool IsAttacking => currentAbility != null;
     
@@ -107,11 +108,11 @@ public class NetworkAbilityHandler : NetworkBehaviour
             case AbilityActionCode.None:
                 break;
             case AbilityActionCode.LightAttack:
-                if (Time.time < lastAttackTime + CurrentWeaponData.LightAttacks[currentLightAttackIndex].LightAttackComboReset)
+                if (Time.time < lastAttackTime + currentWeaponScriptableObject.LightAttacks[currentLightAttackIndex].LightAttackComboReset)
                 {
                     // inside combo time
                     currentLightAttackIndex++;
-                    if (currentLightAttackIndex >= CurrentWeaponData.LightAttacks.Length) currentLightAttackIndex = 0;
+                    if (currentLightAttackIndex >= currentWeaponScriptableObject.LightAttacks.Length) currentLightAttackIndex = 0;
                 }
                 else
                 {
@@ -119,14 +120,14 @@ public class NetworkAbilityHandler : NetworkBehaviour
                     currentLightAttackIndex = 0;
                 }
                 lastAttackTime = Time.time;
-                currentAbility = new QueuedAbilityData(AbilityActionCode.LightAttack, playerNb.MoveData.MouseDelta, CurrentWeaponData.LightAttacks[currentLightAttackIndex]);
+                currentAbility = new QueuedAbilityData(AbilityActionCode.LightAttack, playerNb.MoveData.MouseDelta, currentWeaponScriptableObject.LightAttacks[currentLightAttackIndex]);
                 break;
             case AbilityActionCode.HeavyAttack:
                 lastAttackTime = Time.time;
-                currentAbility = new QueuedAbilityData(AbilityActionCode.HeavyAttack, playerNb.MoveData.MouseDelta, CurrentWeaponData.HeavyAttack);
+                currentAbility = new QueuedAbilityData(AbilityActionCode.HeavyAttack, playerNb.MoveData.MouseDelta, currentWeaponScriptableObject.HeavyAttack);
                 break;
             case AbilityActionCode.Ability1:
-                var ability1 = CurrentWeaponData.Spell1;
+                var ability1 = currentWeaponScriptableObject.Spell1;
 
                 if (ability1.groundTarget)
                 {
@@ -137,7 +138,7 @@ public class NetworkAbilityHandler : NetworkBehaviour
                 currentAbility = new QueuedAbilityData(AbilityActionCode.Ability1, playerNb.MoveData.MouseDelta,ability1);
                 break;
             case AbilityActionCode.Ability2:
-                var ability2 = CurrentWeaponData.Spell2;
+                var ability2 = currentWeaponScriptableObject.Spell2;
 
                 if (ability2.groundTarget)
                 {
@@ -145,10 +146,10 @@ public class NetworkAbilityHandler : NetworkBehaviour
                     return;
                 }
                 lastAttackTime = Time.time;
-                currentAbility = new QueuedAbilityData(AbilityActionCode.Ability2, playerNb.MoveData.MouseDelta, CurrentWeaponData.Spell2);
+                currentAbility = new QueuedAbilityData(AbilityActionCode.Ability2, playerNb.MoveData.MouseDelta, currentWeaponScriptableObject.Spell2);
                 break;
             case AbilityActionCode.Ability3:
-                var ability3 = CurrentWeaponData.Spell3;
+                var ability3 = currentWeaponScriptableObject.Spell3;
 
                 if (ability3.groundTarget)
                 {
@@ -156,7 +157,7 @@ public class NetworkAbilityHandler : NetworkBehaviour
                     return;
                 }
                 lastAttackTime = Time.time;
-                currentAbility = new QueuedAbilityData(AbilityActionCode.Ability3, playerNb.MoveData.MouseDelta, CurrentWeaponData.Spell3);
+                currentAbility = new QueuedAbilityData(AbilityActionCode.Ability3, playerNb.MoveData.MouseDelta, currentWeaponScriptableObject.Spell3);
                 break;
             default:
                 break;
@@ -182,7 +183,7 @@ public class NetworkAbilityHandler : NetworkBehaviour
     }
     */
 
-    private AbilityData GetAbilityData(AbilityActionCode actionCode)
+    private AbilityScriptableObject GetAbilityData(AbilityActionCode actionCode)
     {
         switch (actionCode)
         {
@@ -190,19 +191,19 @@ public class NetworkAbilityHandler : NetworkBehaviour
                 return null;
                 break;
             case AbilityActionCode.LightAttack:
-                return CurrentWeaponData.LightAttacks[currentLightAttackIndex];
+                return currentWeaponScriptableObject.LightAttacks[currentLightAttackIndex];
                 break;
             case AbilityActionCode.HeavyAttack:
-                return CurrentWeaponData.HeavyAttack;
+                return currentWeaponScriptableObject.HeavyAttack;
                 break;
             case AbilityActionCode.Ability1:
-                return CurrentWeaponData.Spell1;
+                return currentWeaponScriptableObject.Spell1;
                 break;
             case AbilityActionCode.Ability2:
-                return CurrentWeaponData.Spell2;
+                return currentWeaponScriptableObject.Spell2;
                 break;
             case AbilityActionCode.Ability3:
-                return CurrentWeaponData.Spell3;
+                return currentWeaponScriptableObject.Spell3;
                 break;
             default:
                 return null;
@@ -233,7 +234,7 @@ public class NetworkAbilityHandler : NetworkBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             // create a new ability to reset the time
-            currentAbility = new QueuedAbilityData(groundTargetAbility.abilityActionCode, CameraManager.RayMouseHit.point, groundTargetAbility.abilityData);
+            currentAbility = new QueuedAbilityData(groundTargetAbility.abilityActionCode, CameraManager.RayMouseHit.point, groundTargetAbility.abilityScriptableObject);
             CmdSendGroundTarget(currentAbility.abilityActionCode, CameraManager.RayMouseHit.point);
             
             groundTargetAbility = null;
@@ -255,8 +256,8 @@ public class NetworkAbilityHandler : NetworkBehaviour
     {
         if (currentAbility == null) return;
         
-        var abilityData = currentAbility.abilityData;
-        var spellAbilityData = currentAbility.abilityData as SpellAbilityData;
+        var abilityData = currentAbility.abilityScriptableObject;
+        var spellAbilityData = currentAbility.abilityScriptableObject as SpellAbilityScriptableObject;
         
         float castTime = 0f;
         

@@ -6,6 +6,7 @@ public class Ability : MonoBehaviour
     protected float DestroyTime = -1f;
     protected bool IsServer;
     protected Transform OwnerTransform;
+    public DebuffScriptableObject TestDebuff;
 
     protected void Initilize(float destroyTime, Transform ownerTransform, bool isServer = false)
     {
@@ -32,7 +33,18 @@ public class Ability : MonoBehaviour
             if (IsServer)
             {
                 Debug.Log($"Server Do dmg");
+                
+                // server set debuffs
+                player.networkBuffHandler.AddDebuff(TestDebuff);
             }
+            else
+            {
+                // client
+               // player.networkBuffHandler.AddDummyDebuff(TestDebuff);
+            }
+            
+            // if spell hits local client and movement slowing debuff. add dummy 0.5s~ debuff
+            
             Destroy(gameObject);
         }
     }

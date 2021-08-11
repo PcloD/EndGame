@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 1H_Sword_LightAttack_2
   m_EditorClassIdentifier: 
   AnimationName: LightAttack2
+  Debuffs:
+  - {fileID: 11400000, guid: 6c1788a3896b8e94b9e93d379f8c77a9, type: 2}
   AttackDuration: 0.9
   AttackTime: 0.5
   LightAttackComboReset: 1

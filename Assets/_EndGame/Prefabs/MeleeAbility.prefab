@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8032ba126809dbd4986ff43b5c795d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TestDebuff: {fileID: 11400000, guid: 6c1788a3896b8e94b9e93d379f8c77a9, type: 2}
 --- !u!135 &-5158062050951120325
 SphereCollider:
   m_ObjectHideFlags: 0

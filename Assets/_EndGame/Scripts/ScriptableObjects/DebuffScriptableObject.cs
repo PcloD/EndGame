@@ -11,7 +11,7 @@ public enum DebuffType
 }
 [Serializable]
 [CreateAssetMenu(fileName = "Data", menuName = "EndGame/DebuffData", order = 1)]
-public class DebuffAbilityData : ScriptableObject
+public class DebuffScriptableObject : ScriptableObject
 {
     public DebuffType DebuffType;
     public float Duration;
