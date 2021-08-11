@@ -3,7 +3,7 @@ using UnityEngine;
 
 [Serializable]
 [CreateAssetMenu(fileName = "Data", menuName = "EndGame/SpellAbility(Not Implemented)", order = 1)]
-public class SpellAbilityData : AbilityData
+public class SpellAbilityScriptableObject : AbilityScriptableObject
 {
     public bool projectile = true;
     public bool groundTarget = true;
