@@ -280,11 +280,10 @@ public class NetworkAbilityHandler : NetworkBehaviour
 
             currentAbility.initilized = true;
         }
-        
-        // check if ability has cast time
-        
+
         if (spellAbilityData != null)
         {
+            // handle casting
             if (spellAbilityData.CastTime > 0)
             {
                 castTime = spellAbilityData.CastTime;

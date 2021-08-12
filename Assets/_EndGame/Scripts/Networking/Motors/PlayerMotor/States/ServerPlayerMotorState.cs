@@ -8,6 +8,6 @@ public struct ServerPlayerMotorState
     public uint FixedFrame;
     public Vector3 Position;
     public Vector3 DodgeVelocity;
-    public bool IsSlowed;
     public sbyte TimingStepChange;
+    public float MovementDamp;
 }

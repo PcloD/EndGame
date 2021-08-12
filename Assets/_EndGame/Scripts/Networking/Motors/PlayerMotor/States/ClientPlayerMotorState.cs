@@ -9,7 +9,5 @@ public struct ClientPlayerMotorState
     public Vector3 MousePosition;
     public float Horizontal;
     public float Forward;
-    public bool ActiveAbility;
-    public bool IsSlowed;
     public MovementActionCode movementActionCode;
 }

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "Data", menuName = "EndGame/WeaponData", order = 1)]
+[CreateAssetMenu(fileName = "Data", menuName = "EndGame/Weapon", order = 1)]
 public class WeaponScriptableObject : ScriptableObject
 {
     public float WeaponDamage;

@@ -7,7 +7,6 @@ using Mirror;
 using RootMotion.FinalIK;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Scripting.APIUpdating;
 
 public class PlayerNetworkBehaviour : NetworkBehaviour
 {
@@ -18,7 +17,7 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
     private LookAtIK _lookatIk;
 
     // using this to reset triggers
-    [ReadOnly]public List<AnimationTrigger> AnimationTriggers = new List<AnimationTrigger>();
+    [ReadOnly] public List<AnimationTrigger> AnimationTriggers = new List<AnimationTrigger>();
 
     #region PositionSyncing Vars
 
@@ -85,7 +84,7 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         if (base.hasAuthority)
         {
             InputData.HandleInputs();
-            
+
             // idk if i needa run this on server also
             foreach (var animationTrigger in AnimationTriggers)
             {
@@ -120,23 +119,27 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
     void HandlePlayerMovement(ClientPlayerMotorState motorState)
     {
         Vector3 moveDirection = new Vector3(motorState.Horizontal, 0f, motorState.Forward);
-
         // clamp diagonal speed
         moveDirection = moveDirection.magnitude > 1f ? moveDirection.normalized : moveDirection;
 
-        //Add move direction.
-        MoveData.MovementVelocityDamp = 1f;
+        // handle movement damp like slows / walking backwards
+        var targetMoveDamp = 1f;
+
+        if (MoveData.BackMoving) targetMoveDamp -= 0.25f;
+        if (networkBuffHandler.IsSlowed) targetMoveDamp -= 0.5f;
+        if (MoveData.IsBlocking) targetMoveDamp -= 0.3f;
+        if (networkAbilityHandler.IsAttacking) targetMoveDamp = 0.1f;
+        targetMoveDamp = Mathf.Clamp(targetMoveDamp, 0, 1);
+
+        MoveData.MovementVelocityDamp = Mathf.Lerp(MoveData.MovementVelocityDamp, targetMoveDamp, Time.fixedDeltaTime * 3f);
+
         
+        
+        // do roll & block
         ProcessMovementActionCodes(motorState);
 
-        if (MoveData.BackMoving) MoveData.MovementVelocityDamp -= 0.25f;
-        if (motorState.ActiveAbility) MoveData.MovementVelocityDamp = 0.1f;
-        if (motorState.IsSlowed) MoveData.MovementVelocityDamp -= 0.5f;
-
-        MoveData.IsSlowed = motorState.IsSlowed;
-        MoveData.MovementVelocityDamp = Mathf.Clamp(MoveData.MovementVelocityDamp, 0, 1);
-        MoveData.MovementVelocityDamp = MoveData.BaseMoveSpeed * MoveData.MovementVelocityDamp;
-
+        var speed = MoveData.BaseMoveSpeed * MoveData.MovementVelocityDamp;
+        
         if (_characterController.isGrounded)
         {
             moveDirection.y = 0;
@@ -145,9 +148,9 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         {
             moveDirection.y -= 50f * Time.fixedDeltaTime;
         }
-        
-        moveDirection = (moveDirection + MoveData.DodgeVelocity) * (MoveData.MovementVelocityDamp * Time.fixedDeltaTime);
-        
+
+        moveDirection = (moveDirection + MoveData.DodgeVelocity) * (speed * Time.fixedDeltaTime);
+
         // lower velocities 
         //MoveData.AttackVelocity = Vector3.MoveTowards(MoveData.AttackVelocity, Vector3.zero,
         //    Time.fixedDeltaTime * AttackVelocityNegativeForce);
@@ -155,7 +158,7 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
             Time.fixedDeltaTime * MoveData.NegativeDodgeForce);
 
         //Move character.
-        _characterController.Move(moveDirection); 
+        _characterController.Move(moveDirection);
     }
 
     void HandlePlayerRotation(Vector3 mousePosition)
@@ -163,10 +166,11 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         if (MoveData.IsRolling)
         {
             _lookatIk.solver.IKPositionWeight = 0f;
-            var aimTarget = transform.position +  (MoveData.BackMoving ? -MoveData.DodgeVelocity : MoveData.DodgeVelocity);
+            var aimTarget = transform.position +
+                            (MoveData.BackMoving ? -MoveData.DodgeVelocity : MoveData.DodgeVelocity);
             var direction = aimTarget - transform.position;
             direction.y = 0f;
-            
+
             var lookRotation = Quaternion.LookRotation(direction);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 5f);
@@ -176,10 +180,11 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         if (networkAbilityHandler.IsAttacking)
         {
             Vector3 aimPosition = Vector3.zero;
-            
+
             if (networkAbilityHandler.currentAbility != null)
             {
-                var spellAbility = networkAbilityHandler.currentAbility.abilityScriptableObject as SpellAbilityScriptableObject;
+                var spellAbility =
+                    networkAbilityHandler.currentAbility.abilityScriptableObject as SpellAbilityScriptableObject;
                 if (spellAbility != null)
                 {
                     aimPosition = spellAbility.projectile
@@ -189,14 +194,13 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
                 else
                 {
                     aimPosition = networkAbilityHandler.currentAbility.abilityTarget;
-
                 }
             }
             else
             {
                 aimPosition = MoveData.MouseDelta;
             }
-           
+
             IkAimTransform.transform.position = aimPosition + transform.position + Vector3.up;
 
             if (aimPosition.sqrMagnitude < 0.1f) return;
@@ -205,16 +209,17 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 5f);
             return;
         }
-        
+
         _lookatIk.solver.IKPositionWeight = 1f;
-       
-        
+
         // todo fix this 
-        IkAimTransform.transform.position = Vector3.Lerp(IkAimTransform.position,mousePosition + Vector3.up, Time.fixedDeltaTime * 10f);
-        
+        IkAimTransform.transform.position = Vector3.Lerp(IkAimTransform.position, mousePosition + Vector3.up,
+            Time.fixedDeltaTime * 10f);
+
         var rot = MoveData.MouseDelta;
         if (rot.magnitude < 0.1f) return;
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(rot), Time.fixedDeltaTime * MoveData.BaseRotationSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(rot),
+            Time.fixedDeltaTime * MoveData.BaseRotationSpeed);
     }
 
     /// <summary>
@@ -225,10 +230,11 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         var normalizedVel = transform.InverseTransformDirection(MoveData.MovementInput).normalized;
         var currentVerticle = animator.GetFloat("Vertical");
         var currentHorrizonal = animator.GetFloat("Horizontal");
-        
+
         animator.SetFloat("Speed", MoveData.RelativeVelocity.z); // don't use the normalized value here
-        animator.SetFloat("Vertical", Mathf.Lerp(currentVerticle,normalizedVel.z, Time.fixedDeltaTime * 5f));
-        animator.SetFloat("Horizontal",Mathf.Lerp(currentHorrizonal,normalizedVel.x, Time.fixedDeltaTime * 5f));;
+        animator.SetFloat("Vertical", Mathf.Lerp(currentVerticle, normalizedVel.z, Time.fixedDeltaTime * 5f));
+        animator.SetFloat("Horizontal", Mathf.Lerp(currentHorrizonal, normalizedVel.x, Time.fixedDeltaTime * 5f));
+        ;
     }
 
     /// <summary>
@@ -266,7 +272,8 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         transform.position = serverState.Position;
         // transform.rotation = serverState.Rotation;
         MoveData.DodgeVelocity = serverState.DodgeVelocity;
-        
+        MoveData.MovementVelocityDamp = serverState.MovementDamp;
+
         Physics.SyncTransforms();
 
         foreach (ClientPlayerMotorState clientState in _clientMotorStates)
@@ -303,6 +310,7 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         if (_receivedClientMotorStates.Count > 0)
         {
             ClientPlayerMotorState state = _receivedClientMotorStates.Dequeue();
+
             //Process input of last received motor state.
             ProcessInputs(state);
 
@@ -312,7 +320,7 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
                 Position = transform.position,
                 DodgeVelocity = MoveData.DodgeVelocity,
                 TimingStepChange = timingStepChange,
-                IsSlowed = networkBuffHandler.IsSlowed
+                MovementDamp = MoveData.MovementVelocityDamp
             };
 
             //Send results back to the owner.
@@ -329,14 +337,13 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
     private void ProcessMovementActionCodes(ClientPlayerMotorState motorState)
     {
         if (networkAbilityHandler.IsAttacking) return;
-        
+
         switch (motorState.movementActionCode)
         {
             case MovementActionCode.Block:
             {
                 if (MoveData.CanBlockOrDodge && Time.time > networkAbilityHandler.abilityClearedTime + 0.25f)
                 {
-                    MoveData.MovementVelocityDamp -= 0.3f;
                     animator.SetBool("Block", MoveData.CanBlockOrDodge);
                     MoveData.IsBlocking = true;
                 }
@@ -346,7 +353,8 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
             {
                 if (MoveData.CanBlockOrDodge && Time.time > networkAbilityHandler.abilityClearedTime + 0.25f)
                 {
-                    MoveData.DodgeVelocity = MoveData.MovementInput.normalized.magnitude < 0.1f ? transform.forward * (MoveData.DodgeForce * 1.2f)
+                    MoveData.DodgeVelocity = MoveData.MovementInput.normalized.magnitude < 0.1f
+                        ? transform.forward * (MoveData.DodgeForce * 1.2f)
                         : MoveData.MovementInput.normalized * MoveData.DodgeForce;
                     _fna.SetTrigger("Dodge");
                     AnimationTriggers.Add(new AnimationTrigger("Dodge"));
@@ -368,18 +376,18 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
     {
         motorState.Horizontal = Floats.PreciseSign(motorState.Horizontal);
         motorState.Forward = Floats.PreciseSign(motorState.Forward);
-        
+
         MoveData.MovementInput = new Vector3(motorState.Horizontal, 0f, motorState.Forward);
         MoveData.MouseDelta = motorState.MousePosition - transform.position;
         MoveData.MouseDelta.y = 0f;
 
         HandlePlayerMovement(motorState);
         HandlePlayerRotation(motorState.MousePosition);
-       // HandlePlayerAbility(motorState.ActionCode);
-        
+        // HandlePlayerAbility(motorState.ActionCode);
+
         MoveData.Velocity = _characterController.velocity;
         MoveData.RelativeVelocity = transform.InverseTransformDirection(_characterController.velocity);
-        
+
         SetAnimationValues();
     }
 
@@ -401,9 +409,7 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
             Horizontal = horizontal,
             Forward = forward,
             movementActionCode = ac,
-            MousePosition = CameraManager.RayMouseHit.point,
-            ActiveAbility = networkAbilityHandler.IsAttacking,
-            IsSlowed = networkBuffHandler.IsSlowed
+            MousePosition = CameraManager.RayMouseHit.point
         };
         _clientMotorStates.Add(state);
 

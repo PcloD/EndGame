@@ -10,10 +10,15 @@ public enum DebuffType
     DamageOverTime = 3
 }
 [Serializable]
-[CreateAssetMenu(fileName = "Data", menuName = "EndGame/DebuffData", order = 1)]
+[CreateAssetMenu(fileName = "Data", menuName = "EndGame/Debuff", order = 1)]
 public class DebuffScriptableObject : ScriptableObject
 {
     public DebuffType DebuffType;
     public float Duration;
+}
 
+public struct DebuffNetworkData
+{
+    public DebuffType DebuffType;
+    public double NetworkExpirationTime;
 }

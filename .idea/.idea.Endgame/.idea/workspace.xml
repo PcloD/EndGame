@@ -22,18 +22,37 @@
     <list default="true" id="6bfbd124-a032-4e25-931b-640c9bed4c11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Terrain 6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Terrain 6.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/MeleeAbility.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/MeleeAbility.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scenes/Dev.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scenes/Dev.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/FixedUpdateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/FixedUpdateManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerMovementData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerMovementData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/ClientPlayerMotorState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/ClientPlayerMotorState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/ServerPlayerMotorState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/ServerPlayerMotorState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkBuffHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkBuffHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/Ability.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/Ability.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_0.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_0.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_HeavyAttack_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_HeavyAttack_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/SpellAbility_Fireball.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/SpellAbility_Fireball.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/SpellAbility_Meteor.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/SpellAbility_Meteor.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Debuffs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Debuffs/Debuff_Slow.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Debuffs/Debuff_Slow.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Weapons.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Weapons/1H_Sword.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Weapons/1H_Sword.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/DebuffScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/DebuffScriptableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityScriptableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponScriptableObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +63,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/LightAbilityData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/UISetPing.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/LightAbilityScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/PlayerMotorActionCodes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerMovementData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/Ability.cs" root0="FORCE_HIGHLIGHTING" />
@@ -53,14 +73,14 @@
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/AnimationTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/FirstGearGames/Supporters/Tutorials/SyncingProjectiles/Scripts/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilityMelee.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/HeavyAbilityData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/HeavyAbilityScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CFC1AD89-0650-411E-946C-FF2E6F276711/a1/569c6f0a/Object.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilityGroundProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../GUnchained/gu-unity-2018/Assets/IntegrationTests/TestPlay_QA_CantAttack.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6FCFDD16-2B5D-4836-BEF3-C96F53194DB6/29/747c5721/Stack`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/DebuffAbilityData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/DebuffScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CFC1AD89-0650-411E-946C-FF2E6F276711/38/7b781690/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerGroundTarget.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/FixedUpdateManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -70,15 +90,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scenes/Network/GameNetworkManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Mirror/Runtime/NetworkIdentity.cs" />
-        <option value="$PROJECT_DIR$/Assets/FirstGearGames/Milestone_CharacterController/Scripts/Motor.cs" />
-        <option value="$PROJECT_DIR$/Assets/FirstGearGames/Milestone_Platforms/Scripts/Platform/PlatformStateController.cs" />
-        <option value="$PROJECT_DIR$/Assets/FirstGearGames/Milestone_Platforms/Scripts/SpectatorStateController.cs" />
         <option value="$PROJECT_DIR$/Assets/FirstGearGames/Milestone_Platforms/Scripts/SmoothToZero.cs" />
         <option value="$PROJECT_DIR$/Assets/FirstGearGames/Milestone_CharacterController/Scripts/SmoothToZero.cs" />
         <option value="$PROJECT_DIR$/Assets/FirstGearGames/Milestone_CharacterController/Scripts/FixedUpdateManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/FixedUpdateManager.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/SmoothToZero.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerIKMotor.cs" />
@@ -113,13 +127,19 @@
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilityMelee.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilityProjectile.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Test.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkBuffHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/PlayerMotorActionCodes.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/AbilityScriptableObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityScriptableObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponScriptableObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/DebuffScriptableObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/UISetPing.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/FixedUpdateManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerMovementData.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/Ability.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/ServerPlayerMotorState.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/ClientPlayerMotorState.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerMovementData.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/PlayerMotorActionCodes.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" />
       </list>
     </option>
@@ -183,7 +203,8 @@
       <workItem from="1627976293265" duration="40244000" />
       <workItem from="1628232763564" duration="57069000" />
       <workItem from="1628480376033" duration="25005000" />
-      <workItem from="1628667050472" duration="6771000" />
+      <workItem from="1628667050472" duration="23370000" />
+      <workItem from="1628754059667" duration="693000" />
     </task>
     <servers />
   </component>
@@ -312,16 +333,16 @@
     </state>
     <state x="0" y="0" width="1893" height="792" key="dock-window-4/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628676795739" />
     <state x="0" y="0" width="1893" height="792" key="dock-window-4/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628669193554" />
-    <state x="1783" y="-8" width="1893" height="792" maximized="true" key="dock-window-5" timestamp="1628679333054">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="-142" y="394" width="1893" height="792" key="dock-window-5" timestamp="1628754352606">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1783" y="-8" width="1893" height="792" maximized="true" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628679333054" />
-    <state x="-321" y="-8" width="1893" height="792" maximized="true" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628564882642" />
-    <state x="2523" y="253" width="714" height="534" key="find.popup" timestamp="1628508717259">
+    <state x="-142" y="394" width="1893" height="792" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628754352606" />
+    <state x="2523" y="253" width="714" height="534" key="find.popup" timestamp="1628731585723">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="603" y="253" width="714" height="534" key="find.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628317959141" />
-    <state x="2523" y="253" width="714" height="534" key="find.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628508717259" />
+    <state x="2523" y="253" width="714" height="534" key="find.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628731585723" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1628070793045">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

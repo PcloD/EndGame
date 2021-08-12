@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "Data", menuName = "EndGame/SpellAbility(Not Implemented)", order = 1)]
+[CreateAssetMenu(fileName = "Data", menuName = "EndGame/SpellAbility", order = 1)]
 public class SpellAbilityScriptableObject : AbilityScriptableObject
 {
     public bool projectile = true;

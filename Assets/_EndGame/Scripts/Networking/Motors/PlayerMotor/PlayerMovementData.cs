@@ -10,12 +10,11 @@ public class PlayerMovementData
     public float DodgeForce = 2f;
     public float NegativeDodgeForce = 3f;
 
-    [ReadOnly] public float MovementVelocityDamp;
+    [ReadOnly] public float MovementVelocityDamp = 1f;
 
     [ReadOnly] public Vector3 MouseDelta;
     [ReadOnly] public Vector3 MovementInput;
     [ReadOnly] public Vector3 DodgeVelocity;
-    [ReadOnly] public bool IsSlowed;
     [ReadOnly] public Vector3 Velocity;
     [ReadOnly] public Vector3 RelativeVelocity;
 

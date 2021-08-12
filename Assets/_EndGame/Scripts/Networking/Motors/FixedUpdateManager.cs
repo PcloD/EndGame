@@ -27,7 +27,7 @@ public class FixedUpdateManager : MonoBehaviour
     /// <summary>
     /// Current FixedUpdate timing.
     /// </summary>
-    private static float _adjustedFixedUpdate;
+    public static float _adjustedFixedUpdate;
 
     /// <summary>
     /// Current fixed frame. Applied before any events are invoked.

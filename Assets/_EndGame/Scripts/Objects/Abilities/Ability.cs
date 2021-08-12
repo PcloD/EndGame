@@ -39,8 +39,8 @@ public class Ability : MonoBehaviour
             }
             else
             {
-                // client
-               // player.networkBuffHandler.AddDummyDebuff(TestDebuff);
+               //  client
+               player.networkBuffHandler.AddDummyDebuff(TestDebuff);
             }
             
             // if spell hits local client and movement slowing debuff. add dummy 0.5s~ debuff
