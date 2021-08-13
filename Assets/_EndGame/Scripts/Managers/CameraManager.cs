@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class CameraManager : MonoBehaviour
     public static Transform TrackedIKTransform;
 
     public static RaycastHit RayMouseHit;
+
+    [SerializeField]private LayerMask layerMask;
     
     public Transform CameraTransform;
     public Vector3 CameraOffset;
@@ -24,11 +27,10 @@ public class CameraManager : MonoBehaviour
     {
         CameraTransform = transform;
         camera = GetComponent<Camera>();
-        FixedUpdateManager.OnFixedUpdate += OnFixedUpdate;
 
     }
 
-    private void OnFixedUpdate()
+    private void Update()
     {
         if (TrackedTransform == null) return;
 
@@ -41,7 +43,7 @@ public class CameraManager : MonoBehaviour
         if (TrackedIKTransform == null) return;
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out RayMouseHit))
+        if (Physics.Raycast(ray,out RayMouseHit,50f,layerMask))
         {
            
         }

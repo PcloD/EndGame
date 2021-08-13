@@ -234,7 +234,6 @@ public class PlayerNetworkBehaviour : NetworkBehaviour
         animator.SetFloat("Speed", MoveData.RelativeVelocity.z); // don't use the normalized value here
         animator.SetFloat("Vertical", Mathf.Lerp(currentVerticle, normalizedVel.z, Time.fixedDeltaTime * 5f));
         animator.SetFloat("Horizontal", Mathf.Lerp(currentHorrizonal, normalizedVel.x, Time.fixedDeltaTime * 5f));
-        ;
     }
 
     /// <summary>

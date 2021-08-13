@@ -22,37 +22,15 @@
     <list default="true" id="6bfbd124-a032-4e25-931b-640c9bed4c11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Kevin Iglesias/Basic Motions/AnimationControllers/BasicMotions@Walk01 - Forwards.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Kevin Iglesias/Basic Motions/AnimationControllers/BasicMotions@Walk01 - Forwards.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/ForwardRenderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/ForwardRenderer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP-HighQuality.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP-HighQuality.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Rendering Pipeline Asset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Rendering Pipeline Asset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Rendering Pipeline Asset_Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Rendering Pipeline Asset_Renderer.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scenes/Dev.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scenes/Dev.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/FixedUpdateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/FixedUpdateManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerMovementData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerMovementData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/ClientPlayerMotorState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/ClientPlayerMotorState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/ServerPlayerMotorState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/ServerPlayerMotorState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/Ability.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/Ability.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_HeavyAttack_0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_HeavyAttack_0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_2.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/1H_Sword_LightAttack_2.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/SpellAbility_Fireball.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/SpellAbility_Fireball.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/SpellAbility_Meteor.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Abilities/SpellAbility_Meteor.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Debuffs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Debuffs/Debuff_Slow.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Debuffs/Debuff_Slow.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Weapons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Weapons/1H_Sword.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/Data/Weapons/1H_Sword.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/DebuffScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/DebuffScriptableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityScriptableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponScriptableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,40 +41,38 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/UISetPing.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/LightAbilityScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CFC1AD89-0650-411E-946C-FF2E6F276711/de/863e6c52/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/PlayerMotorActionCodes.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerMovementData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/Ability.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkAbilityHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkBuffHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/AnimationTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/FirstGearGames/Supporters/Tutorials/SyncingProjectiles/Scripts/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilityMelee.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/HeavyAbilityScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CFC1AD89-0650-411E-946C-FF2E6F276711/a1/569c6f0a/Object.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilityGroundProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../GUnchained/gu-unity-2018/Assets/IntegrationTests/TestPlay_QA_CantAttack.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6FCFDD16-2B5D-4836-BEF3-C96F53194DB6/29/747c5721/Stack`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/DebuffScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CFC1AD89-0650-411E-946C-FF2E6F276711/38/7b781690/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerGroundTarget.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/FixedUpdateManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/NetworkPlayerBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/MouseCursorManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/UISetPing.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/LightAbilityScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerMovementData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/Ability.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkBuffHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/AnimationTrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/HeavyAbilityScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6FCFDD16-2B5D-4836-BEF3-C96F53194DB6/29/747c5721/Stack`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/DebuffScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Test.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/FirstGearGames/Milestone_Platforms/Scripts/SmoothToZero.cs" />
-        <option value="$PROJECT_DIR$/Assets/FirstGearGames/Milestone_CharacterController/Scripts/SmoothToZero.cs" />
-        <option value="$PROJECT_DIR$/Assets/FirstGearGames/Milestone_CharacterController/Scripts/FixedUpdateManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/SmoothToZero.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/PlayerIKMotor.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/FlexNetworkCharacterAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/FirstGearGames/Supporters/Assets/FlexNetworkAnimator/Scripts/FlexNetworkAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/AnimationTrigger.cs" />
@@ -141,6 +117,11 @@
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/ServerPlayerMotorState.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/Motors/PlayerMotor/States/ClientPlayerMotorState.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/RetainedGizmos.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/MouseCursorHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/MouseCursorManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/NetworkPlayerBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" />
       </list>
     </option>
   </component>
@@ -150,8 +131,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34981194" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30037615" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -204,7 +185,8 @@
       <workItem from="1628232763564" duration="57069000" />
       <workItem from="1628480376033" duration="25005000" />
       <workItem from="1628667050472" duration="23370000" />
-      <workItem from="1628754059667" duration="693000" />
+      <workItem from="1628754059667" duration="7331000" />
+      <workItem from="1628842747297" duration="4580000" />
     </task>
     <servers />
   </component>
@@ -229,95 +211,95 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="381" key="GridCell.Tab.0.bottom" timestamp="1628492057363">
+    <state width="1877" height="381" key="GridCell.Tab.0.bottom" timestamp="1628773264696">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548871" />
-    <state width="1877" height="381" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057363" />
-    <state width="1877" height="381" key="GridCell.Tab.0.center" timestamp="1628492057362">
+    <state width="1877" height="381" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264696" />
+    <state width="1877" height="381" key="GridCell.Tab.0.center" timestamp="1628773264696">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548871" />
-    <state width="1877" height="381" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057362" />
-    <state width="1877" height="381" key="GridCell.Tab.0.left" timestamp="1628492057362">
+    <state width="1877" height="381" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264696" />
+    <state width="1877" height="381" key="GridCell.Tab.0.left" timestamp="1628773264696">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548871" />
-    <state width="1877" height="381" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057362" />
-    <state width="1877" height="381" key="GridCell.Tab.0.right" timestamp="1628492057362">
+    <state width="1877" height="381" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264696" />
+    <state width="1877" height="381" key="GridCell.Tab.0.right" timestamp="1628773264696">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548871" />
-    <state width="1877" height="381" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057362" />
-    <state width="1877" height="381" key="GridCell.Tab.1.bottom" timestamp="1628492057363">
+    <state width="1877" height="381" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264696" />
+    <state width="1877" height="381" key="GridCell.Tab.1.bottom" timestamp="1628773264696">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548873" />
-    <state width="1877" height="381" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057363" />
-    <state width="1877" height="381" key="GridCell.Tab.1.center" timestamp="1628492057363">
+    <state width="1877" height="381" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264696" />
+    <state width="1877" height="381" key="GridCell.Tab.1.center" timestamp="1628773264696">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548872" />
-    <state width="1877" height="381" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057363" />
-    <state width="1877" height="381" key="GridCell.Tab.1.left" timestamp="1628492057363">
+    <state width="1877" height="381" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264696" />
+    <state width="1877" height="381" key="GridCell.Tab.1.left" timestamp="1628773264696">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548872" />
-    <state width="1877" height="381" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057363" />
-    <state width="1877" height="381" key="GridCell.Tab.1.right" timestamp="1628492057363">
+    <state width="1877" height="381" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264696" />
+    <state width="1877" height="381" key="GridCell.Tab.1.right" timestamp="1628773264696">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548872" />
-    <state width="1877" height="381" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057363" />
-    <state width="1877" height="381" key="GridCell.Tab.2.bottom" timestamp="1628492057363">
+    <state width="1877" height="381" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264696" />
+    <state width="1877" height="381" key="GridCell.Tab.2.bottom" timestamp="1628773264697">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.2.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548873" />
-    <state width="1877" height="381" key="GridCell.Tab.2.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057363" />
-    <state width="1877" height="381" key="GridCell.Tab.2.center" timestamp="1628492057363">
+    <state width="1877" height="381" key="GridCell.Tab.2.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264697" />
+    <state width="1877" height="381" key="GridCell.Tab.2.center" timestamp="1628773264697">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.2.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548873" />
-    <state width="1877" height="381" key="GridCell.Tab.2.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057363" />
-    <state width="1877" height="381" key="GridCell.Tab.2.left" timestamp="1628492057363">
+    <state width="1877" height="381" key="GridCell.Tab.2.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264697" />
+    <state width="1877" height="381" key="GridCell.Tab.2.left" timestamp="1628773264696">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.2.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548873" />
-    <state width="1877" height="381" key="GridCell.Tab.2.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057363" />
-    <state width="1877" height="381" key="GridCell.Tab.2.right" timestamp="1628492057363">
+    <state width="1877" height="381" key="GridCell.Tab.2.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264696" />
+    <state width="1877" height="381" key="GridCell.Tab.2.right" timestamp="1628773264697">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.2.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548873" />
-    <state width="1877" height="381" key="GridCell.Tab.2.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057363" />
-    <state width="1877" height="381" key="GridCell.Tab.3.bottom" timestamp="1628492057363">
+    <state width="1877" height="381" key="GridCell.Tab.2.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264697" />
+    <state width="1877" height="381" key="GridCell.Tab.3.bottom" timestamp="1628773264697">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.3.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548874" />
-    <state width="1877" height="381" key="GridCell.Tab.3.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057363" />
-    <state width="1877" height="381" key="GridCell.Tab.3.center" timestamp="1628492057363">
+    <state width="1877" height="381" key="GridCell.Tab.3.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264697" />
+    <state width="1877" height="381" key="GridCell.Tab.3.center" timestamp="1628773264697">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.3.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548874" />
-    <state width="1877" height="381" key="GridCell.Tab.3.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057363" />
-    <state width="1877" height="381" key="GridCell.Tab.3.left" timestamp="1628492057363">
+    <state width="1877" height="381" key="GridCell.Tab.3.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264697" />
+    <state width="1877" height="381" key="GridCell.Tab.3.left" timestamp="1628773264697">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.3.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548874" />
-    <state width="1877" height="381" key="GridCell.Tab.3.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057363" />
-    <state width="1877" height="381" key="GridCell.Tab.3.right" timestamp="1628492057363">
+    <state width="1877" height="381" key="GridCell.Tab.3.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264697" />
+    <state width="1877" height="381" key="GridCell.Tab.3.right" timestamp="1628773264697">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.3.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628417548874" />
-    <state width="1877" height="381" key="GridCell.Tab.3.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628492057363" />
+    <state width="1877" height="381" key="GridCell.Tab.3.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628773264697" />
     <state x="2590" y="210" key="RiderGenerateDialog" timestamp="1628408911556">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2590" y="210" key="RiderGenerateDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628408911556" />
-    <state x="353" y="125" width="1893" height="1027" key="dock-window-1" timestamp="1628667422308">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2030" y="-10" width="1893" height="1027" maximized="true" key="dock-window-1" timestamp="1628859743339">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2005" y="-8" width="1893" height="717" maximized="true" key="dock-window-1/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628080123473" />
-    <state x="353" y="125" width="1893" height="1027" key="dock-window-1/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628667422308" />
+    <state x="2030" y="-10" width="1893" height="1027" maximized="true" key="dock-window-1/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628859743339" />
     <state x="-537" y="-15" width="1893" height="1027" maximized="true" key="dock-window-2" timestamp="1628678938637">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -333,11 +315,11 @@
     </state>
     <state x="0" y="0" width="1893" height="792" key="dock-window-4/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628676795739" />
     <state x="0" y="0" width="1893" height="792" key="dock-window-4/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628669193554" />
-    <state x="-142" y="394" width="1893" height="792" key="dock-window-5" timestamp="1628754352606">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1673" y="-10" width="1893" height="792" key="dock-window-5" timestamp="1628859426317">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="1783" y="-8" width="1893" height="792" maximized="true" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628679333054" />
-    <state x="-142" y="394" width="1893" height="792" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628754352606" />
+    <state x="1673" y="-10" width="1893" height="792" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628859426317" />
     <state x="2523" y="253" width="714" height="534" key="find.popup" timestamp="1628731585723">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
