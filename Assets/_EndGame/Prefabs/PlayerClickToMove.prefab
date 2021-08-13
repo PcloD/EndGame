@@ -243,7 +243,6 @@ MonoBehaviour:
   syncInterval: 0.1
   MoveSpeed: 1
   IkAimTransform: {fileID: 3997211996623799457}
-  ClickMoveParticle: {fileID: 0}
 --- !u!114 &2392331762194646409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,7 +391,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3997211996623799462}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

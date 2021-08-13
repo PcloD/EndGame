@@ -80,7 +80,10 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            MouseCursorManager.Instance.ClickMoveParticle.transform.position = CameraManager.RayMouseHit.point + (Vector3.up * 0.01f);
+            MouseCursorManager.Instance.ClickMoveParticle.transform.parent.up = CameraManager.RayMouseHit.normal;
+            MouseCursorManager.Instance.ClickMoveParticle.transform.parent.position = CameraManager.RayMouseHit.point;
+            Debug.Log("Normal "+CameraManager.RayMouseHit.normal);
+            
             MouseCursorManager.Instance.ClickMoveParticle.Play();
           
             CmdRequestMove(CameraManager.RayMouseHit.point);

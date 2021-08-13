@@ -20,17 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfbd124-a032-4e25-931b-640c9bed4c11" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Kevin Iglesias/Basic Motions/AnimationControllers/BasicMotions@Walk01 - Forwards.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Kevin Iglesias/Basic Motions/AnimationControllers/BasicMotions@Walk01 - Forwards.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/ForwardRenderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/ForwardRenderer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP-HighQuality.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP-HighQuality.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Rendering Pipeline Asset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Rendering Pipeline Asset.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Rendering Pipeline Asset_Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Rendering Pipeline Asset_Renderer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ARPG Effects/Materials/Loot/roundsmoothitem2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ARPG Effects/Materials/Loot/roundsmoothitem2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Materials/ClickMoveCircleBlocked.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Materials/ClickMoveCircleBlocked.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/PlayerClickToMove.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/PlayerClickToMove.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scenes/Dev.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scenes/Dev.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/NetworkPlayerBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/NetworkPlayerBehaviour.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,9 +114,9 @@
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerNetworkBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/RetainedGizmos.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/MouseCursorHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/MouseCursorManager.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/NetworkPlayerBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" />
       </list>
     </option>
   </component>
@@ -186,7 +181,7 @@
       <workItem from="1628480376033" duration="25005000" />
       <workItem from="1628667050472" duration="23370000" />
       <workItem from="1628754059667" duration="7331000" />
-      <workItem from="1628842747297" duration="4580000" />
+      <workItem from="1628842747297" duration="6077000" />
     </task>
     <servers />
   </component>
@@ -315,11 +310,11 @@
     </state>
     <state x="0" y="0" width="1893" height="792" key="dock-window-4/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628676795739" />
     <state x="0" y="0" width="1893" height="792" key="dock-window-4/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628669193554" />
-    <state x="1673" y="-10" width="1893" height="792" key="dock-window-5" timestamp="1628859426317">
+    <state x="1673" y="-10" width="1893" height="792" maximized="true" key="dock-window-5" timestamp="1628862676797">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="1783" y="-8" width="1893" height="792" maximized="true" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1628679333054" />
-    <state x="1673" y="-10" width="1893" height="792" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628859426317" />
+    <state x="1673" y="-10" width="1893" height="792" maximized="true" key="dock-window-5/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628862676797" />
     <state x="2523" y="253" width="714" height="534" key="find.popup" timestamp="1628731585723">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
