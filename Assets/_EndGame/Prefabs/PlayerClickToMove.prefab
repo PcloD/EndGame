@@ -70,12 +70,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3997211996623799456}
+  - component: {fileID: -8733984466496936618}
+  - component: {fileID: -8963005075571896176}
   - component: {fileID: 3997211996623799476}
   - component: {fileID: 3997211996623799480}
   - component: {fileID: 3997211996623799479}
   - component: {fileID: 3997211996623799461}
   - component: {fileID: 4723585398014970032}
-  - component: {fileID: -8733984466496936618}
   - component: {fileID: 2392331762194646409}
   - component: {fileID: 5067801716997693716}
   - component: {fileID: 1020338631835909480}
@@ -105,6 +106,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8733984466496936618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997211996623799460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf92c0ceab7ef1e4ba8938b5a11db917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  MoveSpeed: 1
+  IkAimTransform: {fileID: 3997211996623799457}
+  entityTracker:
+    AttackRange: 0
+--- !u!114 &-8963005075571896176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997211996623799460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf22c77800938e41ad4f54a20d88ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  TESTWEAPON: {fileID: 11400000, guid: aad7884e08fa1b549a222ce5e35377c4, type: 2}
 --- !u!114 &3997211996623799476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,22 +261,6 @@ MonoBehaviour:
   _synchronizeInterval: 0.1
   _clientAuthoritative: 0
   _synchronizeToOwner: 0
---- !u!114 &-8733984466496936618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3997211996623799460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf92c0ceab7ef1e4ba8938b5a11db917, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  MoveSpeed: 1
-  IkAimTransform: {fileID: 3997211996623799457}
 --- !u!114 &2392331762194646409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +314,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   centerOffsetCompatibility: NaN
   orientation: 0
-  enableRotation: 1
+  enableRotation: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: 50
   rotationSpeed: 360

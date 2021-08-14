@@ -14,10 +14,13 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
     private Animator animator;
     private FlexNetworkAnimator fna;
     private IAstarAI aStar;
+    public EntityEnemyTracker entityTracker;
+    private EntityAbilityHandler entityAbilityHandler;
 
     private new Transform transform;
-    private Vector3 movePosition;
-    private Vector3 MoveDelta => (movePosition - transform.position).normalized;
+    
+    private Vector3 velocityRelative;
+    private Vector3 velocity;
 
     
     #region Initilization
@@ -28,7 +31,7 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
         NetworkFirstInitilize();
 
         if (!hasAuthority) return;
-        CameraManager.TrackedTransform = transform.Find("Mesh");
+        CameraManager.TrackedTransform = transform;
         CameraManager.TrackedIKTransform = IkAimTransform;
     }
 
@@ -45,12 +48,18 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
             Destroy(GetComponent<AIPath>());
             Destroy(GetComponent<RaycastModifier>());
         }
-
-        if (isServer) aStar = GetComponent<AIPath>();
-
+        
         transform = GetComponent<Transform>();
         animator = GetComponent<Animator>();
         fna = GetComponent<FlexNetworkAnimator>();
+        
+        if (isServer)
+        {
+            aStar = GetComponent<AIPath>();
+            entityTracker = new EntityEnemyTracker(transform, aStar);
+            entityAbilityHandler = GetComponent<EntityAbilityHandler>();
+            entityAbilityHandler.ServerInitilize(this,animator,entityTracker,fna);
+        }
     }
 
     #endregion
@@ -68,40 +77,46 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
 
     void OnServerUpdate()
     {
+        velocityRelative = transform.InverseTransformPoint(aStar.velocity + transform.position);
+        velocity = aStar.velocity;
         SetAnimationValues();
-        if (MoveDelta.sqrMagnitude > 0.1f)
-        {
-            
-        }
+        HandleRotation();
+        entityTracker.OnUpdate();
+        entityAbilityHandler.OnUpdate();
     }
 
     [Client]
     void ClientMove()
     {
-        if (Input.GetMouseButtonDown(0))
+        // left or right click
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
-            MouseCursorManager.Instance.ClickMoveParticle.transform.parent.up = CameraManager.RayMouseHit.normal;
-            MouseCursorManager.Instance.ClickMoveParticle.transform.parent.position = CameraManager.RayMouseHit.point;
-            Debug.Log("Normal "+CameraManager.RayMouseHit.normal);
-            
-            MouseCursorManager.Instance.ClickMoveParticle.Play();
-          
-            CmdRequestMove(CameraManager.RayMouseHit.point);
+            if (MouseCursorManager.Instance.CurrentCursorType == MouseCursorManager.CursorType.Default)
+            {
+                MouseCursorManager.Instance.DoClickParticle();
+                CmdRequestMove(CameraManager.RayMouseHit.point);
+            }
+
+            if (MouseCursorManager.Instance.CurrentCursorType == MouseCursorManager.CursorType.Attack)
+            {
+                CmdRequestAttack(MouseCursorManager.Instance.EnemyEntity);
+            }
+           
         }
     }
 
     [Server]
     void SetAnimationValues()
     {
-        animator.SetFloat("ForwardSpeed", transform.InverseTransformPoint(aStar.velocity + transform.position).z);
+        animator.SetFloat("ForwardSpeed", velocityRelative.z);
     }
 
     [Server]
     void HandleRotation()
     {
-        if (MoveDelta.sqrMagnitude < 0.1f) return;
+        if (velocity.sqrMagnitude < 0.1f) return;
 
-        var direction = MoveDelta;
+        var direction = velocity;
         direction.y = 0f;
         var lookRotation = Quaternion.LookRotation(direction);
 
@@ -113,9 +128,20 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
     [Command]
     private void CmdRequestMove(Vector3 mousePosition)
     {
+        entityTracker.TrackedEnemyTransform = null;
+
+        aStar.isStopped = false;
         aStar.destination = mousePosition;
         aStar.SearchPath();
     }
+
+    [Command]
+    private void CmdRequestAttack(GameObject entity)
+    {
+        entityTracker.TrackedEnemyTransform = entity.transform;
+    }
+    
+    
 
     #endregion
 }

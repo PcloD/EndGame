@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
@@ -10,6 +8,7 @@ public class CameraManager : MonoBehaviour
     /// The position of this transform is network Synced via a component on the Player Transform (FlexNetworkTransform)
     /// </summary>
     public static Transform TrackedIKTransform;
+
 
     public static RaycastHit RayMouseHit;
 
@@ -27,7 +26,6 @@ public class CameraManager : MonoBehaviour
     {
         CameraTransform = transform;
         camera = GetComponent<Camera>();
-
     }
 
     private void Update()
@@ -45,7 +43,22 @@ public class CameraManager : MonoBehaviour
 
         if (Physics.Raycast(ray,out RayMouseHit,50f,layerMask))
         {
-           
+            // ground layer
+            if (RayMouseHit.transform.gameObject.layer == 8)
+            {
+                MouseCursorManager.Instance.CurrentCursorType = MouseCursorManager.CursorType.Default;
+            }
+
+            if (RayMouseHit.transform.gameObject.layer == 7)
+            {
+                if (RayMouseHit.transform == TrackedTransform)
+                {
+                    MouseCursorManager.Instance.CurrentCursorType = MouseCursorManager.CursorType.DefaultCharacter;
+                    return;
+                }
+                MouseCursorManager.Instance.CurrentCursorType = MouseCursorManager.CursorType.Attack;
+                MouseCursorManager.Instance.EnemyEntity = RayMouseHit.transform.gameObject;
+            }
         }
     }
 }
