@@ -16,23 +16,10 @@ public class AbilityProjectile : Ability
          base.Update();
          
          float moveValue = moveSpeed * Time.deltaTime;
-         float catchupValue = 0f;
-
-         if (catchupDistance > 0f)
-         {
-             float step = catchupDistance * Time.deltaTime;
-             catchupDistance -= step;
-             catchupValue = step;
-
-             if (catchupDistance < (moveValue * 0.1f))
-             {
-                 catchupValue += catchupDistance;
-                 catchupDistance = 0f;
-             }
-         }
+         
          
          // handle move
-         transform.position += Direction * (moveValue + catchupValue);
+         transform.position += Direction * moveValue;
          
      }
 
