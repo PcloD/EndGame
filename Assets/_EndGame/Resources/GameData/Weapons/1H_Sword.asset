@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 1H_Sword
   m_EditorClassIdentifier: 
   WeaponDamage: 5
+  AutoHitStyle: 0
+  AutoAttackRange: 2
   LightAttacks:
   - {fileID: 11400000, guid: d229bc19d6e4fc142a12d3087dd469fb, type: 2}
   - {fileID: 11400000, guid: e87fd5c38c4c4f44e933d5ab4468257c, type: 2}

@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class AbilityProjectile : Ability
+public class AbilityDirectProjectile : Ability
 {
     [SerializeField] private float moveSpeed = 5f;
     
-    public Vector3 Direction;
-    
-     private float catchupDistance = 0f;
+    public Vector3 targetPosition;
+    public Vector3 Direction => (targetPosition - transform.position).normalized;
 
      public override void Update()
      {
@@ -23,11 +22,9 @@ public class AbilityProjectile : Ability
          
      }
 
-     public void Initilize(float duration,bool isServer, float destroyTime, Vector3 direction, Transform ownerTransform)
+     public void Initilize(bool isServer, float destroyTime, Vector3 targetPos, Transform ownerTransform)
      {
          Initilize(destroyTime, ownerTransform, isServer);
-         
-         catchupDistance = (duration * moveSpeed);
-         Direction = direction;
+         targetPosition = targetPos;
      }
 }

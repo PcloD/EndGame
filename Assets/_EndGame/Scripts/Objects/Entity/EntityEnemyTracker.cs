@@ -7,6 +7,7 @@ public class EntityEnemyTracker
 {
     private Transform ourEntityTransform;
     private AIPath aStar;
+    private EntityAbilityHandler abilityHandler;
 
     public float AttackRange = 2f;
     
@@ -17,6 +18,12 @@ public class EntityEnemyTracker
         set
         {
             if (value == _trackedEnemyTransform) return;
+            if (_trackedEnemyTransform && value)
+            {
+                // new target cancel ability
+                abilityHandler.currentAbility = null;
+                Debug.Log($"New target cancel ability");
+            }
             _trackedEnemyTransform = value;
 
             if (_trackedEnemyTransform == null) return;
@@ -25,10 +32,11 @@ public class EntityEnemyTracker
         }
     }
     
-    public EntityEnemyTracker(Transform ourTransform, AIPath astarAI)
+    public EntityEnemyTracker(Transform ourTransform, AIPath astarAI, EntityAbilityHandler abilHandler)
     {
         ourEntityTransform = ourTransform;
         aStar = astarAI;
+        abilityHandler = abilHandler;
     }
 
     private float DistanceToEnemy()
@@ -39,6 +47,11 @@ public class EntityEnemyTracker
     public bool IsInRange()
     {
        return DistanceToEnemy() <= AttackRange;
+    }
+
+    public bool IsTrackingAvailable()
+    {
+        return !IsInRange() && abilityHandler.currentAbility == null;
     }
 
     public void OnUpdate()
@@ -54,11 +67,10 @@ public class EntityEnemyTracker
             return;
         }
         
-        aStar.isStopped = IsInRange();
+        aStar.isStopped = !IsTrackingAvailable();
 
-        if (IsInRange())
+        if (!IsTrackingAvailable())
         {
-            aStar.ClearCurrentPath();
             return;
         }
 

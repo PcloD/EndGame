@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using FirstGearGames.Mirrors.Assets.FlexNetworkAnimators;
 using Mirror;
+using Pathfinding;
+using Unity.Mathematics;
 using UnityEngine;
 
 public enum AbilityCode
@@ -15,71 +17,73 @@ public enum AbilityCode
 
 public class EntityAbilityHandler : NetworkBehaviour
 {
-    private const float AUTO_ATTACK_TIME = 0.3f;
-
-    // i think we syncVar this? or maybe make a lighter struct
     public WeaponScriptableObject TESTWEAPON;
-    
+    public EntityEnemyTracker entityTracker;
+
     private NetworkPlayerBehaviour playerNb;
     private Animator animator;
     private FlexNetworkAnimator fna;
-    private EntityEnemyTracker entityTracker;
-    private bool initilized = false;
+    
+    private WeaponScriptableObject currentWeaponScriptableObject;
+    private int _currentWeaponScriptableObjectIndex;
+    public int currentWeaponScriptableObjectIndex
+    {
+        get { return _currentWeaponScriptableObjectIndex; }
+        set
+        {
+            _currentWeaponScriptableObjectIndex = value;
+            currentWeaponScriptableObject = GameArmoryManager.WeaponScriptableObjects[value];
+            entityTracker.AttackRange = currentWeaponScriptableObject.AutoAttackRange;
+        }
+    }
 
     private CurrentAbility _currentAbility;
-
-    private CurrentAbility currentAbility
+    public CurrentAbility currentAbility
     {
         get { return _currentAbility; }
         set
         {
             _currentAbility = value;
+            
+            if(_currentAbility == null) fna.SetTrigger("AbortAbility");
+            
             if (_currentAbility != null)
             {
-                playerNb.aStar.ClearCurrentPath();
+                playerNb.aStar.isStopped = true;
             }
         }
     }
     private float lastAutoTime;
 
-    public void ServerInitilize(NetworkPlayerBehaviour playerNb, Animator animator, EntityEnemyTracker entityTracker, FlexNetworkAnimator flexNetworkAnimator)
-    {
-        this.playerNb = playerNb;
-        this.animator = animator;
-        this.entityTracker = entityTracker;
-        this.fna = flexNetworkAnimator;
-        this.initilized = true;
-    }
 
-    public class CurrentAbility
-    {
-        public readonly float startTime;
-        public readonly AbilityCode abilityCode;
-        public readonly AbilityScriptableObject abilitySo;
-
-        public bool initilized = false;
-        public bool hasFired = false;
-
-        public CurrentAbility(AbilityCode ac, AbilityScriptableObject abSo)
-        {
-            abilityCode = ac;
-            startTime = Time.time;
-            abilitySo = abSo;
-        }
-    }
     
     private bool IsAutoAttackAvailable()
     {
-        return lastAutoTime < Time.time + AUTO_ATTACK_TIME;
+        return lastAutoTime < Time.time + currentWeaponScriptableObject.AutoAttacks[currentAutoIndex].AttackDuration;
     }
 
-    public void OnUpdate()
+    public void Update()
     {
-        if (isServer)
-        {
-            TryAutoAttack();
-            ProcessCurrentAbility();
-        }
+        if (!isServer) return;
+        
+        
+        TryAutoAttack();
+        ProcessCurrentAbility();
+        entityTracker.OnUpdate();
+    }
+
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+        entityTracker = new EntityEnemyTracker(transform, GetComponent<AIPath>(), this);
+    }
+
+    void Start()
+    {
+        currentWeaponScriptableObjectIndex = GameArmoryManager.FindWeaponScriptableObjectIndex(TESTWEAPON);
+        playerNb = GetComponent<NetworkPlayerBehaviour>();
+        fna = GetComponent<FlexNetworkAnimator>();
+        animator = GetComponent<Animator>();
     }
 
     [Server]
@@ -94,36 +98,34 @@ public class EntityAbilityHandler : NetworkBehaviour
         }
     }
 
-    
     private int currentAutoIndex;
     [Server]
     private void QueueAutoAttack()
     {
-        if (Time.time < lastAutoTime + TESTWEAPON.LightAttacks[currentAutoIndex].LightAttackComboReset)
+        if (Time.time < lastAutoTime + currentWeaponScriptableObject.AutoAttacks[currentAutoIndex].LightAttackComboReset)
         {
             // inside combo time
             currentAutoIndex++;
-            if (currentAutoIndex >= TESTWEAPON.LightAttacks.Length) currentAutoIndex = 0;
+            if (currentAutoIndex >= currentWeaponScriptableObject.AutoAttacks.Length) currentAutoIndex = 0;
         }
 
         lastAutoTime = Time.time;
-        currentAbility = new CurrentAbility(AbilityCode.Auto, TESTWEAPON.LightAttacks[currentAutoIndex]);
+        currentAbility = new CurrentAbility(AbilityCode.Auto, currentWeaponScriptableObject.AutoAttacks[currentAutoIndex]);
     }
 
     [Server]
     private void ProcessCurrentAbility()
     {
         if (currentAbility == null) return;
-        Debug.Log(playerNb.IsMoving());
         
+        // check if player has aborted ability by moving
         if (playerNb.IsMoving())
         {
+            Debug.Log($"moving so killing ability");
             currentAbility = null;
-            fna.SetTrigger("AbortAbility");
             return;
         }
-        
-        
+
         if (!currentAbility.initilized)
         {
             switch (currentAbility.abilityCode)
@@ -142,6 +144,7 @@ public class EntityAbilityHandler : NetworkBehaviour
             }
             currentAbility.initilized = true;
         }
+        
         TryFireAbility();
         TryClearAbility();
     }
@@ -149,13 +152,45 @@ public class EntityAbilityHandler : NetworkBehaviour
     private void TryFireAbility()
     {
         if (currentAbility.hasFired) return;
-        
+
         if (Time.time > currentAbility.startTime + currentAbility.abilitySo.AttackTime)
         {
-                Debug.Log("Firing ability");
-                currentAbility.hasFired = true;
+            currentAbility.hasFired = true;
+
+            switch (currentAbility.abilityCode)
+            {
+                case AbilityCode.Auto:
+                    switch (currentWeaponScriptableObject.AutoHitStyle)
+                    {
+                        case AutoHitStyle.Melee:
+                            Debug.Log($"Server Damage for 5!");
+                            // deal melee damage
+                            break;
+                        case AutoHitStyle.Ranged:
+                            // rpc ranged attack
+                            var directProjectile = Instantiate(currentAbility.abilitySo.AbilityPrefab, transform.position + Vector3.up, quaternion.identity) as AbilityDirectProjectile;
+                            directProjectile.Initilize(true, 5f, entityTracker.TrackedEnemyTransform.position + Vector3.up, transform);
+                            
+                            RpcAutoAttack(entityTracker.TrackedEnemyTransform.gameObject, currentAutoIndex);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                    break;
+                case AbilityCode.Spell1:
+                    break;
+                case AbilityCode.Spell2:
+                    break;
+                case AbilityCode.Spell3:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            // spawn ability and RPC to everyone
+           // Ability ability = Instantiate(currentAbility.abilitySo.AbilityPrefab, transform.position, Quaternion.identity);
+          //  ability.Initilize(10f, transform, true);
         }
-        
     }
 
     private void TryClearAbility()
@@ -169,8 +204,28 @@ public class EntityAbilityHandler : NetworkBehaviour
 
 
     [ClientRpc]
-    private void RpcAutoAttack()
+    private void RpcAutoAttack(GameObject target, int comboCount)
     {
+        var directProjectile = Instantiate(currentWeaponScriptableObject.AutoAttacks[comboCount].AbilityPrefab, transform.position + Vector3.up, quaternion.identity) as AbilityDirectProjectile;
         
+        directProjectile.Initilize(true, 5f, entityTracker.TrackedEnemyTransform.position + Vector3.up, transform);
+                            
+    }
+}
+
+public class CurrentAbility
+{
+    public readonly float startTime;
+    public readonly AbilityCode abilityCode;
+    public readonly AbilityScriptableObject abilitySo;
+
+    public bool initilized = false;
+    public bool hasFired = false;
+
+    public CurrentAbility(AbilityCode ac, AbilityScriptableObject abSo)
+    {
+        abilityCode = ac;
+        startTime = Time.time;
+        abilitySo = abSo;
     }
 }

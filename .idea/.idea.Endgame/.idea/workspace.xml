@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6bfbd124-a032-4e25-931b-640c9bed4c11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AI/AIPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AI/AIPath.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityAbilityHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityAbilityHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityEnemyTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityEnemyTracker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/NetworkPlayerBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/NetworkPlayerBehaviour.cs" afterDir="false" />
@@ -182,7 +181,7 @@
       <workItem from="1628480376033" duration="25005000" />
       <workItem from="1628667050472" duration="23370000" />
       <workItem from="1628754059667" duration="7331000" />
-      <workItem from="1628842747297" duration="23100000" />
+      <workItem from="1628842747297" duration="24095000" />
     </task>
     <servers />
   </component>
@@ -329,24 +328,5 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628070793045" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityEnemyTracker.cs</url>
-          <line>64</line>
-          <properties documentPath="D:\Endgame\Assets\_EndGame\Scripts\Objects\Entity\EntityEnemyTracker.cs" initialLine="65">
-            <startOffsets>
-              <option value="1568" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1619" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

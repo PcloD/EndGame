@@ -15,7 +15,6 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
     private Animator animator;
     private FlexNetworkAnimator fna;
     [ReadOnly]public AIPath aStar;
-    public EntityEnemyTracker entityTracker;
     private EntityAbilityHandler entityAbilityHandler;
 
     private new Transform transform;
@@ -52,14 +51,12 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
         
         transform = GetComponent<Transform>();
         animator = GetComponent<Animator>();
-        fna = GetComponent<FlexNetworkAnimator>();
+        fna = GetComponent<FlexNetworkAnimator>();   
+        entityAbilityHandler = GetComponent<EntityAbilityHandler>();
         
         if (isServer)
         {
             aStar = GetComponent<AIPath>();
-            entityTracker = new EntityEnemyTracker(transform, aStar);
-            entityAbilityHandler = GetComponent<EntityAbilityHandler>();
-            entityAbilityHandler.ServerInitilize(this,animator,entityTracker,fna);
         }
     }
 
@@ -82,14 +79,12 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
         velocity = aStar.velocity;
         SetAnimationValues();
         HandleRotation();
-        entityTracker.OnUpdate();
-        entityAbilityHandler.OnUpdate();
     }
 
     [Server]
     public bool IsMoving()
     {
-        return aStar.hasPath;
+        return aStar.hasPath && !aStar.isStopped;
     }
 
     [Client]
@@ -121,24 +116,37 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
     [Server]
     void HandleRotation()
     {
+        // ability rotation
+        if (entityAbilityHandler.currentAbility != null && entityAbilityHandler.entityTracker.TrackedEnemyTransform)
+        {
+            var lookDir = entityAbilityHandler.entityTracker.TrackedEnemyTransform.position - transform.position;
+            lookDir.y = 0f;
+            var abilityRotation = Quaternion.LookRotation(lookDir);
+            transform.rotation = Quaternion.Slerp(transform.rotation, abilityRotation, Time.fixedDeltaTime * 5f);
+        }
+        
+        // movement rotation
         if (velocity.sqrMagnitude < 0.1f) return;
-
         var direction = velocity;
         direction.y = 0f;
         var lookRotation = Quaternion.LookRotation(direction);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 5f);
     }
+    
+    
 
     #region Server Commands
 
     [Command]
     private void CmdRequestMove(Vector3 mousePosition)
     {
-        entityTracker.TrackedEnemyTransform = null;
+        entityAbilityHandler.entityTracker.TrackedEnemyTransform = null;
 
         
         aStar.isStopped = false;
+       // aStar.ClearCurrentPath();
+        
         aStar.destination = mousePosition;
         aStar.SearchPath();
     }
@@ -146,7 +154,7 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
     [Command]
     private void CmdRequestAttack(GameObject entity)
     {
-        entityTracker.TrackedEnemyTransform = entity.transform;
+        entityAbilityHandler.entityTracker.TrackedEnemyTransform = entity.transform;
     }
     
     
