@@ -13,6 +13,7 @@ public enum AutoHitStyle
 [CreateAssetMenu(fileName = "Data", menuName = "EndGame/Weapon", order = 1)]
 public class WeaponScriptableObject : ScriptableObject
 {
+    public Weapon Weapon;
     public float WeaponDamage;
     public AutoHitStyle AutoHitStyle;
     public int AutoAttackRange;

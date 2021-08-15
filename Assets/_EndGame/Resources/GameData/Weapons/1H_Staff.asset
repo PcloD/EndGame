@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76640167fa39904a8c2c48c3f422300, type: 3}
   m_Name: 1H_Staff
   m_EditorClassIdentifier: 
+  Weapon: {fileID: 6044744364572868241, guid: 95438729a692926469e07da40639a932, type: 3}
   WeaponDamage: 5
   AutoHitStyle: 1
   AutoAttackRange: 7

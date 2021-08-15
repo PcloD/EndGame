@@ -7,7 +7,7 @@ using Pathfinding;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetworkPlayerBehaviour : NetworkBehaviour
+public class NetworkPlayerBehaviour : EntityNetworkBehaviour
 {
     public float MoveSpeed = 1f;
     public Transform IkAimTransform;
@@ -142,10 +142,8 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
     private void CmdRequestMove(Vector3 mousePosition)
     {
         entityAbilityHandler.entityTracker.TrackedEnemyTransform = null;
-
         
         aStar.isStopped = false;
-       // aStar.ClearCurrentPath();
         
         aStar.destination = mousePosition;
         aStar.SearchPath();

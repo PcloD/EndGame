@@ -5,13 +5,13 @@ public class Ability : MonoBehaviour
 {
     protected float DestroyTime = -1f;
     protected bool IsServer;
-    protected Transform OwnerTransform;
+    protected EntityNetworkBehaviour OwnerEntity;
 
-    protected void Initilize(float destroyTime, Transform ownerTransform, bool isServer = false)
+    protected void Initilize(float destroyTime, EntityNetworkBehaviour ownerEntity, bool isServer = false)
     {
         this.DestroyTime = destroyTime + Time.time;
         this.IsServer = isServer;
-        this.OwnerTransform = ownerTransform;
+        this.OwnerEntity = ownerEntity;
     }
 
     public virtual void Update()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityGroundProjectile : Ability
+public class AbilityGround : Ability
 {
     [SerializeField] private float moveSpeed = 5f;
     
@@ -41,9 +41,9 @@ public class AbilityGroundProjectile : Ability
          return Time.time > DestroyTime || Vector3.Distance(transform.position, TargetPosition) < 0.25f;
      }
 
-     public void Initilize(float duration,bool isServer, float destroyTime, Vector3 targetPosition, Transform ownerTransform)
+     public void Initilize(float duration,bool isServer, float destroyTime, Vector3 targetPosition, EntityNetworkBehaviour ownerEntity)
      {
-         Initilize(destroyTime, ownerTransform,  isServer);
+         Initilize(destroyTime, ownerEntity,  isServer);
          
          catchupDistance = (duration * moveSpeed);
          TargetPosition = targetPosition;

@@ -12,13 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76640167fa39904a8c2c48c3f422300, type: 3}
   m_Name: 1H_Sword
   m_EditorClassIdentifier: 
+  Weapon: {fileID: 6044744364572868241, guid: 95438729a692926469e07da40639a932, type: 3}
   WeaponDamage: 5
   AutoHitStyle: 0
   AutoAttackRange: 2
-  LightAttacks:
-  - {fileID: 11400000, guid: d229bc19d6e4fc142a12d3087dd469fb, type: 2}
-  - {fileID: 11400000, guid: e87fd5c38c4c4f44e933d5ab4468257c, type: 2}
-  HeavyAttack: {fileID: 11400000, guid: 969e4b4395438064c86aa91da0ba2aac, type: 2}
-  Spell1: {fileID: 11400000, guid: daecc4dab3410874eaf1c831d10130f7, type: 2}
-  Spell2: {fileID: 11400000, guid: e6f630385d4d717428118e8ea94ea80b, type: 2}
-  Spell3: {fileID: 0}
+  AutoAttacks: []

@@ -4,23 +4,20 @@ using Assets.Scripts.Utils;
 using UnityEditor;
 using UnityEngine;
 
-public class AbilityDirectProjectile : Ability
+public class AbilityDirect : Ability
 {
     [SerializeField] private float moveSpeed = 5f;
 
     [ReadOnly] public GameObject target;
-    public Vector3 Direction => (target.transform.position - transform.position).normalized;
+    private Vector3 Direction => (target.transform.position - transform.position).normalized;
 
      public override void Update()
      {
          base.Update();
          
-         float moveValue = moveSpeed * Time.deltaTime;
-         
-         
+         var moveValue = moveSpeed * Time.deltaTime;
          // handle move
          transform.position += Direction * moveValue;
-         
      }
 
      public override void OnTriggerEnter(Collider other)
@@ -34,9 +31,9 @@ public class AbilityDirectProjectile : Ability
 
      }
 
-     public void Initilize(bool isServer, float destroyTime, GameObject target, Transform ownerTransform)
+     public void Initilize(bool isServer, float destroyTime, GameObject target, EntityNetworkBehaviour ownerEntity)
      {
-         Initilize(destroyTime, ownerTransform, isServer);
+         Initilize(destroyTime, ownerEntity, isServer);
          this.target = target;
      }
 }

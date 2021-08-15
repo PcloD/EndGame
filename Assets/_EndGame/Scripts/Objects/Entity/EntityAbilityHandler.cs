@@ -23,20 +23,8 @@ public class EntityAbilityHandler : NetworkBehaviour
     private NetworkPlayerBehaviour playerNb;
     private Animator animator;
     private FlexNetworkAnimator fna;
-    
-    private WeaponScriptableObject currentWeaponScriptableObject;
-    private int _currentWeaponScriptableObjectIndex;
-    public int currentWeaponScriptableObjectIndex
-    {
-        get { return _currentWeaponScriptableObjectIndex; }
-        set
-        {
-            _currentWeaponScriptableObjectIndex = value;
-            currentWeaponScriptableObject = GameArmoryManager.WeaponScriptableObjects[value];
-            entityTracker.AttackRange = currentWeaponScriptableObject.AutoAttackRange;
-        }
-    }
-
+    private EquipmentInventoryNB equipmentInventory;
+   
     private CurrentAbility _currentAbility;
     public CurrentAbility currentAbility
     {
@@ -44,7 +32,6 @@ public class EntityAbilityHandler : NetworkBehaviour
         set
         {
             _currentAbility = value;
-            
             if(_currentAbility == null) fna.SetTrigger("AbortAbility");
             
             if (_currentAbility != null)
@@ -54,12 +41,9 @@ public class EntityAbilityHandler : NetworkBehaviour
         }
     }
     private float lastAutoTime;
-
-
-    
     private bool IsAutoAttackAvailable()
     {
-        return lastAutoTime < Time.time + currentWeaponScriptableObject.AutoAttacks[currentAutoIndex].AttackDuration;
+        return lastAutoTime < Time.time + equipmentInventory.CurrentWeapon.WeaponScriptableObject.AutoAttacks[currentAutoIndex].AttackDuration;
     }
 
     public void Update()
@@ -78,12 +62,12 @@ public class EntityAbilityHandler : NetworkBehaviour
         entityTracker = new EntityEnemyTracker(transform, GetComponent<AIPath>(), this);
     }
 
-    void Start()
+    void Awake()
     {
-        currentWeaponScriptableObjectIndex = GameArmoryManager.FindWeaponScriptableObjectIndex(TESTWEAPON);
         playerNb = GetComponent<NetworkPlayerBehaviour>();
         fna = GetComponent<FlexNetworkAnimator>();
         animator = GetComponent<Animator>();
+        equipmentInventory = GetComponent<EquipmentInventoryNB>();
     }
 
     [Server]
@@ -102,15 +86,15 @@ public class EntityAbilityHandler : NetworkBehaviour
     [Server]
     private void QueueAutoAttack()
     {
-        if (Time.time < lastAutoTime + currentWeaponScriptableObject.AutoAttacks[currentAutoIndex].LightAttackComboReset)
+        if (Time.time < lastAutoTime + equipmentInventory.CurrentWeapon.WeaponScriptableObject.AutoAttacks[currentAutoIndex].AutoAttackComboReset)
         {
             // inside combo time
             currentAutoIndex++;
-            if (currentAutoIndex >= currentWeaponScriptableObject.AutoAttacks.Length) currentAutoIndex = 0;
+            if (currentAutoIndex >= equipmentInventory.CurrentWeapon.WeaponScriptableObject.AutoAttacks.Length) currentAutoIndex = 0;
         }
 
         lastAutoTime = Time.time;
-        currentAbility = new CurrentAbility(AbilityCode.Auto, currentWeaponScriptableObject.AutoAttacks[currentAutoIndex]);
+        currentAbility = new CurrentAbility(AbilityCode.Auto, equipmentInventory.CurrentWeapon.WeaponScriptableObject.AutoAttacks[currentAutoIndex]);
     }
 
     [Server]
@@ -160,7 +144,7 @@ public class EntityAbilityHandler : NetworkBehaviour
             switch (currentAbility.abilityCode)
             {
                 case AbilityCode.Auto:
-                    switch (currentWeaponScriptableObject.AutoHitStyle)
+                    switch (equipmentInventory.CurrentWeapon.WeaponScriptableObject.AutoHitStyle)
                     {
                         case AutoHitStyle.Melee:
                             Debug.Log($"Server Damage for 5!");
@@ -168,8 +152,8 @@ public class EntityAbilityHandler : NetworkBehaviour
                             break;
                         case AutoHitStyle.Ranged:
                             // rpc ranged attack
-                            var directProjectile = Instantiate(currentAbility.abilitySo.AbilityPrefab, transform.position + Vector3.up, quaternion.identity) as AbilityDirectProjectile;
-                            directProjectile.Initilize(true, 5f, entityTracker.TrackedEnemyTransform.position + Vector3.up, transform);
+                            var directProjectile = Instantiate(currentAbility.abilitySo.AbilityPrefab, transform.position + Vector3.up, quaternion.identity) as AbilityDirect;
+                            directProjectile.Initilize(true, 5f, entityTracker.TrackedEnemyTransform.gameObject, playerNb);
                             
                             RpcAutoAttack(entityTracker.TrackedEnemyTransform.gameObject, currentAutoIndex);
                             break;
@@ -206,9 +190,12 @@ public class EntityAbilityHandler : NetworkBehaviour
     [ClientRpc]
     private void RpcAutoAttack(GameObject target, int comboCount)
     {
-        var directProjectile = Instantiate(currentWeaponScriptableObject.AutoAttacks[comboCount].AbilityPrefab, transform.position + Vector3.up, quaternion.identity) as AbilityDirectProjectile;
+        // dont run on host
+        if (isServer) return;
         
-        directProjectile.Initilize(true, 5f, entityTracker.TrackedEnemyTransform.position + Vector3.up, transform);
+        var directProjectile = Instantiate(equipmentInventory.CurrentWeapon.WeaponScriptableObject.AutoAttacks[comboCount].AbilityPrefab, transform.position + Vector3.up, quaternion.identity) as AbilityDirect;
+        
+        directProjectile.Initilize(false, 5f, target, playerNb);
                             
     }
 }

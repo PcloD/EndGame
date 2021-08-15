@@ -17,8 +17,12 @@
             <e p="EditorRuntime" t="Include">
               <e p="BitMaskAttribute.cs" t="Include" />
             </e>
+            <e p="Inventory" t="Include">
+              <e p="EquipmentInventoryNB.cs" t="Include" />
+            </e>
             <e p="Managers" t="Include">
               <e p="CameraManager.cs" t="Include" />
+              <e p="GameArmoryManager.cs" t="Include" />
             </e>
             <e p="Networking" t="Include">
               <e p="AnimationTrigger.cs" t="Include" />
@@ -35,31 +39,32 @@
                 </e>
                 <e p="SmoothToZero.cs" t="Include" />
               </e>
-              <e p="NetworkAbilityHandler.cs" t="Include" />
               <e p="NetworkBuffHandler.cs" t="Include" />
             </e>
             <e p="Objects" t="Include">
               <e p="Abilities" t="Include">
                 <e p="Ability.cs" t="Include" />
-                <e p="AbilityGroundProjectile.cs" t="Include" />
+                <e p="AbilityDirect.cs" t="Include" />
+                <e p="AbilityGround.cs" t="Include" />
                 <e p="AbilityMelee.cs" t="Include" />
-                <e p="AbilityProjectile.cs" t="Include" />
               </e>
               <e p="Entity" t="Include">
                 <e p="EntityAbilityHandler.cs" t="Include" />
                 <e p="EntityEnemyTracker.cs" t="Include" />
+                <e p="EntityNetworkBehaviour.cs" t="Include" />
+                <e p="NetworkPlayerBehaviour.cs" t="Include" />
+              </e>
+              <e p="Equipment" t="Include">
+                <e p="Weapon.cs" t="Include" />
               </e>
               <e p="Player" t="Include">
-                <e p="NetworkPlayerBehaviour.cs" t="Include" />
                 <e p="PlayerGroundTarget.cs" t="Include" />
-                <e p="PlayerNetworkBehaviour.cs" t="Include" />
               </e>
             </e>
             <e p="ScriptableObjects" t="Include">
               <e p="AbilityScriptableObject.cs" t="Include" />
+              <e p="AutoAttackScriptableObject.cs" t="Include" />
               <e p="DebuffScriptableObject.cs" t="Include" />
-              <e p="HeavyAbilityScriptableObject.cs" t="Include" />
-              <e p="LightAbilityScriptableObject.cs" t="Include" />
               <e p="SpellAbilityScriptableObject.cs" t="Include" />
               <e p="WeaponScriptableObject.cs" t="Include" />
             </e>
@@ -390,6 +395,35 @@
             <e p="ProfileHelper.cs" t="Include" />
             <e p="RetainedGizmos.cs" t="Include" />
             <e p="UnityReferenceHelper.cs" t="Include" />
+          </e>
+        </e>
+        <e p="ConsolePro" t="Include">
+          <e p="ConsoleProDebug.cs" t="Include" />
+          <e p="Remote" t="Include">
+            <e p="ConsoleProRemoteServer.cs" t="Include" />
+            <e p="LiteNetLib" t="Include">
+              <e p="FastBitConverter.cs" t="Include" />
+              <e p="INetEventListener.cs" t="Include" />
+              <e p="NatPunchModule.cs" t="Include" />
+              <e p="NetConstants.cs" t="Include" />
+              <e p="NetDataReader.cs" t="Include" />
+              <e p="NetDataWriter.cs" t="Include" />
+              <e p="NetDebug.cs" t="Include" />
+              <e p="NetEndPoint.cs" t="Include" />
+              <e p="NetManager.cs" t="Include" />
+              <e p="NetPacket.cs" t="Include" />
+              <e p="NetPacketPool.cs" t="Include" />
+              <e p="NetPeer.cs" t="Include" />
+              <e p="NetPeerCollection.cs" t="Include" />
+              <e p="NetSerializer.cs" t="Include" />
+              <e p="NetSocket.cs" t="Include" />
+              <e p="NetThread.cs" t="Include" />
+              <e p="NetUtils.cs" t="Include" />
+              <e p="NtpSyncModule.cs" t="Include" />
+              <e p="ReliableChannel.cs" t="Include" />
+              <e p="SequencedChannel.cs" t="Include" />
+              <e p="SimpleChannel.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="FirstGearGames" t="Include">
