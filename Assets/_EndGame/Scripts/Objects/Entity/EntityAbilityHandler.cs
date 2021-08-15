@@ -26,7 +26,20 @@ public class EntityAbilityHandler : NetworkBehaviour
     private EntityEnemyTracker entityTracker;
     private bool initilized = false;
 
-    private CurrentAbility currentAbility;
+    private CurrentAbility _currentAbility;
+
+    private CurrentAbility currentAbility
+    {
+        get { return _currentAbility; }
+        set
+        {
+            _currentAbility = value;
+            if (_currentAbility != null)
+            {
+                playerNb.aStar.ClearCurrentPath();
+            }
+        }
+    }
     private float lastAutoTime;
 
     public void ServerInitilize(NetworkPlayerBehaviour playerNb, Animator animator, EntityEnemyTracker entityTracker, FlexNetworkAnimator flexNetworkAnimator)
@@ -45,6 +58,7 @@ public class EntityAbilityHandler : NetworkBehaviour
         public readonly AbilityScriptableObject abilitySo;
 
         public bool initilized = false;
+        public bool hasFired = false;
 
         public CurrentAbility(AbilityCode ac, AbilityScriptableObject abSo)
         {
@@ -100,7 +114,16 @@ public class EntityAbilityHandler : NetworkBehaviour
     private void ProcessCurrentAbility()
     {
         if (currentAbility == null) return;
-
+        Debug.Log(playerNb.IsMoving());
+        
+        if (playerNb.IsMoving())
+        {
+            currentAbility = null;
+            fna.SetTrigger("AbortAbility");
+            return;
+        }
+        
+        
         if (!currentAbility.initilized)
         {
             switch (currentAbility.abilityCode)
@@ -119,7 +142,20 @@ public class EntityAbilityHandler : NetworkBehaviour
             }
             currentAbility.initilized = true;
         }
+        TryFireAbility();
         TryClearAbility();
+    }
+
+    private void TryFireAbility()
+    {
+        if (currentAbility.hasFired) return;
+        
+        if (Time.time > currentAbility.startTime + currentAbility.abilitySo.AttackTime)
+        {
+                Debug.Log("Firing ability");
+                currentAbility.hasFired = true;
+        }
+        
     }
 
     private void TryClearAbility()

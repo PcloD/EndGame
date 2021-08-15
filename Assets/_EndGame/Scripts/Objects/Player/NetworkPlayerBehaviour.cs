@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Utils;
 using FirstGearGames.Mirrors.Assets.FlexNetworkAnimators;
 using Mirror;
 using Pathfinding;
@@ -13,7 +14,7 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
 
     private Animator animator;
     private FlexNetworkAnimator fna;
-    private IAstarAI aStar;
+    [ReadOnly]public AIPath aStar;
     public EntityEnemyTracker entityTracker;
     private EntityAbilityHandler entityAbilityHandler;
 
@@ -85,6 +86,12 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
         entityAbilityHandler.OnUpdate();
     }
 
+    [Server]
+    public bool IsMoving()
+    {
+        return aStar.hasPath;
+    }
+
     [Client]
     void ClientMove()
     {
@@ -130,6 +137,7 @@ public class NetworkPlayerBehaviour : NetworkBehaviour
     {
         entityTracker.TrackedEnemyTransform = null;
 
+        
         aStar.isStopped = false;
         aStar.destination = mousePosition;
         aStar.SearchPath();

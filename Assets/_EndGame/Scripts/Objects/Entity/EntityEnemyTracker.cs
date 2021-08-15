@@ -6,7 +6,7 @@ using UnityEngine;
 public class EntityEnemyTracker
 {
     private Transform ourEntityTransform;
-    private IAstarAI aStar;
+    private AIPath aStar;
 
     public float AttackRange = 2f;
     
@@ -25,7 +25,7 @@ public class EntityEnemyTracker
         }
     }
     
-    public EntityEnemyTracker(Transform ourTransform, IAstarAI astarAI)
+    public EntityEnemyTracker(Transform ourTransform, AIPath astarAI)
     {
         ourEntityTransform = ourTransform;
         aStar = astarAI;
@@ -53,8 +53,14 @@ public class EntityEnemyTracker
             aStar.SearchPath();
             return;
         }
-
+        
         aStar.isStopped = IsInRange();
+
+        if (IsInRange())
+        {
+            aStar.ClearCurrentPath();
+            return;
+        }
 
         aStar.destination = TrackedEnemyTransform.position;
 

@@ -322,6 +322,11 @@ namespace Pathfinding {
 			reachedEndOfPath = false;
 		}
 
+		public void ClearCurrentPath()
+		{
+			ClearPath();
+		}
+
 		/// <summary>Called during either Update or FixedUpdate depending on if rigidbodies are used for movement or not</summary>
 		protected override void MovementUpdateInternal (float deltaTime, out Vector3 nextPosition, out Quaternion nextRotation) {
 			float currentAcceleration = maxAcceleration;
