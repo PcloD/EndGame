@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c71bc113929cc847a477c9df5ff8cb0, type: 3}
   m_Name: SpellAbility_Meteor
   m_EditorClassIdentifier: 
-  AnimationName: 
+  AnimationType: 0
+  AbilityType: 0
   AttackDuration: 0.5
   AttackTime: 0.1
-  projectile: 0
-  groundTarget: 1
+  AbilityPrefab: {fileID: 0}
+  AbilityName: Meteor
   CastTime: 1
+  SpellSprite: {fileID: 21300000, guid: f7f1a5653c39b2ac2f638a3f436f9482, type: 3}
