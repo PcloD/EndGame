@@ -7,19 +7,31 @@ using UnityEngine;
 public class GameArmoryManager : MonoBehaviour
 {
     public static Dictionary<int,WeaponScriptableObject> WeaponScriptableObjects = new Dictionary<int, WeaponScriptableObject>();
+    public static Dictionary<int,SpellAbilityScriptableObject> AbilitySpellScriptableObjects = new Dictionary<int, SpellAbilityScriptableObject>();
 
     private void Awake()
     {
         var weaponSOs = Resources.LoadAll("GameData/Weapons/", typeof(WeaponScriptableObject)).Cast<WeaponScriptableObject>();
+        var abilitySpellSOs = Resources.LoadAll("GameData/Abilities/", typeof(SpellAbilityScriptableObject)).Cast<SpellAbilityScriptableObject>();
         
         Debug.Log(weaponSOs.Count());
         
-        int count = 0;
-        foreach (var abilitySO in weaponSOs)
+        int weaponCount = 0;
+        foreach (var weaponSo in weaponSOs)
         {
-            WeaponScriptableObjects.Add(count, abilitySO);
-            count++;
+            Debug.Log(weaponCount + " Weapon - " + weaponSo.name);
+            WeaponScriptableObjects.Add(weaponCount, weaponSo);
+            weaponCount++;
         }
+        
+        int abilitySpellCount = 0;
+        foreach (var abilitySo in abilitySpellSOs)
+        {
+            Debug.Log(abilitySpellCount + " Ability - " + abilitySo.name);
+            AbilitySpellScriptableObjects.Add(abilitySpellCount, abilitySo);
+            abilitySpellCount++;
+        }
+        
     }
 
     public static int FindWeaponScriptableObjectIndex(WeaponScriptableObject weaponSo)

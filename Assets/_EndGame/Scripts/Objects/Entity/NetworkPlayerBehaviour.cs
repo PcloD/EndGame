@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Utils;
@@ -9,6 +10,7 @@ using UnityEngine.Networking;
 
 public class NetworkPlayerBehaviour : EntityNetworkBehaviour
 {
+    public static NetworkPlayerBehaviour Instance;
     public float MoveSpeed = 1f;
     public Transform IkAimTransform;
 
@@ -16,13 +18,14 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
     private FlexNetworkAnimator fna;
     [ReadOnly]public AIPath aStar;
     private EntityAbilityHandler entityAbilityHandler;
-
+    public EquipmentInventoryNB equipmentInventory;
     private new Transform transform;
+    public GameObject PlayerCanvasPrefab;
     
     private Vector3 velocityRelative;
     private Vector3 velocity;
 
-    
+    public static Action OnLocalClientReady;
     #region Initilization
 
     public override void OnStartClient()
@@ -31,9 +34,24 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
         NetworkFirstInitilize();
 
         if (!hasAuthority) return;
+        Instance = this;
+        Instantiate(PlayerCanvasPrefab);
+        equipmentInventory = GetComponent<EquipmentInventoryNB>();
         CameraManager.TrackedTransform = transform;
         CameraManager.TrackedIKTransform = IkAimTransform;
+       Invoke("DelayedReady", 3f);
+       
     }
+
+    /* todo figure out how to determine after all initial syncvars have fired client side
+    todo cont - prob some kind of async function that waits for all the synclists to be populated 
+    */
+    private void DelayedReady()
+    {
+        OnLocalClientReady?.Invoke();
+        Debug.Log("On Start client");
+    }
+
 
     public override void OnStartServer()
     {

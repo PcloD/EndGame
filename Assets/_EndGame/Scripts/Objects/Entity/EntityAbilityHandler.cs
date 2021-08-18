@@ -17,13 +17,13 @@ public enum AbilityCode
 
 public class EntityAbilityHandler : NetworkBehaviour
 {
-    public WeaponScriptableObject TESTWEAPON;
     public EntityEnemyTracker entityTracker;
 
     private NetworkPlayerBehaviour playerNb;
     private Animator animator;
     private FlexNetworkAnimator fna;
     private EquipmentInventoryNB equipmentInventory;
+    private bool playAbortAnim = false;
    
     private CurrentAbility _currentAbility;
     public CurrentAbility currentAbility
@@ -32,7 +32,11 @@ public class EntityAbilityHandler : NetworkBehaviour
         set
         {
             _currentAbility = value;
-            if(_currentAbility == null) fna.SetTrigger("AbortAbility");
+            if (playAbortAnim && _currentAbility == null)
+            {
+                fna.SetTrigger("AbortAbility");
+                playAbortAnim = false;
+            }
             
             if (_currentAbility != null)
             {
@@ -106,6 +110,7 @@ public class EntityAbilityHandler : NetworkBehaviour
         if (playerNb.IsMoving())
         {
             Debug.Log($"moving so killing ability");
+            playAbortAnim = true;
             currentAbility = null;
             return;
         }
@@ -115,7 +120,7 @@ public class EntityAbilityHandler : NetworkBehaviour
             switch (currentAbility.abilityCode)
             {
                 case AbilityCode.Auto:
-                    fna.SetTrigger(currentAbility.abilitySo.AnimationName);
+                    fna.SetTrigger(currentAbility.abilitySo.GetAnimationString());
                     break;
                 case AbilityCode.Spell1:
                     break;

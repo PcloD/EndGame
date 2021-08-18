@@ -125,6 +125,8 @@ MonoBehaviour:
   MoveSpeed: 1
   IkAimTransform: {fileID: 3997211996623799457}
   aStar: {fileID: 0}
+  equipmentInventory: {fileID: 0}
+  PlayerCanvasPrefab: {fileID: 7240579636460168404, guid: f33640bd5ccefe440b045fff2591072e, type: 3}
 --- !u!114 &-8963005075571896176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +141,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  TESTWEAPON: {fileID: 11400000, guid: 34a1b7a63c55044458ac51fbbac9c7c8, type: 2}
   entityTracker:
     AttackRange: 0
 --- !u!114 &3477973560948506815

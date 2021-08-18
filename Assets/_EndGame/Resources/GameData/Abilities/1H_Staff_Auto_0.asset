@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48bce7f54b7d458418e3e8b854bed8c0, type: 3}
   m_Name: 1H_Staff_Auto_0
   m_EditorClassIdentifier: 
-  AnimationName: Auto0
-  Debuffs:
-  - {fileID: 11400000, guid: 6c1788a3896b8e94b9e93d379f8c77a9, type: 2}
+  AnimationType: 0
+  AbilityType: 0
   AttackDuration: 0.8
   AttackTime: 0.4
   AbilityPrefab: {fileID: 659762506163655324, guid: 65822ea4240dd8340bf83c1f1d5e9339, type: 3}
-  LightAttackComboReset: 1
+  AutoAttackComboReset: 1

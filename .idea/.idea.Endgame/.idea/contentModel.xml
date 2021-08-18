@@ -11,8 +11,10 @@
       <e p="Assets" t="Include">
         <e p="_EndGame" t="Include">
           <e p="Scripts" t="Include">
+            <e p="ColorFoldoutGroupAttribute.cs" t="Include" />
             <e p="Editor" t="Include">
               <e p="DrawBitMaskField.cs" t="Include" />
+              <e p="GameManagerEditor.cs" t="Include" />
             </e>
             <e p="EditorRuntime" t="Include">
               <e p="BitMaskAttribute.cs" t="Include" />
@@ -23,22 +25,9 @@
             <e p="Managers" t="Include">
               <e p="CameraManager.cs" t="Include" />
               <e p="GameArmoryManager.cs" t="Include" />
+              <e p="UIManager.cs" t="Include" />
             </e>
             <e p="Networking" t="Include">
-              <e p="AnimationTrigger.cs" t="Include" />
-              <e p="Motors" t="Include">
-                <e p="FixedUpdateManager.cs" t="Include" />
-                <e p="PlayerMotor" t="Include">
-                  <e p="PlayerInputData.cs" t="Include" />
-                  <e p="PlayerMovementData.cs" t="Include" />
-                  <e p="States" t="Include">
-                    <e p="ClientPlayerMotorState.cs" t="Include" />
-                    <e p="PlayerMotorActionCodes.cs" t="Include" />
-                    <e p="ServerPlayerMotorState.cs" t="Include" />
-                  </e>
-                </e>
-                <e p="SmoothToZero.cs" t="Include" />
-              </e>
               <e p="NetworkBuffHandler.cs" t="Include" />
             </e>
             <e p="Objects" t="Include">
@@ -70,7 +59,22 @@
             </e>
             <e p="Test.cs" t="Include" />
             <e p="UI" t="Include">
+              <e p="HUD" t="Include">
+                <e p="AbilityBarHUD.cs" t="Include" />
+              </e>
               <e p="MouseCursorManager.cs" t="Include" />
+              <e p="Panels" t="Include">
+                <e p="AbilityPanel.cs" t="Include" />
+              </e>
+              <e p="Selectables" t="Include">
+                <e p="UI_ItemDragReference.cs" t="Include" />
+                <e p="UI_ItemSelectable.cs" t="Include" />
+                <e p="UI_ItemSelectableAbility.cs" t="Include" />
+              </e>
+              <e p="Slots" t="Include">
+                <e p="UI_Socket.cs" t="Include" />
+                <e p="UI_SocketAbility.cs" t="Include" />
+              </e>
               <e p="UISetPing.cs" t="Include" />
             </e>
             <e p="Utility" t="Include">

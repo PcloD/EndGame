@@ -1,4 +1,5 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -6,6 +7,6 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(fileName = "Data", menuName = "EndGame/LightAbility", order = 1)]
 public class AutoAttackScriptableObject : AbilityScriptableObject
 {
-   [FormerlySerializedAs("LightAttackComboReset")] [Tooltip("In Seconds")]
+   [Tooltip("In Seconds")]
    public float AutoAttackComboReset = 1f;
 }
