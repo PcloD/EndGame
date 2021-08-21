@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: 1H_Sword_Auto_0
   m_EditorClassIdentifier: 
   AnimationType: 0
-  AbilityType: 0
+  AbilityType: 1
   AttackDuration: 0.8
   AttackTime: 0.4
+  CastTime: 0
   AbilityPrefab: {fileID: 4587693907035601408, guid: e717edad50461764788e290bbd724933, type: 3}
   AutoAttackComboReset: 1

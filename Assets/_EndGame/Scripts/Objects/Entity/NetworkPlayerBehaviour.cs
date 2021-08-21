@@ -14,11 +14,14 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
     public float MoveSpeed = 1f;
     public Transform IkAimTransform;
 
-    private Animator animator;
-    private FlexNetworkAnimator fna;
+    [ReadOnly]public Animator animator;
+    [ReadOnly]public FlexNetworkAnimator fna;
     [ReadOnly]public AIPath aStar;
-    private EntityAbilityHandler entityAbilityHandler;
-    public EquipmentInventoryNB equipmentInventory;
+    [ReadOnly]public EntityAbilityHandler entityAbilityHandler;
+    [ReadOnly]public EquipmentInventoryNB equipmentInventory;
+
+    [SyncVar(hook = "ClientAbilityChanged")] public CurrentAbility CurrentClientAbility;
+    
     private new Transform transform;
     public GameObject PlayerCanvasPrefab;
     
@@ -43,8 +46,23 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
        
     }
 
+    void ClientAbilityChanged(CurrentAbility oldAbility, CurrentAbility newAbility)
+    {
+       Debug.Log($"Client ability change {oldAbility != null} | {newAbility != null}");
+       if (oldAbility != null && oldAbility.abilityId > 0)
+       {
+           Debug.Log($"Old ability - {oldAbility.AbilitySO.name}");
+       }
+       
+       
+       if (newAbility != null && newAbility.abilityId > 0)
+       {
+           Debug.Log($"new ability - {newAbility.AbilitySO.name}");
+       }
+    }
+
     /* todo figure out how to determine after all initial syncvars have fired client side
-    todo cont - prob some kind of async function that waits for all the synclists to be populated 
+    todo cont - prob some kind of async function that waits for all the synclists to be populated / maybe server side send rpc
     */
     private void DelayedReady()
     {
@@ -86,6 +104,10 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
         {
             ClientMove();
             IkAimTransform.position = CameraManager.RayMouseHit.point;
+            if (CurrentClientAbility != null && CurrentClientAbility.abilityId > 0)
+            {
+                if(CurrentClientAbility.IsCastable) Debug.Log($"Current Cast Time - {CurrentClientAbility.GetCurrentCastPercent}");
+            }
         }
 
         if (isServer) OnServerUpdate();
@@ -121,7 +143,6 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
             {
                 CmdRequestAttack(MouseCursorManager.Instance.EnemyEntity);
             }
-           
         }
     }
 

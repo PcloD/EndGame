@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: 1H_Staff_Auto_0
   m_EditorClassIdentifier: 
   AnimationType: 0
-  AbilityType: 0
+  AbilityType: 1
   AttackDuration: 0.8
   AttackTime: 0.4
+  CastTime: 0
   AbilityPrefab: {fileID: 659762506163655324, guid: 65822ea4240dd8340bf83c1f1d5e9339, type: 3}
   AutoAttackComboReset: 1

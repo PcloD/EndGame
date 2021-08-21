@@ -16,7 +16,7 @@ public class UI_SocketAbility : UI_Socket
             if (_abilityNetworkSocket.HasSpell)
             {
                 // find the SO 
-               var abilitySO = GameArmoryManager.AbilitySpellScriptableObjects[_abilityNetworkSocket.spellId];
+               var abilitySO = GameArmoryManager.AbilitySpellScriptableObjects[_abilityNetworkSocket.spellId] as SpellAbilityScriptableObject;
                IconImage.sprite = abilitySO.SpellSprite;
             }
             else

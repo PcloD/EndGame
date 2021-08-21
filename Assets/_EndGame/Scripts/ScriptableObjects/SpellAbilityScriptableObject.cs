@@ -8,7 +8,6 @@ using UnityEngine;
 public class SpellAbilityScriptableObject : AbilityScriptableObject
 {
     public string AbilityName;
-    public float CastTime = 1f;
 
     [PreviewField(ObjectFieldAlignment.Center)]
     public Sprite SpellSprite;

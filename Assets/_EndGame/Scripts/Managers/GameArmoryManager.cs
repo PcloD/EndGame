@@ -2,17 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class GameArmoryManager : MonoBehaviour
 {
     public static Dictionary<int,WeaponScriptableObject> WeaponScriptableObjects = new Dictionary<int, WeaponScriptableObject>();
-    public static Dictionary<int,SpellAbilityScriptableObject> AbilitySpellScriptableObjects = new Dictionary<int, SpellAbilityScriptableObject>();
+    public static Dictionary<int,AbilityScriptableObject> AbilitySpellScriptableObjects = new Dictionary<int, AbilityScriptableObject>();
 
     private void Awake()
     {
         var weaponSOs = Resources.LoadAll("GameData/Weapons/", typeof(WeaponScriptableObject)).Cast<WeaponScriptableObject>();
-        var abilitySpellSOs = Resources.LoadAll("GameData/Abilities/", typeof(SpellAbilityScriptableObject)).Cast<SpellAbilityScriptableObject>();
+        var abilitySpellSOs = Resources.LoadAll("GameData/Abilities/", typeof(AbilityScriptableObject)).Cast<AbilityScriptableObject>();
         
         Debug.Log(weaponSOs.Count());
         
@@ -28,10 +29,22 @@ public class GameArmoryManager : MonoBehaviour
         foreach (var abilitySo in abilitySpellSOs)
         {
             Debug.Log(abilitySpellCount + " Ability - " + abilitySo.name);
-            AbilitySpellScriptableObjects.Add(abilitySpellCount, abilitySo);
+            AbilitySpellScriptableObjects.Add(abilitySo.AbilityId, abilitySo);
             abilitySpellCount++;
         }
-        
+    }
+
+    [ContextMenu("Set Spell Ids")]
+    public void SetSpellIds()
+    {
+        var abilitySpellSOs = Resources.LoadAll("GameData/Abilities/", typeof(AbilityScriptableObject)).Cast<AbilityScriptableObject>();
+        var idCount = 1;
+        foreach (var spellAbilityScriptableObject in abilitySpellSOs)
+        {
+            spellAbilityScriptableObject.AbilityId = idCount;
+            idCount++;
+        }
+        AssetDatabase.SaveAssets();
     }
 
     public static int FindWeaponScriptableObjectIndex(WeaponScriptableObject weaponSo)

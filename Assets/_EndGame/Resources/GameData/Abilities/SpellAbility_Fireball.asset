@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c71bc113929cc847a477c9df5ff8cb0, type: 3}
   m_Name: SpellAbility_Fireball
   m_EditorClassIdentifier: 
-  AnimationType: 0
-  AbilityType: 0
+  AnimationType: 2
+  AbilityType: 2
   AttackDuration: 0.5
   AttackTime: 0.1
-  AbilityPrefab: {fileID: 659762506163655324, guid: 65822ea4240dd8340bf83c1f1d5e9339, type: 3}
+  CastTime: 1
+  AbilityPrefab: {fileID: -1646896241699584863, guid: b0e1da622e79d7040a971bf88b39768c, type: 3}
   AbilityName: Fireball
-  CastTime: 0.5
   SpellSprite: {fileID: 21300000, guid: 3432ffb760a741965eb3f7c4572d099e, type: 3}

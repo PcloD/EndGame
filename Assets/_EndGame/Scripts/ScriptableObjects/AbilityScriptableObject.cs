@@ -5,7 +5,7 @@ using UnityEngine;
 public enum AbilityType
 {
     Instant = 0,
-    Direct = 1,
+    Target = 1,
     SkillShot = 2,
     GroundTarget = 3
 }
@@ -13,12 +13,17 @@ public enum AbilityType
 public enum AnimationType
 {
     Auto0,
-    Auto1
+    Auto1,
+    Ability0,
+    Ability1,
+    Ability2,
+    Ability3,
 }
 
 [Serializable]
 public class AbilityScriptableObject : ScriptableObject
 {
+    [ReadOnly] public int AbilityId;
     [EnumToggleButtons]
     [Title("Animation Settings", TitleAlignment = TitleAlignments.Centered)]
     [GUIColor(1f,1f,0f)]
@@ -41,6 +46,8 @@ public class AbilityScriptableObject : ScriptableObject
     [Tooltip("Time during the Attack when the damage will be dealt")]
     public float AttackTime;
 
+    public float CastTime = 0f;
+    
     [InlineEditor(InlineEditorModes.FullEditor), PropertyOrder(10000)]
     public Ability AbilityPrefab;
 

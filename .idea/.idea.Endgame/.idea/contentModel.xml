@@ -11,8 +11,8 @@
       <e p="Assets" t="Include">
         <e p="_EndGame" t="Include">
           <e p="Scripts" t="Include">
-            <e p="ColorFoldoutGroupAttribute.cs" t="Include" />
             <e p="Editor" t="Include">
+              <e p="ColorFoldoutGroupAttribute.cs" t="Include" />
               <e p="DrawBitMaskField.cs" t="Include" />
               <e p="GameManagerEditor.cs" t="Include" />
             </e>
@@ -33,9 +33,10 @@
             <e p="Objects" t="Include">
               <e p="Abilities" t="Include">
                 <e p="Ability.cs" t="Include" />
-                <e p="AbilityDirect.cs" t="Include" />
                 <e p="AbilityGround.cs" t="Include" />
                 <e p="AbilityMelee.cs" t="Include" />
+                <e p="AbilitySkillShot.cs" t="Include" />
+                <e p="AbilityTarget.cs" t="Include" />
               </e>
               <e p="Entity" t="Include">
                 <e p="EntityAbilityHandler.cs" t="Include" />

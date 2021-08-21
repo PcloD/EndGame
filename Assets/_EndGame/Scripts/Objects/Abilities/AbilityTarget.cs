@@ -4,7 +4,7 @@ using Assets.Scripts.Utils;
 using UnityEditor;
 using UnityEngine;
 
-public class AbilityDirect : Ability
+public class AbilityTarget : Ability
 {
     [SerializeField] private float moveSpeed = 5f;
 

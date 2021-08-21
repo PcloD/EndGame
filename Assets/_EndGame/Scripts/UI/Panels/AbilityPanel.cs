@@ -40,11 +40,14 @@ public class AbilityPanel : MonoBehaviour
 
     void Init()
     {
-        foreach (var abilitySpellScriptableObject in GameArmoryManager.AbilitySpellScriptableObjects)
+        foreach (var abilitySpellScriptableObject in GameArmoryManager.AbilitySpellScriptableObjects.Values)
         {
-            var uiSpell = Instantiate(SelectableAbilityPrefab, Vector3.zero, Quaternion.identity, ContentTransform);
-            uiSpell.Init(abilitySpellScriptableObject.Value, abilitySpellScriptableObject.Key);
-            uiAbilities.Add(uiSpell);
+            if (abilitySpellScriptableObject is SpellAbilityScriptableObject)
+            {
+                var uiSpell = Instantiate(SelectableAbilityPrefab, Vector3.zero, Quaternion.identity, ContentTransform);
+                uiSpell.Init(abilitySpellScriptableObject as SpellAbilityScriptableObject, abilitySpellScriptableObject.AbilityId);
+                uiAbilities.Add(uiSpell);
+            }
         }
     }
 
