@@ -34,7 +34,8 @@ public class GameArmoryManager : MonoBehaviour
             abilitySpellCount++;
         }
     }
-
+    
+    #if UNITY_EDITOR
     [ContextMenu("Set Spell Ids")]
     public void SetSpellIds()
     {
@@ -48,8 +49,8 @@ public class GameArmoryManager : MonoBehaviour
             EditorUtility.SetDirty(spellAbilityScriptableObject);
             AssetDatabase.SaveAssets();
         }
-        
     }
+    #endif
 
     public static int FindWeaponScriptableObjectIndex(WeaponScriptableObject weaponSo)
     {
