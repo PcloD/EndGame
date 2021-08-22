@@ -14,22 +14,32 @@ public class EntityHpBar : MonoBehaviour
 
     private void Awake()
     {
-        lastActivateTime = Time.time;
         propertyBlock = new MaterialPropertyBlock();
         ren.GetPropertyBlock(propertyBlock);
+    }
+
+    private void Start()
+    {
+        lastActivateTime = Time.time;
+        isActive = false;
+        ren.enabled = false;
 
         propertyBlock.SetFloat("_fillRate", 1f);
         ren.SetPropertyBlock(propertyBlock);
-
-        ren.enabled = false;
     }
 
     void Update()
     {
-        if (!isActive) return;
+        if (!isActive)
+        {
+            Debug.Log($"Return hp bar");
+            ren.enabled = false;
+            return;
+        }
         transform.LookAt(CameraManager.Instance.CameraTransform);
         if (deactiveTime < 0)
         {
+            Debug.Log($"deactivate hp bar");
             isActive = false;
             ren.enabled = false;
         }
@@ -37,6 +47,7 @@ public class EntityHpBar : MonoBehaviour
 
     public void SetHp(float hpValue)
     {
+        Debug.Log("Set HP bar");
         ren.enabled = true;
         isActive = true;
         lastActivateTime = Time.time;
