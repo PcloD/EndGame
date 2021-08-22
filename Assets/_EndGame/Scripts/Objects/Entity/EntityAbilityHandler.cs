@@ -358,7 +358,7 @@ public class CurrentAbility
 
     public bool initilized = false;
     public bool hasFired = false;
-    public bool IsCastable => AbilitySO.CastTime > 0;
+    public bool IsCastable => abilityId > 0 && AbilitySO.CastTime > 0;
     public double GetCurrentCastTime => NetworkTime.time - startTime;
     public double GetCurrentCastPercent => Mathf.Clamp((float)(NetworkTime.time - startTime / AbilitySO.CastTime),0f,1f);
     public bool IsCasting => (NetworkTime.time - startTime) < AbilitySO.CastTime;

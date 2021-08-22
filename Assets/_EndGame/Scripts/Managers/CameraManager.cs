@@ -22,8 +22,11 @@ public class CameraManager : MonoBehaviour
 
     private Camera camera;
 
+    public static CameraManager Instance;
+
     void Awake()
     {
+        Instance = this;
         CameraTransform = transform;
         camera = GetComponent<Camera>();
     }

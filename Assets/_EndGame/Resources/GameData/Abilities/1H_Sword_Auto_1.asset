@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48bce7f54b7d458418e3e8b854bed8c0, type: 3}
   m_Name: 1H_Sword_Auto_1
   m_EditorClassIdentifier: 
+  AbilityId: 4
   AnimationType: 1
   AbilityType: 1
   AttackDuration: 0.8

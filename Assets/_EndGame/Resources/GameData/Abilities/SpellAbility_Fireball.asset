@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c71bc113929cc847a477c9df5ff8cb0, type: 3}
   m_Name: SpellAbility_Fireball
   m_EditorClassIdentifier: 
+  AbilityId: 5
   AnimationType: 2
   AbilityType: 2
   AttackDuration: 0.5

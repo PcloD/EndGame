@@ -19,6 +19,7 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
     [ReadOnly]public AIPath aStar;
     [ReadOnly]public EntityAbilityHandler entityAbilityHandler;
     [ReadOnly]public EquipmentInventoryNB equipmentInventory;
+    [ReadOnly] public EntityCastBar entityCastBar;
 
     [SyncVar(hook = "ClientAbilityChanged")] public CurrentAbility CurrentClientAbility;
     
@@ -89,7 +90,8 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
         animator = GetComponent<Animator>();
         fna = GetComponent<FlexNetworkAnimator>();   
         entityAbilityHandler = GetComponent<EntityAbilityHandler>();
-        
+        entityCastBar = GetComponentInChildren<EntityCastBar>();
+        entityCastBar.Init(this);
         if (isServer)
         {
             aStar = GetComponent<AIPath>();

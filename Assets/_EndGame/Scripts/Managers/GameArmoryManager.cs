@@ -16,6 +16,7 @@ public class GameArmoryManager : MonoBehaviour
         var abilitySpellSOs = Resources.LoadAll("GameData/Abilities/", typeof(AbilityScriptableObject)).Cast<AbilityScriptableObject>();
         
         Debug.Log(weaponSOs.Count());
+        Debug.Log("Spell count : " +abilitySpellSOs.Count());
         
         int weaponCount = 0;
         foreach (var weaponSo in weaponSOs)
@@ -37,14 +38,17 @@ public class GameArmoryManager : MonoBehaviour
     [ContextMenu("Set Spell Ids")]
     public void SetSpellIds()
     {
+        AssetDatabase.Refresh();
         var abilitySpellSOs = Resources.LoadAll("GameData/Abilities/", typeof(AbilityScriptableObject)).Cast<AbilityScriptableObject>();
         var idCount = 1;
         foreach (var spellAbilityScriptableObject in abilitySpellSOs)
         {
             spellAbilityScriptableObject.AbilityId = idCount;
             idCount++;
+            EditorUtility.SetDirty(spellAbilityScriptableObject);
+            AssetDatabase.SaveAssets();
         }
-        AssetDatabase.SaveAssets();
+        
     }
 
     public static int FindWeaponScriptableObjectIndex(WeaponScriptableObject weaponSo)

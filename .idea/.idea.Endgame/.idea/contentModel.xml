@@ -60,6 +60,8 @@
             </e>
             <e p="Test.cs" t="Include" />
             <e p="UI" t="Include">
+              <e p="EntityCastBar.cs" t="Include" />
+              <e p="EntityHpBar.cs" t="Include" />
               <e p="HUD" t="Include">
                 <e p="AbilityBarHUD.cs" t="Include" />
               </e>
@@ -83,6 +85,7 @@
             </e>
           </e>
           <e p="Shaders" t="Include">
+            <e p="SliderFillZAlways.shader" t="Include" />
             <e p="URP_NiloCatExtension_ScreenSpaceDecal_Unlit.shader" t="Include" />
           </e>
         </e>

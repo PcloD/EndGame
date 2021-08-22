@@ -11,9 +11,13 @@ public class EntityNetworkBehaviour : NetworkBehaviour
     [SyncVar(hook = nameof(OnHealthChanged))]
     public int Health;
 
+    public EntityHpBar entityHpBar;
+
     void OnHealthChanged(int oldVal, int newVal)
     {
         Debug.Log($"SYNCVAR TRIGGER Old {oldVal} New {newVal}");
+        Debug.Log(entityHpBar == null);
+        entityHpBar?.SetHp(newVal / 100f);
     }
 
     [ContextMenu("Lower HP")]

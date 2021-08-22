@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HpBarFill
+  m_Shader: {fileID: 4800000, guid: ca40fc383fa8a9d4ebf7039575784e24, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_0d389aa0c59d44c5a59b2ce25d7d657c: 0.98
+    - Vector1_16a341760ebe48f2b90568ac3ea7b928: 0.85
+    - Vector1_39a156e9bbc449cc92e2417fe593093a: 0.15
+    - Vector1_5e99f898252c46489b3cc9e4686ed3a9: -0.22
+    - _fillRate: 0.467
+    - _progressBorder: 0.07
+    m_Colors:
+    - Color_00eb1f7679604174981cba68188f97c8: {r: 0.26138735, g: 1, b: 0, a: 0}
+    - Color_72c37f59a854480bac61920c8866757f: {r: 1, g: 0.6332025, b: 0, a: 0}
+    - Color_a75d0db0aa094ecca242469ebf8e8d05: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 0}
+    - Color_fa37995ae6be474b97cf68b15a285c17: {r: 0.36378717, g: 1, b: 0, a: 0}
+    - _emptyColor: {r: 1, g: 1, b: 1, a: 0}
+    - _fillColor: {r: 0.39703214, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []

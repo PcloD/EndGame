@@ -32,6 +32,11 @@ public class AbilitySkillShot : Ability
         if (IsServer)
         {
             Debug.Log("Server do Dmg");
+            var entity = other.GetComponent<EntityNetworkBehaviour>();
+            if (entity != null)
+            {
+                entity.Health -= 10;
+            }
         }
         
         Destroy(gameObject);
