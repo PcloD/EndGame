@@ -174,8 +174,8 @@ namespace FirstGearGames.Mirrors.Assets.NetworkProximities
         /// <param name="visible"></param>
         public override void OnSetHostVisibility(bool visible)
         {
-            foreach (Renderer rend in GetComponentsInChildren<Renderer>())
-                rend.enabled = visible;
+           // foreach (Renderer rend in GetComponentsInChildren<Renderer>())
+            //    rend.enabled = visible;
         }
     }
 }

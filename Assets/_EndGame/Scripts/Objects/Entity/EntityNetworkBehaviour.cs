@@ -20,6 +20,14 @@ public class EntityNetworkBehaviour : NetworkBehaviour
         entityHpBar?.SetHp(newVal / 100f);
     }
 
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        Debug.Log("On Start Client");
+    }
+    
+
+
     [ContextMenu("Lower HP")]
     private void Test_LowerHP()
     {
