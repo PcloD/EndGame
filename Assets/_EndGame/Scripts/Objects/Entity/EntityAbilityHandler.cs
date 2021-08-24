@@ -294,6 +294,7 @@ public class EntityAbilityHandler : NetworkBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            if (equipmentInventory.SpellAbilitySockets[0].spellId <= 0) return;
             CmdTryQueueAbilitity(AbilityCode.Spell1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
