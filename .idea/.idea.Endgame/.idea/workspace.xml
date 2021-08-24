@@ -20,23 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfbd124-a032-4e25-931b-640c9bed4c11" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/PlayerClickToMove.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/PlayerClickToMove.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Resources/GameData/Abilities/1H_Staff_Auto_0.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Resources/GameData/Abilities/1H_Staff_Auto_0.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Resources/GameData/Abilities/1H_Staff_Auto_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Resources/GameData/Abilities/1H_Staff_Auto_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Resources/GameData/Abilities/1H_Sword_Auto_0.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Resources/GameData/Abilities/1H_Sword_Auto_0.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Resources/GameData/Abilities/1H_Sword_Auto_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Resources/GameData/Abilities/1H_Sword_Auto_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Resources/GameData/Abilities/1H_Sword_HeavyAttack_0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Resources/GameData/Abilities/SpellAbility_Fireball.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Resources/GameData/Abilities/SpellAbility_Fireball.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Resources/GameData/Abilities/SpellAbility_Meteor.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Resources/GameData/Abilities/SpellAbility_Meteor.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scenes/Dev.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scenes/Dev.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/GameArmoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/GameArmoryManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilitySkillShot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilitySkillShot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityAbilityHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityAbilityHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityNetworkBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityNetworkBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/NetworkPlayerBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/NetworkPlayerBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/riderModule.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,40 +35,35 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CFC1AD89-0650-411E-946C-FF2E6F276711/de/863e6c52/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Selectables/UI_ItemSelectableAbility.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/FirstGearGames/Supporters/Tutorials/SyncingProjectiles/Scripts/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/Ability.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilityMelee.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Slots/UI_Socket.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CFC1AD89-0650-411E-946C-FF2E6F276711/a1/569c6f0a/Object.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Inventory/EquipmentInventoryNB.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilityGround.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../GUnchained/gu-unity-2018/Assets/IntegrationTests/TestPlay_QA_CantAttack.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/HUD/AbilityBarHUD.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilitySkillShot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CFC1AD89-0650-411E-946C-FF2E6F276711/38/7b781690/Transform.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Panels/AbilityPanel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerGroundTarget.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityEnemyTracker.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/EntityCastBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/MouseCursorManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/EntityHpBar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/EntityCastBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Inventory/EquipmentInventoryNB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/GameArmoryManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkBuffHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilitySkillShot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/UISetPing.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/AutoAttackScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/Ability.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Networking/NetworkBuffHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Slots/UI_SocketAbility.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/GameArmoryManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityAbilityHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/HUD/AbilityBarHUD.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Slots/UI_SocketAbility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Slots/UI_Socket.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/DebuffScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Panels/AbilityPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Selectables/UI_ItemSelectableAbility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityNetworkBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Editor/GameManagerEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/WeaponScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/EntityHpBar.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6FCFDD16-2B5D-4836-BEF3-C96F53194DB6/29/747c5721/Stack`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/DebuffScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/FirstGearGames/Supporters/Tutorials/SyncingProjectiles/Scripts/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityEnemyTracker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Test.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Player/PlayerGroundTarget.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -149,6 +132,7 @@
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="XThreadsFramesViewSplitterKey" value="0.5007752" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -166,17 +150,19 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31616">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="31616" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -203,12 +189,14 @@
       <workItem from="1628842747297" duration="54287000" />
       <workItem from="1629178963839" duration="4890000" />
       <workItem from="1629275826629" duration="40087000" />
+      <workItem from="1629768143314" duration="1302000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="Vcs.Log.Tabs.Properties">
@@ -361,14 +349,7 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityNetworkBehaviour.cs</url>
           <line>19</line>
-          <properties documentPath="D:\Endgame\Assets\_EndGame\Scripts\Objects\Entity\EntityNetworkBehaviour.cs" initialLine="18">
-            <startOffsets>
-              <option value="523" />
-            </startOffsets>
-            <endOffsets>
-              <option value="557" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="D:\Endgame\Assets\_EndGame\Scripts\Objects\Entity\EntityNetworkBehaviour.cs" initialLine="18" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
