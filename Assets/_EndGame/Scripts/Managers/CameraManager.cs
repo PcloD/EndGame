@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    public static Transform TrackedTransform;
+    public Transform TrackedTransform;
     /// <summary>
     /// The position of this transform is network Synced via a component on the Player Transform (FlexNetworkTransform)
     /// </summary>
-    public static Transform TrackedIKTransform;
+    public Transform TrackedIKTransform;
 
 
     public static RaycastHit RayMouseHit;
@@ -24,11 +24,13 @@ public class CameraManager : MonoBehaviour
 
     public static CameraManager Instance;
 
-    void Awake()
+    public void Init(Transform entityTransform, Transform ikTransform)
     {
         Instance = this;
-        CameraTransform = transform;
-        camera = GetComponent<Camera>();
+        camera = Camera.main;
+        CameraTransform = camera.transform;
+        TrackedTransform = entityTransform;
+        TrackedIKTransform = ikTransform;
     }
 
     private void Update()
