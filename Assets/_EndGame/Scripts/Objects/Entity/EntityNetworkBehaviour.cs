@@ -21,7 +21,7 @@ public class EntityNetworkBehaviour : NetworkBehaviour
 
         if (hasAuthority)
         {
-            LocalTookDamage(newVal);
+            LocalTookDamage(oldVal - newVal);
         }
     }
 
