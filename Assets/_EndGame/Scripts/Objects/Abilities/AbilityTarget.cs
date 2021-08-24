@@ -25,7 +25,7 @@ public class AbilityTarget : Ability
          base.OnTriggerEnter(other);
          if (other.gameObject != target) return;
 
-         if (IsServer) other.GetComponent<EntityNetworkBehaviour>().Health -= 10;
+         if (IsServer) other.GetComponent<EntityNetworkBehaviour>().ServerDealDamage(10, OwnerEntity);
          
          Destroy(gameObject);
 

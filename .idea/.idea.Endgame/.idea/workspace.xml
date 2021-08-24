@@ -21,9 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6bfbd124-a032-4e25-931b-640c9bed4c11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/PlayerClickToMove.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/PlayerClickToMove.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/NetworkPlayerBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/NetworkPlayerBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilitySkillShot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilitySkillShot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilityTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilityTarget.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityNetworkBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityNetworkBehaviour.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +105,6 @@
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Inventory/EquipmentInventoryNB.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Selectables/UI_ItemSelectableAbility.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/SpellAbilityScriptableObject.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilityTarget.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Editor/GameManagerEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/ScriptableObjects/AbilityScriptableObject.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Slots/UI_SocketAbility.cs" />
@@ -115,14 +114,15 @@
         <option value="$PROJECT_DIR$/Assets/_EndGame/Shaders/ZOffTest.shader" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Shaders/SliderFillZAlways.shader" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/EntityCastBar.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilitySkillShot.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/GameArmoryManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityNetworkBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/FirstGearGames/Supporters/Assets/FastProximityChecker/Scripts/FastProximityChecker.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/EntityHpBar.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityAbilityHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/NetworkPlayerBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CameraManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityNetworkBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilitySkillShot.cs" />
+        <option value="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Abilities/AbilityTarget.cs" />
       </list>
     </option>
   </component>
@@ -192,7 +192,7 @@
       <workItem from="1629178963839" duration="4890000" />
       <workItem from="1629275826629" duration="46250000" />
       <workItem from="1629702292645" duration="4100000" />
-      <workItem from="1629796258063" duration="1129000" />
+      <workItem from="1629796258063" duration="1907000" />
     </task>
     <servers />
   </component>
