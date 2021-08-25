@@ -21,16 +21,18 @@ public class CameraManager : MonoBehaviour
     public float RotationSpeed;
 
     private Camera camera;
+    [SerializeField] private MinimapController minimapController;
 
     public static CameraManager Instance;
 
-    public void Init(Transform entityTransform, Transform ikTransform)
+    public void Init(Transform entityTransform, Transform ikTransform, Transform minimapTarget)
     {
         Instance = this;
         camera = Camera.main;
         CameraTransform = camera.transform;
         TrackedTransform = entityTransform;
         TrackedIKTransform = ikTransform;
+        minimapController?.SetTarget(minimapTarget);
     }
 
     private void Update()
@@ -65,5 +67,9 @@ public class CameraManager : MonoBehaviour
                 MouseCursorManager.Instance.EnemyEntity = RayMouseHit.transform.gameObject;
             }
         }
+    }
+
+    public void SetMinimapTarget(Transform target){
+        minimapController.SetTarget(target);
     }
 }
