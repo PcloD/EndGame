@@ -58,8 +58,8 @@ public class EquipmentInventoryNB : NetworkBehaviour
     public override void OnStartServer()
     {
         base.OnStartServer();
-        // add 4 spell sockets
-        for (int i = 0; i < 4; i++)
+        // add 6 spell sockets
+        for (int i = 0; i < 6; i++)
         {
             // set empty slot on init
             AbilityNetworkSocket socket = new AbilityNetworkSocket {spellId = -1, socketIndex = i};
