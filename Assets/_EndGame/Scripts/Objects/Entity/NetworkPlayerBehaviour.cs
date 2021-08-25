@@ -15,6 +15,8 @@ using UnityEngine.Networking;
 
 public class NetworkPlayerBehaviour : EntityNetworkBehaviour
 {
+    public GameObject PlayerStackPrefab;
+    private GameObject _currentPlayerStack;
     public static NetworkPlayerBehaviour Instance;
     public float MoveSpeed = 1f;
     public Transform IkAimTransform;
@@ -44,13 +46,12 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
 
         if (!hasAuthority) return;
         Instance = this;
-        Instantiate (PlayerCanvasPrefab);
-        equipmentInventory = GetComponent<EquipmentInventoryNB> ();
-        CameraManager.TrackedTransform = transform;
-        CameraManager.TrackedIKTransform = IkAimTransform;
-        CameraManager.Instance.SetMinimapTarget(transform);
-        Invoke ("DelayedReady", 3f);
+        _currentPlayerStack = Instantiate(PlayerStackPrefab);
+        equipmentInventory = GetComponent<EquipmentInventoryNB>();
 
+        var cameraManager = _currentPlayerStack.GetComponentInChildren<CameraManager>();
+        cameraManager.Init(transform, IkAimTransform, transform);
+        Invoke("DelayedReady", 3f);
     }
 
     void ClientAbilityChanged (CurrentAbility oldAbility, CurrentAbility newAbility)
@@ -125,6 +126,11 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
         velocity = aStar.velocity;
         SetAnimationValues ();
         HandleRotation ();
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(_currentPlayerStack);
     }
 
     [Server]

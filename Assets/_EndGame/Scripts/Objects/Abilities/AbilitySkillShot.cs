@@ -35,7 +35,7 @@ public class AbilitySkillShot : Ability
             var entity = other.GetComponent<EntityNetworkBehaviour>();
             if (entity != null)
             {
-                entity.Health -= 10;
+                entity.ServerDealDamage(10, OwnerEntity);
             }
         }
         

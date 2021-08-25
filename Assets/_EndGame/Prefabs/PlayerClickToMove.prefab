@@ -208,6 +208,7 @@ MonoBehaviour:
   syncInterval: 0.1
   Health: 0
   entityHpBar: {fileID: 4514739855932158154}
+  PlayerStackPrefab: {fileID: 7426630933870804253, guid: d44fde730997b5345a74ddc033745690, type: 3}
   MoveSpeed: 1
   IkAimTransform: {fileID: 3997211996623799457}
   animator: {fileID: 0}
