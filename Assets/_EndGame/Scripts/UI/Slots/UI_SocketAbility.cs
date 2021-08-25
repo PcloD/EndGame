@@ -18,10 +18,11 @@ public class UI_SocketAbility : UI_Socket
                 // find the SO 
                var abilitySO = GameArmoryManager.AbilitySpellScriptableObjects[_abilityNetworkSocket.spellId] as SpellAbilityScriptableObject;
                IconImage.sprite = abilitySO.SpellSprite;
+               IconImage.enabled = true;
             }
             else
             {
-                IconImage.sprite = startSprite;
+                IconImage.enabled = false;
             }
         }
     }
