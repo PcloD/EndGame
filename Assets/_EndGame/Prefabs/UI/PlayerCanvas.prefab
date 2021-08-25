@@ -346,7 +346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7240579636857664200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41024ed6365c5e4e8038b049d560ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbilitySlots: []
+  AbilitySockets: []
   LayoutParent: {fileID: 7240579636450706393}
   socketAbilityPrefab: {fileID: 746341704484748202, guid: 05000b3d5a4cab44288661f87c329871, type: 3}
 --- !u!1 &7240579637809690999
@@ -863,6 +863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9055c85ecdd3e29489952c9bea32fd28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanvasTransform: {fileID: 7240579636460168400}
   ContentTransform: {fileID: 7240579637068265394}
   SelectableAbilityPrefab: {fileID: 8819349482222124704, guid: c8a9cff4d8daa594296a1217747bd28d, type: 3}
   Panel: {fileID: 7240579636857664201}

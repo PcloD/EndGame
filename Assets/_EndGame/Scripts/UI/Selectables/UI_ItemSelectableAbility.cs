@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class UI_ItemSelectableAbility : UI_ItemSelectable
 {
+    [ReadOnly]public Transform canvasTransform;
     public UI_ItemDragReference dragReference;
     public Image SpellIcon;
     public TMP_Text SpellName;
@@ -15,17 +16,18 @@ public class UI_ItemSelectableAbility : UI_ItemSelectable
     [ReadOnly]public SpellAbilityScriptableObject abilitySo;
 
 
-    public void Init(SpellAbilityScriptableObject abilityScriptableObject, int spellId)
+    public void Init(SpellAbilityScriptableObject abilityScriptableObject, int spellId, Transform canvasTransform)
     {
         abilitySo = abilityScriptableObject;
         SpellIcon.sprite = abilitySo.SpellSprite;
         SpellName.text = abilitySo.AbilityName;
         SpellId = spellId;
+        this.canvasTransform = canvasTransform;
     }
     public override void OnBeginDrag(PointerEventData eventData)
     {
         base.OnBeginDrag(eventData);
-        var dragRef = Instantiate(dragReference, Input.mousePosition, Quaternion.identity,transform.root);
+        var dragRef = Instantiate(dragReference, Input.mousePosition, Quaternion.identity,canvasTransform);
         dragRef.Init(abilitySo.SpellSprite);
     }
 
