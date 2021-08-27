@@ -48,7 +48,16 @@ public class EntityNetworkBehaviour : NetworkBehaviour
     [TargetRpc]
     private void TargetTookDamage(NetworkConnection target, int damage)
     {
+        CombatTextManager.DamageType type = CombatTextManager.DamageType.NORMAL;
+        // TODO: implement damage types
+        int test = Random.Range(0, 10);
+        if (test < 3)
+            type = CombatTextManager.DamageType.HEAL;
+        else if (test < 6)
+            type = CombatTextManager.DamageType.CRIT;
+        
         Debug.Log($"I just dealt {damage} damage to {gameObject.name}");
+        CombatTextManager.Instance.CreatePopup(entityHpBar.transform.position + Vector3.up, Random.Range(1,2000), type);
     }
     
 

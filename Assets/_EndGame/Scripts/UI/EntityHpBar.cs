@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EntityHpBar : MonoBehaviour
@@ -11,7 +12,12 @@ public class EntityHpBar : MonoBehaviour
 
     [SerializeField] private Renderer ren;
     private MaterialPropertyBlock propertyBlock;
-
+    
+    // Combat Text
+    [SerializeField] private TMP_Text combatTxt;
+    private float combatTxtDuration = 0;
+    private float combatTxtEnd = 0;
+    
     private float hpValue;
 
     private void Awake()
@@ -34,7 +40,7 @@ public class EntityHpBar : MonoBehaviour
         {
             return;
         }
-        transform.LookAt(CameraManager.Instance.CameraTransform);
+        transform.LookAt(transform.position - Vector3.forward + CameraManager.Instance.CameraOffset);
         if (deactiveTime < 0)
         {
             Debug.Log("Disable hp bar");
@@ -53,5 +59,19 @@ public class EntityHpBar : MonoBehaviour
         lastActivateTime = Time.time;
         propertyBlock.SetFloat("_fillRate", hpValue);
         ren.SetPropertyBlock(propertyBlock);
+    }
+
+    public IEnumerator DisplayDMG(int value)
+    {
+        combatTxt.text = value.ToString();
+        combatTxt.enabled = true;
+        combatTxtEnd = Time.timeSinceLevelLoad + combatTxtDuration;
+
+        while (combatTxtEnd > Time.timeSinceLevelLoad)
+        {
+            yield return null;
+        }
+
+        combatTxt.enabled = false;
     }
 }

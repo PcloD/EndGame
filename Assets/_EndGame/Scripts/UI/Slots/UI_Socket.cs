@@ -15,7 +15,7 @@ public class UI_Socket : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     void Awake()
     {
-        startSprite = IconImage.sprite;
+        IconImage.enabled = false;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

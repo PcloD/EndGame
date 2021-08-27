@@ -639,7 +639,6 @@ GameObject:
   - component: {fileID: 373752397}
   - component: {fileID: 373752396}
   - component: {fileID: 373752395}
-  - component: {fileID: 373752399}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -718,7 +717,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2039
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -744,26 +743,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &373752399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373752394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3086a23b47b96564ba31402866f958df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 384
-  CameraTransform: {fileID: 0}
-  CameraOffset: {x: 0, y: 11, z: -8}
-  MousePosition: {x: 0, y: 0, z: 0}
-  MovementSpeed: 5
-  RotationSpeed: 3
 --- !u!1 &412396848
 GameObject:
   m_ObjectHideFlags: 0

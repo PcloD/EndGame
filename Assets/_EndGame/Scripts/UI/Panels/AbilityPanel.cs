@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AbilityPanel : MonoBehaviour
 {
+    public Transform CanvasTransform;
     public Transform ContentTransform;
     public UI_ItemSelectableAbility SelectableAbilityPrefab;
     
@@ -45,7 +46,7 @@ public class AbilityPanel : MonoBehaviour
             if (abilitySpellScriptableObject is SpellAbilityScriptableObject)
             {
                 var uiSpell = Instantiate(SelectableAbilityPrefab, Vector3.zero, Quaternion.identity, ContentTransform);
-                uiSpell.Init(abilitySpellScriptableObject as SpellAbilityScriptableObject, abilitySpellScriptableObject.AbilityId);
+                uiSpell.Init(abilitySpellScriptableObject as SpellAbilityScriptableObject, abilitySpellScriptableObject.AbilityId, CanvasTransform);
                 uiAbilities.Add(uiSpell);
             }
         }
