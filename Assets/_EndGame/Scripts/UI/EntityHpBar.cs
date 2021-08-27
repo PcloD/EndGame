@@ -36,6 +36,7 @@ public class EntityHpBar : MonoBehaviour
 
     void Update()
     {
+        if (CameraManager.Instance == null) return;
         if (!isActive)
         {
             return;

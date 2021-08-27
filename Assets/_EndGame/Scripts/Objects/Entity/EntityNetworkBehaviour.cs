@@ -51,7 +51,7 @@ public class EntityNetworkBehaviour : NetworkBehaviour
        else if (test < 6)
            type = CombatTextManager.DamageType.CRIT;
         
-       CombatTextManager.Instance.CreatePopup(entityHpBar.transform.position + Vector3.up, damage, type);
+       CombatTextManager.Instance?.CreatePopup(entityHpBar.transform.position + Vector3.up, damage, type);
     }
 
     [TargetRpc]
