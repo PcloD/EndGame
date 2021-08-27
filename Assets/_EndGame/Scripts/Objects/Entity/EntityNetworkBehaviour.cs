@@ -40,9 +40,18 @@ public class EntityNetworkBehaviour : NetworkBehaviour
         TargetTookDamage(entityThatDidDamage.connectionToClient, damage);
     }
 
-    private void LocalTookDamage(int dmg)
+    private void LocalTookDamage(int damage)
     {
-       Debug.Log($"I just took {dmg} damage"); 
+       Debug.Log($"I just took {damage} damage"); 
+       CombatTextManager.DamageType type = CombatTextManager.DamageType.NORMAL;
+       // TODO: implement damage types
+       int test = Random.Range(0, 10);
+       if (test < 3)
+           type = CombatTextManager.DamageType.HEAL;
+       else if (test < 6)
+           type = CombatTextManager.DamageType.CRIT;
+        
+       CombatTextManager.Instance.CreatePopup(entityHpBar.transform.position + Vector3.up, damage, type);
     }
 
     [TargetRpc]
@@ -57,7 +66,7 @@ public class EntityNetworkBehaviour : NetworkBehaviour
             type = CombatTextManager.DamageType.CRIT;
         
         Debug.Log($"I just dealt {damage} damage to {gameObject.name}");
-        CombatTextManager.Instance.CreatePopup(entityHpBar.transform.position + Vector3.up, Random.Range(1,2000), type);
+        CombatTextManager.Instance.CreatePopup(entityHpBar.transform.position + Vector3.up, damage, type);
     }
     
 

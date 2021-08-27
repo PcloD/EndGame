@@ -20,30 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfbd124-a032-4e25-931b-640c9bed4c11" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/AbilityPanel.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Combat/CombatTextPopup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Combat/CombatTextPopup.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/PlayerStack.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/PlayerStack.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/AbilitySlot.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/AbilitySlot.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/AbilityPanel.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/AbilitySocket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/AbilitySocket.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/AbilitySocket.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/AbilitySocket.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/MinimapCam.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/MinimapCam.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/Player HUD.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/Player HUD.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/PlayerCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/PlayerCanvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scenes/Dev.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scenes/Dev.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scenes/UI Dev.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scenes/UI Dev.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Inventory/EquipmentInventoryNB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Inventory/EquipmentInventoryNB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CombatTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CombatTextManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityNetworkBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityNetworkBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/EntityHpBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/EntityHpBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Panels/AbilityPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Panels/AbilityPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Selectables/UI_ItemSelectableAbility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Selectables/UI_ItemSelectableAbility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Slots/UI_Socket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Slots/UI_Socket.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Slots/UI_SocketAbility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Slots/UI_SocketAbility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +198,8 @@
       <workItem from="1629931151095" duration="3079000" />
       <workItem from="1629964130766" duration="1417000" />
       <workItem from="1629971539072" duration="779000" />
-      <workItem from="1630021219891" duration="5732000" />
+      <workItem from="1630021219891" duration="6333000" />
+      <workItem from="1630030648127" duration="1017000" />
     </task>
     <servers />
   </component>

@@ -21,6 +21,7 @@ public class CombatTextManager : MonoBehaviour
 
     [SerializeField] private CombatTextPopup combatTextPopupPrefab;
     public Vector3 DestinationOffset;
+    public Vector3 DestinationAltOffset;
     public float VisibleDuration = 1f;
     private void Awake()
     {
@@ -35,13 +36,13 @@ public class CombatTextManager : MonoBehaviour
         switch (type)
         {
             case DamageType.NORMAL:
-                combatTextPopup.Display(dmgAmount, normalStyle);
+                combatTextPopup.Display(dmgAmount, normalStyle, DestinationOffset);
                 break;
             case DamageType.CRIT:
-                combatTextPopup.Display(dmgAmount, critStyle);
+                combatTextPopup.Display(dmgAmount, critStyle, DestinationOffset);
                 break;
             case DamageType.HEAL:
-                combatTextPopup.Display(dmgAmount, healStyle);
+                combatTextPopup.Display(dmgAmount, healStyle, DestinationAltOffset);
                 break;
         }
     }
