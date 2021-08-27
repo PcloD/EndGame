@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6651528797771339629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6651528797771339619}
+  - component: {fileID: 6651528797771339616}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6651528797771339619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6651528797771339629}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6651528797771339616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6651528797771339629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e6f7f8316599c04785cd8c79974e2f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalStyle:
+    m_Name: CombatNormal
+    m_HashCode: -1103306939
+    m_OpeningDefinition: <b>
+    m_ClosingDefinition: </b>
+    m_OpeningTagArray: 3c000000620000003e000000
+    m_ClosingTagArray: 3c0000002f000000620000003e000000
+    m_OpeningTagUnicodeArray: 
+    m_ClosingTagUnicodeArray: 
+  critStyle:
+    m_Name: CombatCrit
+    m_HashCode: -474485062
+    m_OpeningDefinition: <size=1.5em><b><#EC3B1A>
+    m_ClosingDefinition: </b></size>
+    m_OpeningTagArray: 3c00000073000000690000007a000000650000003d000000310000002e00000035000000650000006d0000003e0000003c000000620000003e0000003c000000230000004500000043000000330000004200000031000000410000003e000000
+    m_ClosingTagArray: 3c0000002f000000620000003e0000003c0000002f00000073000000690000007a000000650000003e000000
+    m_OpeningTagUnicodeArray: 
+    m_ClosingTagUnicodeArray: 
+  healStyle:
+    m_Name: CombatHeal
+    m_HashCode: -473938794
+    m_OpeningDefinition: <b><#28C31D>
+    m_ClosingDefinition: </b>
+    m_OpeningTagArray: 3c000000620000003e0000003c000000230000003200000038000000430000003300000031000000440000003e000000
+    m_ClosingTagArray: 3c0000002f000000620000003e000000
+    m_OpeningTagUnicodeArray: 
+    m_ClosingTagUnicodeArray: 
+  combatTextPopupPrefab: {fileID: 8810206900140281350, guid: 75bba0ba6595bc74ab66d90cf912e916, type: 3}
+  DestinationOffset: {x: -1, y: 1, z: 0}
+  DestinationAltOffset: {x: 1, y: 1, z: 0}
+  VisibleDuration: 1
