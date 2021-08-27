@@ -20,12 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfbd124-a032-4e25-931b-640c9bed4c11" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/PlayerStack.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/PlayerStack.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/CombatTxt.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/CombatTxt.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/UIManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/UIManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scenes/UI Dev.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scenes/UI Dev.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CombatTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CombatTextManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityNetworkBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityNetworkBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Combat/CombatTextPopup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Combat/CombatTextPopup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -199,7 +203,7 @@
       <workItem from="1629964130766" duration="1417000" />
       <workItem from="1629971539072" duration="779000" />
       <workItem from="1630021219891" duration="6333000" />
-      <workItem from="1630030648127" duration="1017000" />
+      <workItem from="1630030648127" duration="1903000" />
     </task>
     <servers />
   </component>

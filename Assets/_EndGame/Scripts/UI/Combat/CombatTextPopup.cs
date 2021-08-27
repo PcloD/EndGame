@@ -7,7 +7,6 @@ public class CombatTextPopup : MonoBehaviour
     private TMP_Text textAsset;
     private float endTime;
     private Vector3 endPos;
-    private Vector3 endPosAlt;
 
     public void Display(int dmgAmount, TMP_Style style, Vector3 destPos)
     {
