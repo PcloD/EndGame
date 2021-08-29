@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Management.Instrumentation;
 using System.Runtime.CompilerServices;
 using FirstGearGames.Mirrors.Assets.FlexNetworkAnimators;
@@ -15,7 +16,9 @@ public enum AbilityCode
     Spell1 = 2,
     Spell2 = 3,
     Spell3 = 4, 
-    Spell4 = 5
+    Spell4 = 5,
+    Spell5 = 6, 
+    Spell6 = 7
 }
 
 public class EntityAbilityHandler : NetworkBehaviour
@@ -260,6 +263,40 @@ public class EntityAbilityHandler : NetworkBehaviour
         
     }
 
+    private AbilityCode? GetAbilityCode(AbilityScriptableObject abilityScriptableObject)
+    {
+        for (int i = 0; i < equipmentInventory.SpellAbilitySockets.Count(); i++)
+        {
+            if (!equipmentInventory.SpellAbilitySockets[i].HasSpell) continue;
+
+            if (equipmentInventory.SpellAbilitySockets[i].spellId == abilityScriptableObject.AbilityId)
+            {
+                switch (i)
+                {
+                    case 0:
+                        return AbilityCode.Spell1;
+                        break;
+                    case 1:
+                        return AbilityCode.Spell2;
+                        break;
+                    case 2:
+                        return AbilityCode.Spell3;
+                        break;
+                    case 3:
+                        return AbilityCode.Spell4;
+                        break;
+                    case 4:
+                        return AbilityCode.Spell5;
+                        break;
+                    case 5:
+                        return AbilityCode.Spell6;
+                        break;
+                }
+            }
+        }
+        return null;
+    }
+
     AbilityScriptableObject GetAbilitySO(AbilityCode abilityCode)
     {
         switch (abilityCode)
@@ -288,6 +325,13 @@ public class EntityAbilityHandler : NetworkBehaviour
                 throw new ArgumentOutOfRangeException(nameof(abilityCode), abilityCode, null);
         }
     }
+
+    [Client]
+    private void RequestAbilityQueue(AbilityCode ac)
+    {
+        PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = null;
+        CmdTryQueueAbilitity(ac, CameraManager.RayMouseHit.point);
+    }
     
     [Client]
     void ClientAbilities()
@@ -295,7 +339,20 @@ public class EntityAbilityHandler : NetworkBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (equipmentInventory.SpellAbilitySockets[0].spellId <= 0) return;
-            CmdTryQueueAbilitity(AbilityCode.Spell1);
+            var abilitySO = GetAbilitySO(AbilityCode.Spell1);
+            // try place
+            if (abilitySO.IsPlaceable && !PlayerGroundTarget.Instance.IsActive)
+            { 
+                PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = abilitySO;
+                return;
+            }
+            if(!abilitySO.IsPlaceable)
+            {
+                // placed spell
+                // todo this only works for skillshots?
+                RequestAbilityQueue(AbilityCode.Spell1);
+                PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = null;
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -309,10 +366,33 @@ public class EntityAbilityHandler : NetworkBehaviour
         {
             // do spell 4
         }
+
+        if (PlayerGroundTarget.Instance.IsActive)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+              var abilityCode = GetAbilityCode(PlayerGroundTarget.Instance.CurrentAbilityScriptableObject);
+              if (abilityCode != null)
+              {
+                  RequestAbilityQueue(abilityCode.Value);
+                  PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = null;
+              }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (PlayerGroundTarget.Instance.IsActive)
+            {
+                PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = null;
+                return;
+            }
+        }
     }
 
+    // todo expand for mouse position
     [Command]
-    void CmdTryQueueAbilitity(AbilityCode ac)
+    void CmdTryQueueAbilitity(AbilityCode ac, Vector3 mousePosition)
     {
         AbilityScriptableObject spellScriptableObject = null;
         int spellId = -1;
@@ -344,7 +424,7 @@ public class EntityAbilityHandler : NetworkBehaviour
             return;
         }
         
-        currentAbility = new CurrentAbility(ac, spellScriptableObject.AbilityId);
+        currentAbility = new CurrentAbility(ac, spellScriptableObject.AbilityId, mousePosition);
     }
 }
 
@@ -354,6 +434,7 @@ public class CurrentAbility
     public readonly double startTime;
     public readonly AbilityCode abilityCode;
     public readonly int abilityId;
+    public readonly Vector3 mousePosition;
     
     public AbilityScriptableObject AbilitySO => GameArmoryManager.AbilitySpellScriptableObjects[abilityId];
 
@@ -369,11 +450,18 @@ public class CurrentAbility
     {
         
     }
-
     public CurrentAbility(AbilityCode ac, int abilityId)
     {
         abilityCode = ac;
         startTime = NetworkTime.time;
         this.abilityId = abilityId;
+    }
+
+    public CurrentAbility(AbilityCode ac, int abilityId, Vector3 mousePos)
+    {
+        abilityCode = ac;
+        startTime = NetworkTime.time;
+        this.abilityId = abilityId;
+        mousePosition = mousePos;
     }
 }

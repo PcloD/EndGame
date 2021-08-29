@@ -51,7 +51,10 @@ public class AbilityScriptableObject : ScriptableObject
     [InlineEditor(InlineEditorModes.FullEditor), PropertyOrder(10000)]
     public Ability AbilityPrefab;
 
-
+    // todo expand this to ideally work for more then groundTargets
+    [ShowIf("AbilityType", global::AbilityType.GroundTarget)]
+    public float AbilitySize = 1f;
+    
     public string GetAnimationString()
     {
         switch (AnimationType)
@@ -64,6 +67,8 @@ public class AbilityScriptableObject : ScriptableObject
                 return "";
         }
     }
+
+    public bool IsPlaceable => AbilityType == AbilityType.GroundTarget || AbilityType == AbilityType.SkillShot;
 }
 
 

@@ -27,6 +27,7 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
     [ReadOnly] public EntityAbilityHandler entityAbilityHandler;
     [ReadOnly] public EquipmentInventoryNB equipmentInventory;
     [ReadOnly] public EntityCastBar entityCastBar;
+    [ReadOnly] public PlayerGroundTarget groundTarget;
 
     [SyncVar (hook = "ClientAbilityChanged")] public CurrentAbility CurrentClientAbility;
 
@@ -37,6 +38,7 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
     private Vector3 velocity;
 
     public static Action OnLocalClientReady;
+    
     #region Initilization
 
     public override void OnStartClient ()
@@ -53,21 +55,6 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
         cameraManager.Init(transform, IkAimTransform, transform);
         Invoke("DelayedReady", 3f);
     }
-
-    void ClientAbilityChanged (CurrentAbility oldAbility, CurrentAbility newAbility)
-    {
-        Debug.Log ($"Client ability change {oldAbility != null} | {newAbility != null}");
-        if (oldAbility != null && oldAbility.abilityId > 0)
-        {
-            Debug.Log ($"Old ability - {oldAbility.AbilitySO.name}");
-        }
-
-        if (newAbility != null && newAbility.abilityId > 0)
-        {
-            Debug.Log ($"new ability - {newAbility.AbilitySO.name}");
-        }
-    }
-
     /* todo figure out how to determine after all initial syncvars have fired client side
     todo cont - prob some kind of async function that waits for all the synclists to be populated / maybe server side send rpc
     */
@@ -94,6 +81,7 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
         transform = GetComponent<Transform> ();
         animator = GetComponent<Animator> ();
         fna = GetComponent<FlexNetworkAnimator> ();
+        groundTarget = GetComponentInChildren<PlayerGroundTarget>();
         entityAbilityHandler = GetComponent<EntityAbilityHandler> ();
         entityCastBar = GetComponentInChildren<EntityCastBar> ();
         entityCastBar.Init (this);
@@ -104,6 +92,20 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
     }
 
     #endregion
+    
+    void ClientAbilityChanged (CurrentAbility oldAbility, CurrentAbility newAbility)
+    {
+        Debug.Log ($"Client ability change {oldAbility != null} | {newAbility != null}");
+        if (oldAbility != null && oldAbility.abilityId > 0)
+        {
+            Debug.Log ($"Old ability - {oldAbility.AbilitySO.name}");
+        }
+
+        if (newAbility != null && newAbility.abilityId > 0)
+        {
+            Debug.Log ($"new ability - {newAbility.AbilitySO.name}");
+        }
+    }
 
     void Update ()
     {
@@ -175,6 +177,14 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
             var abilityRotation = Quaternion.LookRotation (lookDir);
             transform.rotation = Quaternion.Slerp (transform.rotation, abilityRotation, Time.fixedDeltaTime * 5f);
         }
+        else if (entityAbilityHandler.currentAbility != null)
+        {
+            var lookDir = entityAbilityHandler.currentAbility.mousePosition - transform.position;
+            lookDir.y = 0f;
+            var abilityRotation = Quaternion.LookRotation (lookDir);
+            transform.rotation = Quaternion.Slerp (transform.rotation, abilityRotation, Time.fixedDeltaTime * 5f);
+        }
+        
 
         // movement rotation
         if (velocity.sqrMagnitude < 0.1f) return;
