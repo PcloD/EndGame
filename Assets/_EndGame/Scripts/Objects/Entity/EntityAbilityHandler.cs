@@ -338,6 +338,22 @@ public class EntityAbilityHandler : NetworkBehaviour
         PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = null;
         CmdTryQueueAbilitity(ac, CameraManager.RayMouseHit.point);
     }
+
+    [Client]
+    void HandlePlacementAbility(AbilityScriptableObject abilitySO)
+    {
+        if (abilitySO.IsPlaceable && !PlayerGroundTarget.Instance.IsActive)
+        { 
+            PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = abilitySO;
+            return;
+        }
+        if(!abilitySO.IsPlaceable)
+        {
+            // placed spell
+            RequestAbilityQueue(AbilityCode.Spell1);
+            PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = null;
+        }
+    }
     
     [Client]
     void ClientAbilities()
@@ -347,30 +363,28 @@ public class EntityAbilityHandler : NetworkBehaviour
             if (equipmentInventory.SpellAbilitySockets[0].spellId <= 0) return;
             var abilitySO = GetAbilitySO(AbilityCode.Spell1);
             // try place
-            if (abilitySO.IsPlaceable && !PlayerGroundTarget.Instance.IsActive)
-            { 
-                PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = abilitySO;
-                return;
-            }
-            if(!abilitySO.IsPlaceable)
-            {
-                // placed spell
-                // todo this only works for skillshots?
-                RequestAbilityQueue(AbilityCode.Spell1);
-                PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = null;
-            }
+            HandlePlacementAbility(abilitySO);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            // do spell 2
+            if (equipmentInventory.SpellAbilitySockets[1].spellId <= 0) return;
+            var abilitySO = GetAbilitySO(AbilityCode.Spell2);
+            // try place
+            HandlePlacementAbility(abilitySO);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            // do spell 3
+            if (equipmentInventory.SpellAbilitySockets[2].spellId <= 0) return;
+            var abilitySO = GetAbilitySO(AbilityCode.Spell3);
+            // try place
+            HandlePlacementAbility(abilitySO);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            // do spell 4
+            if (equipmentInventory.SpellAbilitySockets[3].spellId <= 0) return;
+            var abilitySO = GetAbilitySO(AbilityCode.Spell4);
+            // try place
+            HandlePlacementAbility(abilitySO);
         }
 
         if (PlayerGroundTarget.Instance.IsActive)

@@ -19,7 +19,7 @@ public class AbilityGround : Ability
          // handle move
          transform.position += Direction * moveValue;
          
-         if(Vector3.Distance(transform.position, GroundPosition) < 0.5f) Destroy(gameObject);
+         if(Vector3.Distance(transform.position, GroundPosition) < 0.1f) Destroy(gameObject);
      }
 
      public void Initilize(bool isServer, float destroyTime, Vector3 groundPosition, EntityNetworkBehaviour ownerEntity, float moveSpeed)
