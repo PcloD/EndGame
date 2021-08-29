@@ -59,13 +59,15 @@ public class EntityEnemyTracker
         if (!TrackedEnemyTransform) return;
         
         // clear tracked as we're too far away
-        if (DistanceToEnemy() > 10f)
+        if (DistanceToEnemy() > 20f)
         {
+            Debug.Log($"Clearing path as we're {DistanceToEnemy()} away");
             TrackedEnemyTransform = null;
             aStar.destination = ourEntityTransform.forward + ourEntityTransform.position;
             aStar.SearchPath();
             return;
         }
+        
         
         aStar.isStopped = !IsTrackingAvailable();
 
