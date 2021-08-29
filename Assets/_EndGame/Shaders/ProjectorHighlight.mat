@@ -26,6 +26,7 @@ Material:
     m_Floats:
     - _Cull: 1
     - _DstBlend: 10
+    - _Fill: 0.66
     - _FracUVEnable: 0
     - _MulAlphaToRGB: 0
     - _ProjectionAngleDiscardEnable: 0
