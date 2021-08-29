@@ -144,6 +144,9 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
     [Client]
     void ClientMove ()
     {
+        if (PlayerGroundTarget.Instance.IsActive) return;
+        if (AbilityPanel.isOpen) return;
+        
         // left or right click
         if (Input.GetMouseButtonDown (0) || Input.GetMouseButtonDown (1))
         {
@@ -155,6 +158,7 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
 
             if (MouseCursorManager.Instance.CurrentCursorType == MouseCursorManager.CursorType.Attack)
             {
+                if (entityAbilityHandler.currentAbility != null) return;
                 CmdRequestAttack (MouseCursorManager.Instance.EnemyEntity);
             }
         }

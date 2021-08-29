@@ -11,7 +11,9 @@ public class AbilityPanel : MonoBehaviour
     
     private List<UI_ItemSelectableAbility> uiAbilities = new List<UI_ItemSelectableAbility>();
     public GameObject Panel;
-    private bool isOpen;
+    public static bool isOpen;
+    
+    
 
     void Update()
     {

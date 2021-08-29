@@ -14,6 +14,7 @@ public class PlayerGroundTarget : MonoBehaviour
     public bool IsActive;
 
     private bool arrowActive;
+    private bool circleActive;
 
     private AbilityScriptableObject _currentAbilityScriptableObject;
     public AbilityScriptableObject CurrentAbilityScriptableObject
@@ -50,10 +51,16 @@ public class PlayerGroundTarget : MonoBehaviour
 
     private void Update()
     {
-        if (!arrowActive) return;
+        if (arrowActive)
+        {
+            var arrowDelta = CameraManager.RayMouseHit.point - _transform.position;
+            SetArrowRotation(arrowDelta);
+        }
 
-        var arrowDelta = CameraManager.RayMouseHit.point - _transform.position;
-        SetArrowRotation(arrowDelta);
+        if (circleActive)
+        {
+            SetCirclePosition(CameraManager.RayMouseHit.point);
+        }
     }
 
     void Awake()
@@ -79,6 +86,7 @@ public class PlayerGroundTarget : MonoBehaviour
         circleTransform.gameObject.SetActive(true);
         circleTransform.SetScale(new Vector3(CurrentAbilityScriptableObject.AbilitySize, CurrentAbilityScriptableObject.AbilitySize, 0.1f));
         IsActive = true;
+        circleActive = true;
     }
 
     private void EnableArrow()
@@ -94,6 +102,7 @@ public class PlayerGroundTarget : MonoBehaviour
         arrowTransform.gameObject.SetActive(false);
         IsActive = false;
         arrowActive = false;
+        circleActive = false;
     }
     
     

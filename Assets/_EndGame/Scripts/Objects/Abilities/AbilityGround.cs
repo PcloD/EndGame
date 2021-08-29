@@ -1,53 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class AbilityGround : Ability
 {
-    [SerializeField] private float moveSpeed = 5f;
-    
-    public Vector3 TargetPosition;
-    
-     private float catchupDistance = 0f;
+    [ReadOnly] public Vector3 GroundPosition;
+    [ReadOnly] public float MoveSpeed;
 
-     private Vector3 targetDelta => (TargetPosition - transform.position).normalized;
+     private Vector3 Direction => (GroundPosition - transform.position).normalized;
 
      public override void Update()
      {
          base.Update();
          
-         float moveValue = moveSpeed * Time.deltaTime;
-         float catchupValue = 0f;
-
-         if (catchupDistance > 0f)
-         {
-             float step = catchupDistance * Time.deltaTime;
-             catchupDistance -= step;
-             catchupValue = step;
-
-             if (catchupDistance < (moveValue * 0.1f))
-             {
-                 catchupValue += catchupDistance;
-                 catchupDistance = 0f;
-             }
-         }
-         
+         float moveValue = MoveSpeed * Time.deltaTime;
+       
          // handle move
-         transform.position += targetDelta * (moveValue + catchupValue);
+         transform.position += Direction * moveValue;
+         
+         if(Vector3.Distance(transform.position, GroundPosition) < 0.5f) Destroy(gameObject);
      }
 
-     protected override bool ShouldDestroy()
-     {
-         return Time.time > DestroyTime || Vector3.Distance(transform.position, TargetPosition) < 0.25f;
-     }
-
-     public void Initilize(float duration,bool isServer, float destroyTime, Vector3 targetPosition, EntityNetworkBehaviour ownerEntity)
+     public void Initilize(bool isServer, float destroyTime, Vector3 groundPosition, EntityNetworkBehaviour ownerEntity, float moveSpeed)
      {
          Initilize(destroyTime, ownerEntity,  isServer);
-         
-         catchupDistance = (duration * moveSpeed);
-         TargetPosition = targetPosition;
+         MoveSpeed = moveSpeed;
+         GroundPosition = groundPosition;
 
-         transform.position = targetPosition + (Vector3.up * 10f);
+         transform.position = groundPosition + (Vector3.up * 10f);
      }
+     
+     public override void OnTriggerEnter(Collider other)
+     {
+         base.OnTriggerEnter(other);
+         // dont hit self
+         if (other.gameObject == OwnerEntity.gameObject) return;
+
+         if (IsServer)
+         {
+             Debug.Log("Server do Dmg");
+             var entity = other.GetComponent<EntityNetworkBehaviour>();
+             if (entity != null)
+             {
+                ServerDoDmg(entity);
+             }
+         }
+         Destroy(gameObject);
+     }
+
 }

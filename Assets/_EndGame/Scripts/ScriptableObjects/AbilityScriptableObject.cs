@@ -54,6 +54,8 @@ public class AbilityScriptableObject : ScriptableObject
     // todo expand this to ideally work for more then groundTargets
     [ShowIf("AbilityType", global::AbilityType.GroundTarget)]
     public float AbilitySize = 1f;
+
+    public float MoveSpeed = 5f;
     
     public string GetAnimationString()
     {

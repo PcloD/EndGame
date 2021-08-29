@@ -198,11 +198,15 @@ public class EntityAbilityHandler : NetworkBehaviour
                             break;
                         case AbilityType.SkillShot:
                             AbilitySkillShot skillShot = Instantiate(currentAbility.AbilitySO.AbilityPrefab, transform.position + Vector3.up, Quaternion.identity) as AbilitySkillShot;
-                            skillShot.Initilize(true,5f,transform.forward, playerNb, 5f);
+                            skillShot.Initilize(true,5f,transform.forward, playerNb, currentAbility.AbilitySO.MoveSpeed);
                             
                             RpcAbility(transform.forward, currentAbility.abilityCode);
                             break;
                         case AbilityType.GroundTarget:
+                            AbilityGround groundShot = Instantiate(currentAbility.AbilitySO.AbilityPrefab, transform.position + Vector3.up, Quaternion.identity) as AbilityGround;
+                            groundShot.Initilize(true,5f,currentAbility.mousePosition, playerNb, currentAbility.AbilitySO.MoveSpeed);
+                            
+                            RpcAbility(currentAbility.mousePosition, currentAbility.abilityCode);
                             break;
                         default:
                             break;
@@ -253,9 +257,11 @@ public class EntityAbilityHandler : NetworkBehaviour
             case AbilityType.SkillShot:
                 var skillShotProjectile = Instantiate(spellSO.AbilityPrefab, transform.position + Vector3.up, Quaternion.identity) as AbilitySkillShot;
                 
-                skillShotProjectile.Initilize(false,5f,forward, playerNb, 5f);
+                skillShotProjectile.Initilize(false,5f,forward, playerNb,  spellSO.MoveSpeed);
                 break;
             case AbilityType.GroundTarget:
+                AbilityGround groundShot = Instantiate(spellSO.AbilityPrefab, transform.position + Vector3.up, Quaternion.identity) as AbilityGround;
+                groundShot.Initilize(false,5f,forward, playerNb, spellSO.MoveSpeed);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
