@@ -16,6 +16,7 @@ using UnityEngine.Networking;
 public class NetworkPlayerBehaviour : EntityNetworkBehaviour
 {
     public GameObject PlayerStackPrefab;
+    public PlayerGroundTarget PlayerGroundTargetPrefab;
     private GameObject _currentPlayerStack;
     public static NetworkPlayerBehaviour Instance;
     public float MoveSpeed = 1f;
@@ -53,6 +54,9 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
 
         var cameraManager = _currentPlayerStack.GetComponentInChildren<CameraManager>();
         cameraManager.Init(transform, IkAimTransform, transform);
+
+        groundTarget = Instantiate(PlayerGroundTargetPrefab, transform);
+        
         Invoke("DelayedReady", 3f);
     }
     /* todo figure out how to determine after all initial syncvars have fired client side
@@ -81,7 +85,6 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
         transform = GetComponent<Transform> ();
         animator = GetComponent<Animator> ();
         fna = GetComponent<FlexNetworkAnimator> ();
-        groundTarget = GetComponentInChildren<PlayerGroundTarget>();
         entityAbilityHandler = GetComponent<EntityAbilityHandler> ();
         entityCastBar = GetComponentInChildren<EntityCastBar> ();
         entityCastBar.Init (this);
