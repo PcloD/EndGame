@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ProjectorHighlight
+  m_Name: ProjectorCircle
   m_Shader: {fileID: 4800000, guid: ff84a25b0c483a84fa5ce785a8f0c111, type: 3}
   m_ShaderKeywords: _UnityFogEnable
   m_LightmapFlags: 4
@@ -20,24 +20,24 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ca09e3f23a601304795e3a9f9435bb03, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1f91bce5acaff6848ab2a850a0370c19, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Cull: 1
-    - _DstBlend: 10
-    - _Fill: 0.66
+    - _DstBlend: 1
+    - _Fill: 1
     - _FracUVEnable: 0
     - _MulAlphaToRGB: 0
     - _ProjectionAngleDiscardEnable: 0
     - _ProjectionAngleDiscardThreshold: 0
     - _SrcBlend: 5
-    - _StencilComp: 0
+    - _StencilComp: 8
     - _StencilRef: 0
     - _SupportOrthographicCamera: 0
     - _UnityFogEnable: 1
     - _ZTest: 0
     m_Colors:
     - _AlphaRemap: {r: 1, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.18064733, g: 1, b: 0.0047169924, a: 0.5254902}
+    - _Color: {r: 0.41982365, g: 1, b: 0, a: 1}
   m_BuildTextureStacks: []

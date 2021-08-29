@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Management.Instrumentation;
 using System.Runtime.CompilerServices;
 using FirstGearGames.Mirrors.Assets.FlexNetworkAnimators;
@@ -15,7 +16,9 @@ public enum AbilityCode
     Spell1 = 2,
     Spell2 = 3,
     Spell3 = 4, 
-    Spell4 = 5
+    Spell4 = 5,
+    Spell5 = 6, 
+    Spell6 = 7
 }
 
 public class EntityAbilityHandler : NetworkBehaviour
@@ -195,11 +198,15 @@ public class EntityAbilityHandler : NetworkBehaviour
                             break;
                         case AbilityType.SkillShot:
                             AbilitySkillShot skillShot = Instantiate(currentAbility.AbilitySO.AbilityPrefab, transform.position + Vector3.up, Quaternion.identity) as AbilitySkillShot;
-                            skillShot.Initilize(true,5f,transform.forward, playerNb, 5f);
+                            skillShot.Initilize(true,5f,transform.forward, playerNb, currentAbility.AbilitySO.MoveSpeed);
                             
                             RpcAbility(transform.forward, currentAbility.abilityCode);
                             break;
                         case AbilityType.GroundTarget:
+                            AbilityGround groundShot = Instantiate(currentAbility.AbilitySO.AbilityPrefab, transform.position + Vector3.up, Quaternion.identity) as AbilityGround;
+                            groundShot.Initilize(true,5f,currentAbility.mousePosition, playerNb, currentAbility.AbilitySO.MoveSpeed);
+                            
+                            RpcAbility(currentAbility.mousePosition, currentAbility.abilityCode);
                             break;
                         default:
                             break;
@@ -250,14 +257,50 @@ public class EntityAbilityHandler : NetworkBehaviour
             case AbilityType.SkillShot:
                 var skillShotProjectile = Instantiate(spellSO.AbilityPrefab, transform.position + Vector3.up, Quaternion.identity) as AbilitySkillShot;
                 
-                skillShotProjectile.Initilize(false,5f,forward, playerNb, 5f);
+                skillShotProjectile.Initilize(false,5f,forward, playerNb,  spellSO.MoveSpeed);
                 break;
             case AbilityType.GroundTarget:
+                AbilityGround groundShot = Instantiate(spellSO.AbilityPrefab, transform.position + Vector3.up, Quaternion.identity) as AbilityGround;
+                groundShot.Initilize(false,5f,forward, playerNb, spellSO.MoveSpeed);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
         
+    }
+
+    private AbilityCode? GetAbilityCode(AbilityScriptableObject abilityScriptableObject)
+    {
+        for (int i = 0; i < equipmentInventory.SpellAbilitySockets.Count(); i++)
+        {
+            if (!equipmentInventory.SpellAbilitySockets[i].HasSpell) continue;
+
+            if (equipmentInventory.SpellAbilitySockets[i].spellId == abilityScriptableObject.AbilityId)
+            {
+                switch (i)
+                {
+                    case 0:
+                        return AbilityCode.Spell1;
+                        break;
+                    case 1:
+                        return AbilityCode.Spell2;
+                        break;
+                    case 2:
+                        return AbilityCode.Spell3;
+                        break;
+                    case 3:
+                        return AbilityCode.Spell4;
+                        break;
+                    case 4:
+                        return AbilityCode.Spell5;
+                        break;
+                    case 5:
+                        return AbilityCode.Spell6;
+                        break;
+                }
+            }
+        }
+        return null;
     }
 
     AbilityScriptableObject GetAbilitySO(AbilityCode abilityCode)
@@ -288,6 +331,29 @@ public class EntityAbilityHandler : NetworkBehaviour
                 throw new ArgumentOutOfRangeException(nameof(abilityCode), abilityCode, null);
         }
     }
+
+    [Client]
+    private void RequestAbilityQueue(AbilityCode ac)
+    {
+        PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = null;
+        CmdTryQueueAbilitity(ac, CameraManager.RayMouseHit.point);
+    }
+
+    [Client]
+    void HandlePlacementAbility(AbilityScriptableObject abilitySO)
+    {
+        if (abilitySO.IsPlaceable && !PlayerGroundTarget.Instance.IsActive)
+        { 
+            PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = abilitySO;
+            return;
+        }
+        if(!abilitySO.IsPlaceable)
+        {
+            // placed spell
+            RequestAbilityQueue(AbilityCode.Spell1);
+            PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = null;
+        }
+    }
     
     [Client]
     void ClientAbilities()
@@ -295,24 +361,58 @@ public class EntityAbilityHandler : NetworkBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (equipmentInventory.SpellAbilitySockets[0].spellId <= 0) return;
-            CmdTryQueueAbilitity(AbilityCode.Spell1);
+            var abilitySO = GetAbilitySO(AbilityCode.Spell1);
+            // try place
+            HandlePlacementAbility(abilitySO);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            // do spell 2
+            if (equipmentInventory.SpellAbilitySockets[1].spellId <= 0) return;
+            var abilitySO = GetAbilitySO(AbilityCode.Spell2);
+            // try place
+            HandlePlacementAbility(abilitySO);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            // do spell 3
+            if (equipmentInventory.SpellAbilitySockets[2].spellId <= 0) return;
+            var abilitySO = GetAbilitySO(AbilityCode.Spell3);
+            // try place
+            HandlePlacementAbility(abilitySO);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            // do spell 4
+            if (equipmentInventory.SpellAbilitySockets[3].spellId <= 0) return;
+            var abilitySO = GetAbilitySO(AbilityCode.Spell4);
+            // try place
+            HandlePlacementAbility(abilitySO);
+        }
+
+        if (PlayerGroundTarget.Instance.IsActive)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+              var abilityCode = GetAbilityCode(PlayerGroundTarget.Instance.CurrentAbilityScriptableObject);
+              if (abilityCode != null)
+              {
+                  RequestAbilityQueue(abilityCode.Value);
+                  PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = null;
+              }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (PlayerGroundTarget.Instance.IsActive)
+            {
+                PlayerGroundTarget.Instance.CurrentAbilityScriptableObject = null;
+                return;
+            }
         }
     }
 
+    // todo expand for mouse position
     [Command]
-    void CmdTryQueueAbilitity(AbilityCode ac)
+    void CmdTryQueueAbilitity(AbilityCode ac, Vector3 mousePosition)
     {
         AbilityScriptableObject spellScriptableObject = null;
         int spellId = -1;
@@ -344,7 +444,7 @@ public class EntityAbilityHandler : NetworkBehaviour
             return;
         }
         
-        currentAbility = new CurrentAbility(ac, spellScriptableObject.AbilityId);
+        currentAbility = new CurrentAbility(ac, spellScriptableObject.AbilityId, mousePosition);
     }
 }
 
@@ -354,6 +454,7 @@ public class CurrentAbility
     public readonly double startTime;
     public readonly AbilityCode abilityCode;
     public readonly int abilityId;
+    public readonly Vector3 mousePosition;
     
     public AbilityScriptableObject AbilitySO => GameArmoryManager.AbilitySpellScriptableObjects[abilityId];
 
@@ -369,11 +470,18 @@ public class CurrentAbility
     {
         
     }
-
     public CurrentAbility(AbilityCode ac, int abilityId)
     {
         abilityCode = ac;
         startTime = NetworkTime.time;
         this.abilityId = abilityId;
+    }
+
+    public CurrentAbility(AbilityCode ac, int abilityId, Vector3 mousePos)
+    {
+        abilityCode = ac;
+        startTime = NetworkTime.time;
+        this.abilityId = abilityId;
+        mousePosition = mousePos;
     }
 }

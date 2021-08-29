@@ -16,6 +16,7 @@ using UnityEngine.Networking;
 public class NetworkPlayerBehaviour : EntityNetworkBehaviour
 {
     public GameObject PlayerStackPrefab;
+    public PlayerGroundTarget PlayerGroundTargetPrefab;
     private GameObject _currentPlayerStack;
     public static NetworkPlayerBehaviour Instance;
     public float MoveSpeed = 1f;
@@ -27,6 +28,7 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
     [ReadOnly] public EntityAbilityHandler entityAbilityHandler;
     [ReadOnly] public EquipmentInventoryNB equipmentInventory;
     [ReadOnly] public EntityCastBar entityCastBar;
+    [ReadOnly] public PlayerGroundTarget groundTarget;
 
     [SyncVar (hook = "ClientAbilityChanged")] public CurrentAbility CurrentClientAbility;
 
@@ -37,6 +39,7 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
     private Vector3 velocity;
 
     public static Action OnLocalClientReady;
+    
     #region Initilization
 
     public override void OnStartClient ()
@@ -51,23 +54,11 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
 
         var cameraManager = _currentPlayerStack.GetComponentInChildren<CameraManager>();
         cameraManager.Init(transform, IkAimTransform, transform);
+
+        groundTarget = Instantiate(PlayerGroundTargetPrefab, transform);
+        
         Invoke("DelayedReady", 3f);
     }
-
-    void ClientAbilityChanged (CurrentAbility oldAbility, CurrentAbility newAbility)
-    {
-        Debug.Log ($"Client ability change {oldAbility != null} | {newAbility != null}");
-        if (oldAbility != null && oldAbility.abilityId > 0)
-        {
-            Debug.Log ($"Old ability - {oldAbility.AbilitySO.name}");
-        }
-
-        if (newAbility != null && newAbility.abilityId > 0)
-        {
-            Debug.Log ($"new ability - {newAbility.AbilitySO.name}");
-        }
-    }
-
     /* todo figure out how to determine after all initial syncvars have fired client side
     todo cont - prob some kind of async function that waits for all the synclists to be populated / maybe server side send rpc
     */
@@ -104,6 +95,20 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
     }
 
     #endregion
+    
+    void ClientAbilityChanged (CurrentAbility oldAbility, CurrentAbility newAbility)
+    {
+        Debug.Log ($"Client ability change {oldAbility != null} | {newAbility != null}");
+        if (oldAbility != null && oldAbility.abilityId > 0)
+        {
+            Debug.Log ($"Old ability - {oldAbility.AbilitySO.name}");
+        }
+
+        if (newAbility != null && newAbility.abilityId > 0)
+        {
+            Debug.Log ($"new ability - {newAbility.AbilitySO.name}");
+        }
+    }
 
     void Update ()
     {
@@ -142,6 +147,9 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
     [Client]
     void ClientMove ()
     {
+        if (PlayerGroundTarget.Instance.IsActive) return;
+        if (AbilityPanel.isOpen) return;
+        
         // left or right click
         if (Input.GetMouseButtonDown (0) || Input.GetMouseButtonDown (1))
         {
@@ -153,6 +161,7 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
 
             if (MouseCursorManager.Instance.CurrentCursorType == MouseCursorManager.CursorType.Attack)
             {
+                if (entityAbilityHandler.currentAbility != null) return;
                 CmdRequestAttack (MouseCursorManager.Instance.EnemyEntity);
             }
         }
@@ -175,6 +184,14 @@ public class NetworkPlayerBehaviour : EntityNetworkBehaviour
             var abilityRotation = Quaternion.LookRotation (lookDir);
             transform.rotation = Quaternion.Slerp (transform.rotation, abilityRotation, Time.fixedDeltaTime * 5f);
         }
+        else if (entityAbilityHandler.currentAbility != null)
+        {
+            var lookDir = entityAbilityHandler.currentAbility.mousePosition - transform.position;
+            lookDir.y = 0f;
+            var abilityRotation = Quaternion.LookRotation (lookDir);
+            transform.rotation = Quaternion.Slerp (transform.rotation, abilityRotation, Time.fixedDeltaTime * 5f);
+        }
+        
 
         // movement rotation
         if (velocity.sqrMagnitude < 0.1f) return;

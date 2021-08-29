@@ -22,6 +22,10 @@ public class Ability : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    protected void ServerDoDmg(EntityNetworkBehaviour entityNb)
+    {
+        entityNb.ServerDealDamage(10, OwnerEntity);
+    }
 
     public virtual void OnTriggerEnter(Collider other)
     {

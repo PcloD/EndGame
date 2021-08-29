@@ -23,6 +23,8 @@ public class AbilitySkillShot : Ability
         MoveSpeed = moveSpeed;
     }
 
+  
+
     public override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
@@ -35,7 +37,7 @@ public class AbilitySkillShot : Ability
             var entity = other.GetComponent<EntityNetworkBehaviour>();
             if (entity != null)
             {
-                entity.ServerDealDamage(10, OwnerEntity);
+               ServerDoDmg(entity);
             }
         }
         
