@@ -13,6 +13,8 @@ public class EntityNetworkBehaviour : NetworkBehaviour
 
     public EntityHpBar entityHpBar;
 
+    private bool entityReady = false;
+
     void OnHealthChanged(int oldVal, int newVal)
     {
         Debug.Log($"SYNCVAR TRIGGER Old {oldVal} New {newVal}");
@@ -29,6 +31,7 @@ public class EntityNetworkBehaviour : NetworkBehaviour
     {
         base.OnStartClient();
         Debug.Log("On Start Client");
+        entityReady = true;
     }
 
     [Server]
@@ -42,6 +45,7 @@ public class EntityNetworkBehaviour : NetworkBehaviour
 
     private void LocalTookDamage(int damage)
     {
+        if (!entityReady) return;
        Debug.Log($"I just took {damage} damage"); 
        CombatTextManager.DamageType type = CombatTextManager.DamageType.NORMAL;
        // TODO: implement damage types

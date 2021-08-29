@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0199c11aa6f514784c5c69cd8378d8, type: 3}
+  m_Name: PlayFabEditorPrefsSO
+  m_EditorClassIdentifier: 
+  DevAccountEmail: kristophbarbour@gmail.com
+  DevAccountToken: 1cbdjdabzy9ugwpxyzbiq8bp8rsnyc8tk7zqajfpc5b69qus1t16oeacupzpzmy5j9kxh4ehb7p5zxa98ifamg3oozxjxhf9qw63zg4uk6h4g8r748u51iycmwo8n7fk48q5kiowiy1u89fw9z3wqsx9k1angf6jphcjs89cnb6ihidy9owj5auf5fb4r6tcxpx1b1j1
+  SelectedStudio: Lion Turtle Games
+  SdkPath: Assets/PlayFabSDK
+  EdExPath: 
+  LocalCloudScriptPath: 
+  PanelIsShown: 0
+  curMainMenuIdx: 1
+  curSubMenuIdx: 0

@@ -41,7 +41,7 @@ public class EntityHpBar : MonoBehaviour
         {
             return;
         }
-        transform.LookAt(transform.position - Vector3.forward + CameraManager.Instance.CameraOffset);
+        
         if (deactiveTime < 0)
         {
             Debug.Log("Disable hp bar");

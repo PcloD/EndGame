@@ -38,7 +38,7 @@ public class EntityCastBar : MonoBehaviour
         if (playerNb.CurrentClientAbility != null && playerNb.CurrentClientAbility.IsCastable)
         {
             ren.enabled = true;
-            transform.LookAt(CameraManager.Instance.CameraTransform);
+            
             propertyBlock.SetFloat("_fillRate", (float)playerNb.CurrentClientAbility.GetCurrentCastPercent);
             ren.SetPropertyBlock(propertyBlock);
         }
