@@ -281,22 +281,16 @@ public class EntityAbilityHandler : NetworkBehaviour
                 {
                     case 0:
                         return AbilityCode.Spell1;
-                        break;
                     case 1:
                         return AbilityCode.Spell2;
-                        break;
                     case 2:
                         return AbilityCode.Spell3;
-                        break;
                     case 3:
                         return AbilityCode.Spell4;
-                        break;
                     case 4:
                         return AbilityCode.Spell5;
-                        break;
                     case 5:
                         return AbilityCode.Spell6;
-                        break;
                 }
             }
         }
@@ -310,23 +304,18 @@ public class EntityAbilityHandler : NetworkBehaviour
             case AbilityCode.Auto:
                 Debug.LogError("Unsupported until i add combo count in here");
                 return null;
-                break;
             case AbilityCode.Spell1:
                 if (equipmentInventory.SpellAbilitySockets[0].spellId < 0) return null;
                 return GameArmoryManager.AbilitySpellScriptableObjects[equipmentInventory.SpellAbilitySockets[0].spellId];
-                break;
             case AbilityCode.Spell2:
                 if (equipmentInventory.SpellAbilitySockets[1].spellId < 0) return null;
                 return GameArmoryManager.AbilitySpellScriptableObjects[equipmentInventory.SpellAbilitySockets[1].spellId];
-                break;
             case AbilityCode.Spell3:
                 if (equipmentInventory.SpellAbilitySockets[2].spellId < 0) return null;
                 return GameArmoryManager.AbilitySpellScriptableObjects[equipmentInventory.SpellAbilitySockets[2].spellId];
-                break;
             case AbilityCode.Spell4:
                 if (equipmentInventory.SpellAbilitySockets[3].spellId < 0) return null;
                 return GameArmoryManager.AbilitySpellScriptableObjects[equipmentInventory.SpellAbilitySockets[3].spellId];
-                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(abilityCode), abilityCode, null);
         }
@@ -415,13 +404,11 @@ public class EntityAbilityHandler : NetworkBehaviour
     void CmdTryQueueAbilitity(AbilityCode ac, Vector3 mousePosition)
     {
         AbilityScriptableObject spellScriptableObject = null;
-        int spellId = -1;
         switch (ac)
         {
             case AbilityCode.Auto:
                 Debug.LogError("Trying to queue Auto attack in wrong place");
                 return;
-                break;
             case AbilityCode.Spell1:
                 spellScriptableObject = GameArmoryManager.AbilitySpellScriptableObjects[equipmentInventory.SpellAbilitySockets[0].spellId];
                 break;

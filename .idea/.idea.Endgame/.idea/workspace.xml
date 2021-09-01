@@ -20,17 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bfbd124-a032-4e25-931b-640c9bed4c11" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/FaceCamera.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/FaceCamera.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/LoginUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/LoginUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/NamePlate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/NamePlate.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Endgame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Endgame/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/PlayerClickToMove.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/PlayerClickToMove.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/PlayerStack.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/PlayerStack.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/CombatTxt.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/CombatTxt.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/UIManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Prefabs/UI/UIManager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scenes/UI Dev.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scenes/UI Dev.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CombatTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/CombatTextManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Managers/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityNetworkBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/Objects/Entity/EntityNetworkBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Combat/CombatTextPopup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/Combat/CombatTextPopup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/EntityCastBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/EntityCastBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/EntityHpBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_EndGame/Scripts/UI/EntityHpBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,6 +148,7 @@
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="XThreadsFramesViewSplitterKey" value="0.5007752" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -204,6 +214,12 @@
       <workItem from="1629971539072" duration="779000" />
       <workItem from="1630021219891" duration="6333000" />
       <workItem from="1630030648127" duration="1903000" />
+      <workItem from="1630130774613" duration="995000" />
+      <workItem from="1630143039554" duration="147000" />
+      <workItem from="1630143685757" duration="623000" />
+      <workItem from="1630205419880" duration="2434000" />
+      <workItem from="1630211142798" duration="1127000" />
+      <workItem from="1630212357368" duration="9000" />
     </task>
     <servers />
   </component>
