@@ -11,6 +11,8 @@ public class AccountManager : MonoBehaviour
     void Awake ()
     {
         Instance = this;
+        DontDestroyOnLoad(this);
+        
         if (PlayFabLogin == null)
             PlayFabLogin = GetComponent<PlayFabLogin> ();
     }

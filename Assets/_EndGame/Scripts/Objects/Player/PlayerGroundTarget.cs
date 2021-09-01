@@ -33,10 +33,8 @@ public class PlayerGroundTarget : MonoBehaviour
             {
                 case AbilityType.Instant:
                     return;
-                    break;
                 case AbilityType.Target:
                     return;
-                    break;
                 case AbilityType.SkillShot:
                     EnableArrow();
                     break;

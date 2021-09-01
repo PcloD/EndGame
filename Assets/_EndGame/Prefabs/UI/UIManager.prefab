@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6651528797771339619}
   - component: {fileID: 8212988166928920499}
-  - component: {fileID: 1894169894155447840}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -44,16 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0bb5986a10b56c459610575b52f031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayFabLogin: {fileID: 0}
---- !u!114 &1894169894155447840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6651528797771339629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00fc9337a9748b54f86fa5fe48d42ab9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  LoginCanvasPrefab: {fileID: 7333832716178851268, guid: 4de68b87380a8ca4db41f72500e0825f, type: 3}

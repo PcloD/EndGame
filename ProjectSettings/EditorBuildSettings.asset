@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
+    path: Assets/_EndGame/Scenes/Loading.unity
+    guid: 7b447a29513159c4aa5bc965614ce205
+  - enabled: 1
+    path: Assets/_EndGame/Scenes/Login.unity
+    guid: 9a934a6c8c9e9a048a905b93ef8d5a57
+  - enabled: 1
     path: Assets/_EndGame/Scenes/Dev.unity
     guid: 9ad7253daf53e6d47b2d4e39f53b510d
   m_configObjects: {}

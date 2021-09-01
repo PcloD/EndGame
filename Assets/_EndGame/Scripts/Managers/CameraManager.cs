@@ -20,7 +20,7 @@ public class CameraManager : MonoBehaviour
     public float MovementSpeed;
     public float RotationSpeed;
 
-    private Camera camera;
+    private Camera _camera;
     [SerializeField] private MinimapController minimapController;
 
     public static CameraManager Instance;
@@ -28,8 +28,8 @@ public class CameraManager : MonoBehaviour
     public void Init(Transform entityTransform, Transform ikTransform, Transform minimapTarget)
     {
         Instance = this;
-        camera = Camera.main;
-        CameraTransform = camera.transform;
+        _camera = Camera.main;
+        CameraTransform = _camera.transform;
         TrackedTransform = entityTransform;
         TrackedIKTransform = ikTransform;
         minimapController?.SetTarget(minimapTarget);
@@ -46,7 +46,7 @@ public class CameraManager : MonoBehaviour
         CameraTransform.position = Vector3.Lerp(CameraTransform.position, TrackedTransform.position + CameraOffset, Time.fixedDeltaTime * MovementSpeed);
 
         if (TrackedIKTransform == null) return;
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray,out RayMouseHit,50f,layerMask))
         {

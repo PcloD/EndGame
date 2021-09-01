@@ -35,9 +35,9 @@ public class PlayFabLogin : MonoBehaviour
         });
     }
 
-    public void RegisterPlayerWithEmail(string email, string password, Action<RegisterPlayFabUserResult> success, Action<PlayFabError> failure)
+    public void RegisterPlayerWithEmail(string email, string username, string password, Action<RegisterPlayFabUserResult> success, Action<PlayFabError> failure)
     {
-        RegisterPlayFabUserRequest registerRequest = new RegisterPlayFabUserRequest(){Email = email, Password = password, RequireBothUsernameAndEmail = false};
+        RegisterPlayFabUserRequest registerRequest = new RegisterPlayFabUserRequest(){Email = email, Username = username, Password = password, RequireBothUsernameAndEmail = true};
         PlayFabClientAPI.RegisterPlayFabUser(registerRequest, 
         (result) => {
             OnRegisterSuccess(result);
@@ -74,6 +74,7 @@ public class PlayFabLogin : MonoBehaviour
 
     private void OnAccountInfoSuccess(GetAccountInfoResult result)
     {
+        Debug.Log($"Retrieved Account Info [{result.AccountInfo.Username}]");
         AccountManager.Instance.Username = result.AccountInfo.Username;
     }
 
